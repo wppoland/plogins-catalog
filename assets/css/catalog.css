@@ -1,0 +1,30 @@
+/**
+ * Catalog — storefront styles.
+ *
+ * Scoped, lightweight rules for the replacement call-to-action button and the
+ * optional price notice. They inherit the active theme's button styling where
+ * possible and only add the minimum needed. Transitions respect
+ * prefers-reduced-motion. No layout shift: nothing is absolutely positioned.
+ */
+
+.catalog-price-notice {
+	display: inline-block;
+	font-weight: 600;
+	color: currentColor;
+}
+
+.catalog-cta {
+	display: inline-block;
+}
+
+/* Inert CTA (no URL configured): looks like a button but is not actionable. */
+.catalog-cta--inert {
+	cursor: not-allowed;
+	opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.catalog-cta {
+		transition: opacity 0.15s ease;
+	}
+}

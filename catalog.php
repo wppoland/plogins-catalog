@@ -1,0 +1,59 @@
+<?php
+/**
+ * Plugin Name:       Catalog - Catalog Mode for WooCommerce
+ * Plugin URI:        https://plogins.com/catalog/
+ * Description:        Turn your store into a catalog: hide prices and/or add-to-cart, store-wide or by product, category or role.
+ * Version:           0.1.0
+ * Requires at least: 6.5
+ * Requires PHP:      8.1
+ * Requires Plugins:  woocommerce
+ * Author:            WPPoland
+ * Author URI:        https://plogins.com/
+ * License:           GPL-2.0-or-later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       catalog
+ * Domain Path:       /languages
+ * WC requires at least: 8.0
+ *
+ * @package Catalog
+ */
+
+declare(strict_types=1);
+
+namespace Catalog;
+
+defined('ABSPATH') || exit;
+
+const VERSION     = '0.1.0';
+const PLUGIN_FILE = __FILE__;
+
+define('CATALOG_DIR', plugin_dir_path(__FILE__));
+define('CATALOG_URL', plugin_dir_url(__FILE__));
+
+require_once __DIR__ . '/autoload.php';
+
+// HPOS + cart/checkout blocks compatibility.
+add_action('before_woocommerce_init', static function (): void {
+    if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
+        \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', __FILE__, true);
+        \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('cart_checkout_blocks', __FILE__, true);
+    }
+});
+
+add_action('plugins_loaded', static function (): void {
+    if (! class_exists('WooCommerce')) {
+        add_action('admin_notices', static function (): void {
+            echo '<div class="notice notice-error"><p>';
+            echo esc_html__('Catalog - Catalog Mode for WooCommerce requires WooCommerce to be active.', 'catalog');
+            echo '</p></div>';
+        });
+        return;
+    }
+
+    // Translations load automatically on WordPress.org-hosted plugins (WP 4.6+)
+    // via the slug + Domain Path header, so no manual load_plugin_textdomain()
+    // call is needed (and Plugin Check discourages it).
+    add_action('init', static function (): void {
+        Plugin::instance()->boot();
+    }, 0);
+}, 10);

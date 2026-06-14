@@ -1,0 +1,132 @@
+/**
+ * Catalog — admin settings screen.
+ *
+ * A polished, themeable layer on top of the WordPress settings UI. Tokens live
+ * under --catalog-a-* so the look can be tuned in one place. Transitions are
+ * gated behind prefers-reduced-motion and colours adapt to the admin colour
+ * scheme via prefers-color-scheme.
+ */
+
+.catalog-admin {
+	--catalog-a-accent: #2271b1;
+	--catalog-a-radius: 10px;
+	--catalog-a-radius-sm: 6px;
+	--catalog-a-gap: clamp(1rem, 2vw, 1.5rem);
+	--catalog-a-card-bg: #fff;
+	--catalog-a-card-border: #dcdcde;
+	--catalog-a-muted: #646970;
+	--catalog-a-help-bg: #2c3338;
+	--catalog-a-help-fg: #fff;
+
+	max-inline-size: 920px;
+}
+
+/* Intro card. */
+.catalog-intro {
+	margin-block: 1rem 1.5rem;
+	padding: clamp(1rem, 2.5vw, 1.5rem);
+	background: var(--catalog-a-card-bg);
+	border: 1px solid var(--catalog-a-card-border);
+	border-inline-start: 4px solid var(--catalog-a-accent);
+	border-radius: var(--catalog-a-radius);
+}
+
+.catalog-intro h2 {
+	margin: 0;
+	font-size: 1.05rem;
+}
+
+.catalog-intro p {
+	margin: 0.35rem 0 0;
+	max-inline-size: 70ch;
+	color: var(--catalog-a-muted);
+}
+
+/* Section cards. */
+.catalog-card {
+	margin: 0 0 var(--catalog-a-gap);
+	padding: clamp(1rem, 2.5vw, 1.5rem);
+	background: var(--catalog-a-card-bg);
+	border: 1px solid var(--catalog-a-card-border);
+	border-radius: var(--catalog-a-radius);
+}
+
+.catalog-card > h2 {
+	margin-block-start: 0;
+}
+
+.catalog-card .description {
+	max-inline-size: 70ch;
+}
+
+.catalog-card .form-table {
+	margin-block-start: 0.5rem;
+}
+
+/* Role checkboxes laid out in a tidy column. */
+.catalog-role {
+	display: block;
+	margin-block-end: 0.35rem;
+}
+
+/* Inline help: a "?" affordance that toggles an accessible popover. */
+.catalog-help {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	inline-size: 18px;
+	block-size: 18px;
+	margin-inline-start: 6px;
+	padding: 0;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1;
+	color: var(--catalog-a-help-fg);
+	background: var(--catalog-a-muted);
+	border: 0;
+	border-radius: 50%;
+	cursor: help;
+	vertical-align: middle;
+}
+
+.catalog-help:hover,
+.catalog-help:focus-visible {
+	background: var(--catalog-a-accent);
+}
+
+.catalog-help:focus-visible {
+	outline: 2px solid var(--catalog-a-accent);
+	outline-offset: 2px;
+}
+
+.catalog-tip {
+	max-inline-size: 280px;
+	margin: 0;
+	padding: 0.6rem 0.75rem;
+	font-size: 13px;
+	line-height: 1.5;
+	color: var(--catalog-a-help-fg);
+	background: var(--catalog-a-help-bg);
+	border: 0;
+	border-radius: var(--catalog-a-radius-sm);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* The fallback popover positions itself just below the trigger. */
+.catalog-tip[hidden] {
+	display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.catalog-help {
+		transition: background-color 0.15s ease;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.catalog-admin {
+		--catalog-a-card-bg: #1e1e1e;
+		--catalog-a-card-border: #3c434a;
+		--catalog-a-muted: #a7aaad;
+	}
+}
