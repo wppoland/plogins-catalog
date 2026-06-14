@@ -1,46 +1,32 @@
 # Catalog - Catalog Mode for WooCommerce
 
-Turn your WooCommerce store into a browsable catalog. Hide the price, the
-add-to-cart button, or both — store-wide, for selected products or categories, or
-only for certain visitors (e.g. show prices only to logged-in wholesale
-customers). Optionally replace add-to-cart with a custom call-to-action button.
-
-Self-contained: no runtime Composer dependencies.
+Turn your WooCommerce store into a browsable catalog. Catalog hides the price, the add-to-cart button, or both — store-wide, for selected products or categories, or only for certain visitors (for example, show prices only to logged-in wholesale customers). You can optionally replace add-to-cart with a custom call-to-action button.
 
 ## Features
 
 - Hide the price and/or the add-to-cart button.
-- Scope: all products, selected products, or selected categories.
+- Scope it to all products, selected products, or selected categories.
 - Per-product and per-category overrides (force on / force off).
 - Role rules: everyone, only guests, only selected roles, or everyone except selected roles.
 - Optional price notice (e.g. "Contact us for pricing").
-- Optional replacement call-to-action button (custom text + link).
-- Works on single product pages and shop/category/tag listings.
-- Marks catalog products non-purchasable (blocks direct cart URLs / REST).
+- Optional replacement call-to-action button with custom text and link.
+- Works on single product pages and shop, category and tag listings.
+- Marks catalog products non-purchasable, blocking direct cart URLs and REST.
 
-## Architecture
+## Installation
 
-- **Bootstrap** (`catalog.php`): PHP/WC guards, HPOS + cart-blocks compat, boots on
-  `init` priority 0 and fires `do_action('catalog/booted')` from `Plugin::boot()`
-  (the hook the PRO companion extends).
-- **Autoload** (`autoload.php`): Composer vendor autoloader + PSR-4 fallback.
-- **DI**: `src/Plugin.php` singleton + `src/Container.php`; services in
-  `config/services.php`, boot order in `config/hooks.php`, defaults in
-  `config/defaults.php`; `src/Migrator.php`.
-- **Storefront**: `src/Service/CatalogMode.php` decides per-product/per-user
-  whether catalog mode applies and hides price / add-to-cart / renders the CTA.
-- **Admin**: `src/Admin/Settings.php` (WooCommerce → Catalog),
-  `src/Admin/ProductData.php` (per-product), `src/Admin/CategoryData.php` (per-category).
+1. Upload the plugin to `/wp-content/plugins/catalog`, or install it via **Plugins → Add New**.
+2. Activate it. WooCommerce must be active.
+3. Go to **WooCommerce → Catalog** to choose what to hide and for whom.
 
-## Development
+## Frequently Asked Questions
 
-```bash
-composer install
-composer cs        # WordPress Coding Standards
-composer analyse   # PHPStan level 6
-```
+**Can I show prices only to logged-in customers?**
+Yes. The role rules let you hide prices and add-to-cart for guests while keeping them visible for selected roles.
 
-## PRO companion
+**Does it stop people adding hidden products to the cart directly?**
+Yes. Products in catalog mode are marked non-purchasable, so direct cart URLs and REST requests are blocked too.
 
-`catalog-pro` (private, Freemius) hooks `add_action('catalog/booted', …)` and adds
-scheduled catalog windows.
+Built by WPPoland — https://plogins.com
+
+License: GPL-2.0-or-later
