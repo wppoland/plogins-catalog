@@ -12,21 +12,16 @@ defined('ABSPATH') || exit;
 /**
  * Admin settings page registered as a WooCommerce submenu ("WooCommerce →
  * Catalog"). Stores everything in the `catalog_settings` option (array): what to
- * hide (price / add-to-cart), the scope (all / selected products / categories),
- * the role rule (everyone / guests / specific roles / except roles) and the
- * optional replacement call-to-action. All output is escaped; all input is
- * sanitised and validated on save.
+ * hide (price / add-to-cart), an optional price notice, and the role rule
+ * (everyone / guests / specific roles / except roles). All output is escaped;
+ * all input is sanitised and validated on save.
  */
 final class Settings implements HasHooks
 {
     private const OPTION = SettingsStore::OPTION;
     private const PAGE   = 'catalog-settings';
 
-    private const SCOPES     = ['all', 'products', 'categories'];
     private const ROLE_MODES = ['everyone', 'guests', 'roles', 'except_roles'];
-
-    /** Incremented to give each inline-help control a unique id/anchor. */
-    private int $helpSeq = 0;
 
     public function registerHooks(): void
     {
@@ -71,14 +66,6 @@ final class Settings implements HasHooks
             CATALOG_URL . 'assets/css/admin.css',
             [],
             \Catalog\VERSION,
-        );
-
-        wp_enqueue_script(
-            'catalog-admin',
-            CATALOG_URL . 'assets/js/admin.js',
-            [],
-            \Catalog\VERSION,
-            ['in_footer' => true, 'strategy' => 'defer'],
         );
     }
 
@@ -128,7 +115,7 @@ final class Settings implements HasHooks
                 <div>
                     <h2><?php esc_html_e('Turn your store into a catalog', 'catalog'); ?></h2>
                     <p>
-                        <?php esc_html_e('Hide prices and/or the add-to-cart button — store-wide, for selected products or categories, or only for certain visitors (for example, show prices to logged-in wholesale customers). Optionally replace add-to-cart with your own call-to-action button.', 'catalog'); ?>
+                        <?php esc_html_e('Hide prices and/or the add-to-cart button across your store, or only for certain visitors (for example, show prices to logged-in wholesale customers).', 'catalog'); ?>
                     </p>
                 </div>
             </div>
@@ -141,15 +128,13 @@ final class Settings implements HasHooks
                     <table class="form-table" role="presentation">
                         <tbody>
                             <tr>
-                                <th scope="row">
-                                    <?php esc_html_e('Enable catalog mode', 'catalog'); ?>
-                                    <?php $this->help(__('The master switch. When off, nothing is hidden and the catalog stylesheet is not loaded — zero front-end impact.', 'catalog')); ?>
-                                </th>
+                                <th scope="row"><?php esc_html_e('Enable catalog mode', 'catalog'); ?></th>
                                 <td>
                                     <label for="catalog_enabled">
                                         <input type="checkbox" id="catalog_enabled" name="<?php echo esc_attr(self::OPTION); ?>[enabled]" value="1" <?php checked((bool) ($settings['enabled'] ?? false), true); ?> />
                                         <?php esc_html_e('Apply catalog mode on the storefront.', 'catalog'); ?>
                                     </label>
+                                    <p class="description"><?php esc_html_e('The master switch. When off, nothing is hidden and the catalog stylesheet is not loaded.', 'catalog'); ?></p>
                                 </td>
                             </tr>
                             <?php
@@ -159,50 +144,12 @@ final class Settings implements HasHooks
                             <tr>
                                 <th scope="row">
                                     <label for="catalog_price_notice"><?php esc_html_e('Price notice', 'catalog'); ?></label>
-                                    <?php $this->help(__('Optional text shown where the price would be, e.g. "Contact us for pricing". Leave blank to show nothing.', 'catalog')); ?>
                                 </th>
                                 <td>
                                     <input type="text" id="catalog_price_notice" name="<?php echo esc_attr(self::OPTION); ?>[price_notice]" value="<?php echo esc_attr((string) ($settings['price_notice'] ?? '')); ?>" class="regular-text" placeholder="<?php esc_attr_e('e.g. Contact us for pricing', 'catalog'); ?>" />
+                                    <p class="description"><?php esc_html_e('Optional text shown where the price would be. Leave blank to show nothing.', 'catalog'); ?></p>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="catalog-card">
-                    <h2><?php esc_html_e('Where it applies', 'catalog'); ?></h2>
-                    <table class="form-table" role="presentation">
-                        <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <label for="catalog_scope"><?php esc_html_e('Scope', 'catalog'); ?></label>
-                                    <?php $this->help(__('Choose which products are affected. Per-product and per-category overrides (in the product editor and the Products → Categories screen) always win over this setting.', 'catalog')); ?>
-                                </th>
-                                <td>
-                                    <select id="catalog_scope" name="<?php echo esc_attr(self::OPTION); ?>[scope]">
-                                        <?php
-                                        $currentScope = (string) ($settings['scope'] ?? 'all');
-                                        $scopeLabels  = [
-                                            'all'        => __('All products', 'catalog'),
-                                            'products'   => __('Only selected products', 'catalog'),
-                                            'categories' => __('Only selected categories', 'catalog'),
-                                        ];
-                                        foreach (self::SCOPES as $scope) :
-                                            ?>
-                                            <option value="<?php echo esc_attr($scope); ?>" <?php selected($currentScope, $scope); ?>>
-                                                <?php echo esc_html($scopeLabels[$scope] ?? $scope); ?>
-                                            </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                    <p class="description">
-                                        <?php esc_html_e('"Selected products" uses the Catalog mode field in each product editor. "Selected categories" uses the Catalog mode field on each product category.', 'catalog'); ?>
-                                    </p>
-                                </td>
-                            </tr>
-                            <?php
-                            $this->checkboxRow('apply_on_single', __('Single product pages', 'catalog'), __('Apply catalog mode on individual product pages.', 'catalog'), $settings, __('Hides the price / add-to-cart on each product\'s own page.', 'catalog'));
-                            $this->checkboxRow('apply_on_loop', __('Shop and category listings', 'catalog'), __('Apply catalog mode on shop, category and tag listings.', 'catalog'), $settings, __('Hides the price / add-to-cart across shop, category and tag archive grids.', 'catalog'));
-                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -214,7 +161,6 @@ final class Settings implements HasHooks
                             <tr>
                                 <th scope="row">
                                     <label for="catalog_role_mode"><?php esc_html_e('Visitor rule', 'catalog'); ?></label>
-                                    <?php $this->help(__('Restrict catalog mode by who is viewing. For a wholesale store, choose "Everyone except selected roles" and tick your wholesale role so those customers still see prices and can buy.', 'catalog')); ?>
                                 </th>
                                 <td>
                                     <select id="catalog_role_mode" name="<?php echo esc_attr(self::OPTION); ?>[role_mode]">
@@ -233,13 +179,11 @@ final class Settings implements HasHooks
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
+                                    <p class="description"><?php esc_html_e('Restrict catalog mode by who is viewing. For a wholesale store, choose "Everyone except selected roles" and tick your wholesale role so those customers still see prices and can buy.', 'catalog'); ?></p>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">
-                                    <?php esc_html_e('Roles', 'catalog'); ?>
-                                    <?php $this->help(__('Used by the two "selected roles" options above. Tick the roles the rule applies to.', 'catalog')); ?>
-                                </th>
+                                <th scope="row"><?php esc_html_e('Roles', 'catalog'); ?></th>
                                 <td>
                                     <fieldset>
                                         <legend class="screen-reader-text"><?php esc_html_e('Roles', 'catalog'); ?></legend>
@@ -252,44 +196,10 @@ final class Settings implements HasHooks
                                                 <?php echo esc_html($name); ?>
                                             </label>
                                         <?php endforeach; ?>
+                                        <p class="description"><?php esc_html_e('Used by the two "selected roles" options above. Tick the roles the rule applies to.', 'catalog'); ?></p>
                                     </fieldset>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="catalog-card">
-                    <h2><?php esc_html_e('Replacement call-to-action', 'catalog'); ?></h2>
-                    <p class="description">
-                        <?php esc_html_e('Optionally show a button in place of add-to-cart — for example, an enquiry or contact page.', 'catalog'); ?>
-                    </p>
-                    <table class="form-table" role="presentation">
-                        <tbody>
-                            <?php
-                            $this->checkboxRow('cta_enabled', __('Show a call-to-action button', 'catalog'), __('Render a button where add-to-cart used to be.', 'catalog'), $settings, __('Only used when add-to-cart is hidden. Without it, the button area is simply empty.', 'catalog'));
-                            ?>
-                            <tr>
-                                <th scope="row">
-                                    <label for="catalog_cta_text"><?php esc_html_e('Button text', 'catalog'); ?></label>
-                                    <?php $this->help(__('Wording for the button, e.g. "Enquire now". Leave blank to use the translated default ("Read more").', 'catalog')); ?>
-                                </th>
-                                <td>
-                                    <input type="text" id="catalog_cta_text" name="<?php echo esc_attr(self::OPTION); ?>[cta_text]" value="<?php echo esc_attr((string) ($settings['cta_text'] ?? '')); ?>" class="regular-text" placeholder="<?php esc_attr_e('e.g. Enquire now', 'catalog'); ?>" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <label for="catalog_cta_url"><?php esc_html_e('Button link', 'catalog'); ?></label>
-                                    <?php $this->help(__('Where the button goes, e.g. your contact or enquiry page URL. If empty, the button shows but is inert.', 'catalog')); ?>
-                                </th>
-                                <td>
-                                    <input type="url" id="catalog_cta_url" name="<?php echo esc_attr(self::OPTION); ?>[cta_url]" value="<?php echo esc_attr((string) ($settings['cta_url'] ?? '')); ?>" class="regular-text code" placeholder="https://example.com/contact" />
-                                </td>
-                            </tr>
-                            <?php
-                            $this->checkboxRow('cta_new_tab', __('Open in a new tab', 'catalog'), __('Open the button link in a new browser tab.', 'catalog'), $settings, __('Adds target="_blank" with safe rel attributes.', 'catalog'));
-                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -301,44 +211,24 @@ final class Settings implements HasHooks
     }
 
     /**
-     * Render an accessible inline-help affordance: a "?" button that toggles a
-     * popover describing the adjacent setting. Uses the native Popover API and is
-     * wired via aria-describedby; the bundled script supplies a fallback.
-     */
-    private function help(string $text): void
-    {
-        $id = 'catalog-help-' . (++$this->helpSeq);
-        ?>
-        <button type="button" class="catalog-help" aria-label="<?php esc_attr_e('More information', 'catalog'); ?>" aria-describedby="<?php echo esc_attr($id); ?>" aria-expanded="false" popovertarget="<?php echo esc_attr($id); ?>">?</button>
-        <div id="<?php echo esc_attr($id); ?>" class="catalog-tip" role="tooltip" popover hidden>
-            <?php echo esc_html($text); ?>
-        </div>
-        <?php
-    }
-
-    /**
      * Render a single checkbox row in the form-table.
      *
      * @param array<string, mixed> $settings
      */
-    private function checkboxRow(string $key, string $label, string $help, array $settings, string $tip = ''): void
+    private function checkboxRow(string $key, string $label, string $help, array $settings, string $desc = ''): void
     {
         $id = 'catalog_' . $key;
         ?>
         <tr>
-            <th scope="row">
-                <?php echo esc_html($label); ?>
-                <?php
-                if ('' !== $tip) {
-                    $this->help($tip);
-                }
-                ?>
-            </th>
+            <th scope="row"><?php echo esc_html($label); ?></th>
             <td>
                 <label for="<?php echo esc_attr($id); ?>">
                     <input type="checkbox" id="<?php echo esc_attr($id); ?>" name="<?php echo esc_attr(self::OPTION); ?>[<?php echo esc_attr($key); ?>]" value="1" <?php checked((bool) ($settings[$key] ?? false), true); ?> />
                     <?php echo esc_html($help); ?>
                 </label>
+                <?php if ('' !== $desc) : ?>
+                    <p class="description"><?php echo esc_html($desc); ?></p>
+                <?php endif; ?>
             </td>
         </tr>
         <?php
@@ -377,11 +267,6 @@ final class Settings implements HasHooks
             $raw = [];
         }
 
-        $scope = isset($raw['scope']) ? sanitize_key((string) $raw['scope']) : 'all';
-        if (! in_array($scope, self::SCOPES, true)) {
-            $scope = 'all';
-        }
-
         $roleMode = isset($raw['role_mode']) ? sanitize_key((string) $raw['role_mode']) : 'everyone';
         if (! in_array($roleMode, self::ROLE_MODES, true)) {
             $roleMode = 'everyone';
@@ -399,42 +284,15 @@ final class Settings implements HasHooks
         }
         $roleList = array_values(array_unique($roleList));
 
-        $sanitized = [
+        return [
             'enabled'          => ! empty($raw['enabled']),
             'hide_price'       => ! empty($raw['hide_price']),
             'hide_add_to_cart' => ! empty($raw['hide_add_to_cart']),
-            'price_notice'     => $this->text($raw, 'price_notice'),
-
-            'scope'           => $scope,
-            'apply_on_single' => ! empty($raw['apply_on_single']),
-            'apply_on_loop'   => ! empty($raw['apply_on_loop']),
+            'price_notice'     => isset($raw['price_notice']) ? sanitize_text_field((string) $raw['price_notice']) : '',
 
             'role_mode' => $roleMode,
             'role_list' => $roleList,
-
-            'cta_enabled' => ! empty($raw['cta_enabled']),
-            'cta_text'    => $this->text($raw, 'cta_text'),
-            'cta_url'     => isset($raw['cta_url']) ? esc_url_raw(trim((string) $raw['cta_url'])) : '',
-            'cta_new_tab' => ! empty($raw['cta_new_tab']),
         ];
-
-        /**
-         * Filter the sanitised settings before they are stored.
-         *
-         * @param array<string, mixed> $sanitized The sanitised settings.
-         * @param array<string, mixed> $raw       The raw submitted input.
-         */
-        return (array) apply_filters('catalog/sanitize_settings', $sanitized, $raw);
-    }
-
-    /**
-     * Sanitise a single text field from the raw input.
-     *
-     * @param array<string, mixed> $raw
-     */
-    private function text(array $raw, string $key): string
-    {
-        return isset($raw[$key]) ? sanitize_text_field((string) $raw[$key]) : '';
     }
 
     /**

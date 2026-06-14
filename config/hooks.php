@@ -11,8 +11,6 @@
 
 declare(strict_types=1);
 
-use Catalog\Admin\CategoryData;
-use Catalog\Admin\ProductData;
 use Catalog\Admin\Settings;
 use Catalog\Service\CatalogMode;
 
@@ -22,8 +20,6 @@ return is_admin()
     ? [
         CatalogMode::class,
         Settings::class,
-        ProductData::class,
-        CategoryData::class,
     ]
     : [
         CatalogMode::class,

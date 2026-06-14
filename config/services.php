@@ -9,8 +9,6 @@
 
 declare(strict_types=1);
 
-use Catalog\Admin\CategoryData;
-use Catalog\Admin\ProductData;
 use Catalog\Admin\Settings;
 use Catalog\Container;
 use Catalog\Migrator;
@@ -25,7 +23,7 @@ return static function (Container $c): void {
     // Shared, read-only settings accessor.
     $c->singleton(SettingsStore::class, static fn (): SettingsStore => new SettingsStore());
 
-    // Storefront: hide price / add-to-cart and render the optional CTA.
+    // Storefront: hide price / add-to-cart for catalog products.
     $c->singleton(CatalogMode::class, static fn (): CatalogMode => new CatalogMode(
         $c->get(SettingsStore::class),
     ));
@@ -33,7 +31,5 @@ return static function (Container $c): void {
     // Admin (only needed in wp-admin context).
     if (is_admin()) {
         $c->singleton(Settings::class, static fn (): Settings => new Settings());
-        $c->singleton(ProductData::class, static fn (): ProductData => new ProductData());
-        $c->singleton(CategoryData::class, static fn (): CategoryData => new CategoryData());
     }
 };

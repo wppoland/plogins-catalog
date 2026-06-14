@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-14T20:30:21+00:00\n"
+"POT-Creation-Date: 2026-06-14T22:02:16+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: catalog\n"
@@ -43,262 +43,111 @@ msgstr ""
 msgid "Catalog - Catalog Mode for WooCommerce requires WooCommerce to be active."
 msgstr ""
 
-#: src/Admin/CategoryData.php:36
-#: src/Admin/CategoryData.php:56
-#: src/Admin/ProductData.php:36
-msgid "Catalog mode"
-msgstr ""
-
-#: src/Admin/CategoryData.php:41
-#: src/Admin/CategoryData.php:63
-msgid "Override catalog mode for products in this category."
-msgstr ""
-
-#: src/Admin/CategoryData.php:100
-msgid "Use store rules"
-msgstr ""
-
-#: src/Admin/CategoryData.php:101
-msgid "Force on for this category"
-msgstr ""
-
-#: src/Admin/CategoryData.php:102
-msgid "Force off for this category"
-msgstr ""
-
-#: src/Admin/ProductData.php:38
-msgid "Use store / category rules"
-msgstr ""
-
-#: src/Admin/ProductData.php:39
-msgid "Force on (hide price / cart)"
-msgstr ""
-
-#: src/Admin/ProductData.php:40
-msgid "Force off (always purchasable)"
-msgstr ""
-
-#: src/Admin/ProductData.php:43
-msgid "Override catalog mode for this product. \"Use store / category rules\" follows the global Catalog settings."
-msgstr ""
-
-#: src/Admin/Settings.php:55
+#: src/Admin/Settings.php:50
 msgid "Settings"
 msgstr ""
 
-#: src/Admin/Settings.php:89
+#: src/Admin/Settings.php:76
 msgid "Catalog Mode"
 msgstr ""
 
-#: src/Admin/Settings.php:90
+#: src/Admin/Settings.php:77
 msgid "Catalog"
 msgstr ""
 
-#: src/Admin/Settings.php:129
+#: src/Admin/Settings.php:116
 msgid "Turn your store into a catalog"
 msgstr ""
 
-#: src/Admin/Settings.php:131
-msgid "Hide prices and/or the add-to-cart button — store-wide, for selected products or categories, or only for certain visitors (for example, show prices to logged-in wholesale customers). Optionally replace add-to-cart with your own call-to-action button."
+#: src/Admin/Settings.php:118
+msgid "Hide prices and/or the add-to-cart button across your store, or only for certain visitors (for example, show prices to logged-in wholesale customers)."
 msgstr ""
 
-#: src/Admin/Settings.php:140
+#: src/Admin/Settings.php:127
 msgid "What to hide"
 msgstr ""
 
-#: src/Admin/Settings.php:145
+#: src/Admin/Settings.php:131
 msgid "Enable catalog mode"
 msgstr ""
 
-#: src/Admin/Settings.php:146
-msgid "The master switch. When off, nothing is hidden and the catalog stylesheet is not loaded — zero front-end impact."
-msgstr ""
-
-#: src/Admin/Settings.php:151
+#: src/Admin/Settings.php:135
 msgid "Apply catalog mode on the storefront."
 msgstr ""
 
-#: src/Admin/Settings.php:156
+#: src/Admin/Settings.php:137
+msgid "The master switch. When off, nothing is hidden and the catalog stylesheet is not loaded."
+msgstr ""
+
+#: src/Admin/Settings.php:141
 msgid "Hide the price"
 msgstr ""
 
-#: src/Admin/Settings.php:156
+#: src/Admin/Settings.php:141
 msgid "Remove the price from catalog products."
 msgstr ""
 
-#: src/Admin/Settings.php:156
+#: src/Admin/Settings.php:141
 msgid "Removes the price wherever WooCommerce would print it. Optionally show a notice such as \"Contact us for pricing\" below."
 msgstr ""
 
-#: src/Admin/Settings.php:157
+#: src/Admin/Settings.php:142
 msgid "Hide add-to-cart"
 msgstr ""
 
-#: src/Admin/Settings.php:157
+#: src/Admin/Settings.php:142
 msgid "Remove the add-to-cart button and block purchasing."
 msgstr ""
 
-#: src/Admin/Settings.php:157
+#: src/Admin/Settings.php:142
 msgid "Removes the add-to-cart button on product pages and listings, and prevents catalog products from being purchased server-side."
 msgstr ""
 
-#: src/Admin/Settings.php:161
+#: src/Admin/Settings.php:146
 msgid "Price notice"
 msgstr ""
 
-#: src/Admin/Settings.php:162
-msgid "Optional text shown where the price would be, e.g. \"Contact us for pricing\". Leave blank to show nothing."
-msgstr ""
-
-#: src/Admin/Settings.php:165
+#: src/Admin/Settings.php:149
 msgid "e.g. Contact us for pricing"
 msgstr ""
 
-#: src/Admin/Settings.php:173
-msgid "Where it applies"
+#: src/Admin/Settings.php:150
+msgid "Optional text shown where the price would be. Leave blank to show nothing."
 msgstr ""
 
-#: src/Admin/Settings.php:178
-msgid "Scope"
-msgstr ""
-
-#: src/Admin/Settings.php:179
-msgid "Choose which products are affected. Per-product and per-category overrides (in the product editor and the Products → Categories screen) always win over this setting."
-msgstr ""
-
-#: src/Admin/Settings.php:186
-msgid "All products"
-msgstr ""
-
-#: src/Admin/Settings.php:187
-msgid "Only selected products"
-msgstr ""
-
-#: src/Admin/Settings.php:188
-msgid "Only selected categories"
-msgstr ""
-
-#: src/Admin/Settings.php:198
-msgid "\"Selected products\" uses the Catalog mode field in each product editor. \"Selected categories\" uses the Catalog mode field on each product category."
-msgstr ""
-
-#: src/Admin/Settings.php:203
-msgid "Single product pages"
-msgstr ""
-
-#: src/Admin/Settings.php:203
-msgid "Apply catalog mode on individual product pages."
-msgstr ""
-
-#: src/Admin/Settings.php:203
-msgid "Hides the price / add-to-cart on each product's own page."
-msgstr ""
-
-#: src/Admin/Settings.php:204
-msgid "Shop and category listings"
-msgstr ""
-
-#: src/Admin/Settings.php:204
-msgid "Apply catalog mode on shop, category and tag listings."
-msgstr ""
-
-#: src/Admin/Settings.php:204
-msgid "Hides the price / add-to-cart across shop, category and tag archive grids."
-msgstr ""
-
-#: src/Admin/Settings.php:211
+#: src/Admin/Settings.php:158
 msgid "Who it applies to"
 msgstr ""
 
-#: src/Admin/Settings.php:216
+#: src/Admin/Settings.php:163
 msgid "Visitor rule"
 msgstr ""
 
-#: src/Admin/Settings.php:217
-msgid "Restrict catalog mode by who is viewing. For a wholesale store, choose \"Everyone except selected roles\" and tick your wholesale role so those customers still see prices and can buy."
-msgstr ""
-
-#: src/Admin/Settings.php:224
+#: src/Admin/Settings.php:170
 msgid "Everyone"
 msgstr ""
 
-#: src/Admin/Settings.php:225
+#: src/Admin/Settings.php:171
 msgid "Only logged-out visitors"
 msgstr ""
 
-#: src/Admin/Settings.php:226
+#: src/Admin/Settings.php:172
 msgid "Only selected roles"
 msgstr ""
 
-#: src/Admin/Settings.php:227
+#: src/Admin/Settings.php:173
 msgid "Everyone except selected roles"
 msgstr ""
 
-#: src/Admin/Settings.php:240
-#: src/Admin/Settings.php:245
+#: src/Admin/Settings.php:182
+msgid "Restrict catalog mode by who is viewing. For a wholesale store, choose \"Everyone except selected roles\" and tick your wholesale role so those customers still see prices and can buy."
+msgstr ""
+
+#: src/Admin/Settings.php:186
+#: src/Admin/Settings.php:189
 msgid "Roles"
 msgstr ""
 
-#: src/Admin/Settings.php:241
+#: src/Admin/Settings.php:199
 msgid "Used by the two \"selected roles\" options above. Tick the roles the rule applies to."
-msgstr ""
-
-#: src/Admin/Settings.php:263
-msgid "Replacement call-to-action"
-msgstr ""
-
-#: src/Admin/Settings.php:265
-msgid "Optionally show a button in place of add-to-cart — for example, an enquiry or contact page."
-msgstr ""
-
-#: src/Admin/Settings.php:270
-msgid "Show a call-to-action button"
-msgstr ""
-
-#: src/Admin/Settings.php:270
-msgid "Render a button where add-to-cart used to be."
-msgstr ""
-
-#: src/Admin/Settings.php:270
-msgid "Only used when add-to-cart is hidden. Without it, the button area is simply empty."
-msgstr ""
-
-#: src/Admin/Settings.php:274
-msgid "Button text"
-msgstr ""
-
-#: src/Admin/Settings.php:275
-msgid "Wording for the button, e.g. \"Enquire now\". Leave blank to use the translated default (\"Read more\")."
-msgstr ""
-
-#: src/Admin/Settings.php:278
-msgid "e.g. Enquire now"
-msgstr ""
-
-#: src/Admin/Settings.php:283
-msgid "Button link"
-msgstr ""
-
-#: src/Admin/Settings.php:284
-msgid "Where the button goes, e.g. your contact or enquiry page URL. If empty, the button shows but is inert."
-msgstr ""
-
-#: src/Admin/Settings.php:291
-msgid "Open in a new tab"
-msgstr ""
-
-#: src/Admin/Settings.php:291
-msgid "Open the button link in a new browser tab."
-msgstr ""
-
-#: src/Admin/Settings.php:291
-msgid "Adds target=\"_blank\" with safe rel attributes."
-msgstr ""
-
-#: src/Admin/Settings.php:312
-msgid "More information"
-msgstr ""
-
-#: src/Service/CatalogMode.php:195
-msgid "Read more"
 msgstr ""
