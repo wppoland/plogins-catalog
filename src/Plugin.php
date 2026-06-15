@@ -49,5 +49,14 @@ final class Plugin
                 $service->registerHooks();
             }
         }
+
+        /**
+         * Fires after the plugin has fully booted and every service has
+         * registered its hooks. Add-ons (e.g. Catalog Pro) listen here to
+         * extend the DI container and register their own hooks.
+         *
+         * @param Plugin $plugin The booted plugin instance.
+         */
+        do_action('catalog/booted', $this);
     }
 }
