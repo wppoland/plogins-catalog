@@ -1,6 +1,6 @@
 {
     "name": "wppoland/catalog",
-    "description": "Turn your store into a catalog: hide prices and/or add-to-cart, store-wide or by product, category or role.",
+    "description": "Turn your store into a catalog: hide prices and/or add-to-cart, store-wide or only for selected visitor roles.",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
     "require": {

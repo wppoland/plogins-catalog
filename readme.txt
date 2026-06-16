@@ -9,30 +9,36 @@ Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Turn your store into a catalog: hide the price, the add-to-cart button, or both — store-wide or only for selected visitor roles.
+Turn your store into a catalog: hide the price, the add-to-cart button, or both, store-wide or only for selected visitor roles.
 
 == Description ==
 
-Catalog turns your WooCommerce store into a browsable catalog. Hide the price,
-the add-to-cart button, or both — across the whole store, or only for certain
-visitors (for example, show prices only to logged-in wholesale customers). When
-add-to-cart is hidden, products are also blocked from being purchased
-server-side, so direct cart URLs and the REST API can't slip a sale through.
+Catalog turns your WooCommerce store into a browsable catalog. You choose
+whether to hide the price, the add-to-cart button, or both, and whether that
+applies to every visitor or only some of them. A common setup is to show prices
+to logged-in wholesale customers while hiding them from everyone else.
 
-It is ideal for wholesale and B2B stores, "request a quote" workflows,
-members-only pricing, showroom/look-book sites, and any store that wants to
-display products without selling them online directly.
+Hiding add-to-cart does more than remove the button. Catalog products are also
+marked non-purchasable, so a guessed `?add-to-cart=` URL or a Store API request
+won't push a hidden product through to checkout.
+
+Typical uses are wholesale and B2B stores, "request a quote" workflows,
+members-only pricing, and showroom sites that display products without taking
+orders online.
+
+The plugin is open source. Source code and bug reports live on GitHub at
+https://github.com/wppoland/catalog.
 
 = Features =
 
-* Hide the **price**, the **add-to-cart** button, or both.
-* **Role rules**: apply to everyone, only logged-out visitors, only selected roles, or everyone except selected roles (e.g. show prices to wholesale customers only).
-* Optional **price notice** shown where the price would be (e.g. "Contact us for pricing").
-* Works on **single product pages** and **shop/category/tag listings**.
-* Blocks server-side purchasing of catalog products (direct cart URLs, REST).
-* Accessible, dark-mode-aware settings screen.
-* Translation ready (POT included) and clean uninstall.
-* HPOS and cart/checkout blocks compatible.
+* Hide the price, the add-to-cart button, or both.
+* Four visitor rules: everyone, logged-out visitors only, selected roles only, or everyone except selected roles (so wholesale customers keep prices and checkout).
+* Optional price notice shown in place of the price, such as "Contact us for pricing".
+* Applies on single product pages and on shop, category, and tag listings.
+* Marks hidden products non-purchasable, so they can't be bought through direct cart URLs or the Store API.
+* Settings screen built with standard WordPress admin styles, including dark mode.
+* Ships with a POT file for translation and removes its option on uninstall.
+* Declares HPOS and cart/checkout blocks compatibility.
 
 == Installation ==
 

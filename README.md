@@ -1,6 +1,6 @@
 # Catalog - Catalog Mode for WooCommerce
 
-Turn your WooCommerce store into a browsable catalog. Catalog hides the price, the add-to-cart button, or both — across the whole store, or only for certain visitors (for example, show prices only to logged-in wholesale customers).
+Turn your WooCommerce store into a browsable catalog. Catalog hides the price, the add-to-cart button, or both, across the whole store or only for certain visitors (for example, show prices only to logged-in wholesale customers).
 
 ## Features
 
