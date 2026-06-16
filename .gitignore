@@ -4,3 +4,7 @@
 .DS_Store
 .phpunit.result.cache
 # composer.lock IS committed — pins dev tooling; this plugin is self-contained.
+__seed.php
+__seed2.php
+__seed3.php
+__ss2_seed.php
