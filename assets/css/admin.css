@@ -4,10 +4,17 @@
  * A polished, themeable layer on top of the WordPress settings UI. Tokens live
  * under --catalog-a-* so the look can be tuned in one place. Colours adapt to
  * the admin colour scheme via prefers-color-scheme.
+ *
+ * The one distinctive touch is the brass keyline — the same warm placard accent
+ * the storefront "price on request" notice uses — so admin and storefront read
+ * as one family. The admin brass is deepened to #8a6012 so it clears WCAG AA as
+ * text on BOTH wp-admin surfaces it can sit on: 5.58:1 on the #fff card and
+ * 4.90:1 on the #f0f0f1 body. As a keyline (a UI element, 3:1 floor) it is well
+ * clear. The dark-scheme brass #d8a23e clears 7.27:1 on the #1e1e1e card.
  */
 
 .catalog-admin {
-	--catalog-a-accent: #2271b1;
+	--catalog-a-accent: #8a6012; /* deepened storefront brass — clears AA text on #fff (5.58:1) and #f0f0f1 (4.90:1) */
 	--catalog-a-radius: 10px;
 	--catalog-a-gap: clamp(1rem, 2vw, 1.5rem);
 	--catalog-a-card-bg: #fff;
@@ -47,8 +54,13 @@
 	border-radius: var(--catalog-a-radius);
 }
 
+/* Section heading: a small brass tick precedes it, tying every card to the
+   storefront placard without shouting. The tick is a keyline-weight UI mark. */
 .catalog-card > h2 {
 	margin-block-start: 0;
+	padding-inline-start: 0.6rem;
+	border-inline-start: 3px solid var(--catalog-a-accent);
+	line-height: 1.3;
 }
 
 .catalog-card .description {
@@ -59,14 +71,54 @@
 	margin-block-start: 0.5rem;
 }
 
+/* "(default)" hint — quiet, so the merchant can see the shipped state without
+   it competing with the control label. */
+.catalog-default {
+	margin-inline-start: 0.4rem;
+	padding: 0.05em 0.45em;
+	font-size: 0.75em;
+	font-weight: 400;
+	font-style: normal;
+	color: var(--catalog-a-accent);
+	background: color-mix(in srgb, var(--catalog-a-accent) 10%, transparent);
+	border-radius: 999px;
+	vertical-align: middle;
+}
+
 /* Role checkboxes laid out in a tidy column. */
 .catalog-role {
 	display: block;
 	margin-block-end: 0.35rem;
 }
 
+/* Progressive disclosure (CSS only, no JS): the Roles field is only consulted by
+   the two "selected roles" visitor rules. When another rule is chosen, dim the
+   field and flag it as inactive so it doesn't read as a live control. Falls back
+   to fully visible if :has() is unsupported. */
+.catalog-roles-row {
+	transition: opacity 0.15s ease;
+}
+
+.catalog-roles-row .catalog-roles-inactive {
+	display: none;
+	margin-block-start: 0.5rem;
+	color: var(--catalog-a-muted);
+	font-style: italic;
+}
+
+.catalog-form:has(#catalog_role_mode option[value="everyone"]:checked) .catalog-roles-row,
+.catalog-form:has(#catalog_role_mode option[value="guests"]:checked) .catalog-roles-row {
+	opacity: 0.55;
+}
+
+.catalog-form:has(#catalog_role_mode option[value="everyone"]:checked) .catalog-roles-row .catalog-roles-inactive,
+.catalog-form:has(#catalog_role_mode option[value="guests"]:checked) .catalog-roles-row .catalog-roles-inactive {
+	display: block;
+}
+
 @media (prefers-color-scheme: dark) {
 	.catalog-admin {
+		--catalog-a-accent: #d8a23e; /* lifted brass — 7.27:1 on the #1e1e1e dark card */
 		--catalog-a-card-bg: #1e1e1e;
 		--catalog-a-card-border: #3c434a;
 		--catalog-a-muted: #a7aaad;
