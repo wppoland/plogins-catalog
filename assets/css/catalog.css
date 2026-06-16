@@ -1,13 +1,110 @@
 /**
  * Catalog — storefront styles.
  *
- * One lightweight rule for the optional price notice shown where the price would
- * be. It inherits the active theme's typography and adds only the minimum
- * needed. No layout shift: nothing is absolutely positioned.
+ * The single shopper-facing moment: where a price would be, catalog mode shows
+ * a notice ("Contact us for pricing"). We render it as a small "price on
+ * request" placard — the kind you meet in a showroom or atelier where the
+ * goods aren't tagged with numbers and the answer is "ask us".
+ *
+ * Grounding: a stamped brass placard. The accent is a warm brass/ochre, not a
+ * generic blue, and it is exposed as themeable --catalog-notice-* tokens with
+ * theme-inheriting fallbacks so a store can retint it in one place.
+ *
+ * The one earned micro-interaction: on first paint the brass keyline wipes in
+ * once, left to right, as if the placard were just stamped — then rests. No
+ * layout shift (inline-flex, no absolute positioning that reflows), and the
+ * motion is gated behind prefers-reduced-motion.
  */
 
 .catalog-price-notice {
-	display: inline-block;
+	/* Themeable tokens with theme-inheriting fallbacks. */
+	--catalog-notice-accent: #b8862b; /* brass placard */
+	--catalog-notice-ink: currentColor; /* inherits the theme's price text colour */
+	--catalog-notice-radius: 0.4em;
+	--catalog-notice-pad-block: 0.32em;
+	--catalog-notice-pad-inline: 0.7em;
+	--catalog-notice-field: color-mix(in srgb, var(--catalog-notice-accent) 8%, transparent);
+
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	padding: var(--catalog-notice-pad-block) var(--catalog-notice-pad-inline);
+	font-size: 0.92em;
 	font-weight: 600;
-	color: currentColor;
+	line-height: 1.2;
+	color: var(--catalog-notice-ink);
+	background: var(--catalog-notice-field);
+	/* The brass keyline is the placard's edge. */
+	border: 1px solid color-mix(in srgb, var(--catalog-notice-accent) 55%, transparent);
+	border-radius: var(--catalog-notice-radius);
+	/* Stamped-corner notch: a single bevelled corner, top-inline-end. */
+	border-start-end-radius: 0;
+	clip-path: polygon(
+		0 0,
+		calc(100% - 0.5em) 0,
+		100% 0.5em,
+		100% 100%,
+		0 100%
+	);
+}
+
+/* The stamped seal dot — a small brass bead, grounds the accent without a heavy
+   chip. Decorative, hidden from assistive tech. */
+.catalog-price-notice::before {
+	content: "";
+	inline-size: 0.42em;
+	block-size: 0.42em;
+	flex: 0 0 auto;
+	border-radius: 50%;
+	background: var(--catalog-notice-accent);
+	box-shadow: 0 0 0 0.12em color-mix(in srgb, var(--catalog-notice-accent) 22%, transparent);
+}
+
+/* The one micro-interaction: the brass keyline wipes in once on first paint,
+   left to right, like a freshly stamped placard, then rests. A masked overlay
+   sweeps across so there is no layout shift and nothing animates afterward. */
+.catalog-price-notice {
+	position: relative;
+}
+
+.catalog-price-notice::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	pointer-events: none;
+	background: linear-gradient(
+		90deg,
+		color-mix(in srgb, var(--catalog-notice-accent) 30%, transparent) 0%,
+		color-mix(in srgb, var(--catalog-notice-accent) 0%, transparent) 60%
+	);
+	clip-path: inherit;
+	opacity: 0;
+	animation: catalog-notice-stamp 900ms ease-out 1 both;
+}
+
+@keyframes catalog-notice-stamp {
+	0% {
+		opacity: 0.9;
+		transform: translateX(-100%);
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(0);
+	}
+}
+
+/* Dark scheme: lift the brass so it stays warm, not muddy, on dark themes. */
+@media (prefers-color-scheme: dark) {
+	.catalog-price-notice {
+		--catalog-notice-accent: #d8a23e;
+	}
+}
+
+/* Respect reduced motion: no sweep, the placard simply rests. */
+@media (prefers-reduced-motion: reduce) {
+	.catalog-price-notice::after {
+		animation: none;
+		opacity: 0;
+	}
 }
