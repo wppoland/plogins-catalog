@@ -63,6 +63,14 @@ logged-out visitors" to show prices to any logged-in customer.
 Yes. Products under catalog mode with add-to-cart hidden are marked
 non-purchasable, so direct cart URLs and the REST API are blocked too.
 
+= Does catalog mode hide products from shop archives? =
+
+No. Products remain visible in listings unless your theme hides them; Catalog controls price visibility and purchasability.
+
+= Can wholesale customers still see prices? =
+
+Yes. Use the visitor rule to hide prices from guests while allowing selected roles to see prices and buy.
+
 == Screenshots ==
 
 1. The Catalog settings screen under WooCommerce.
