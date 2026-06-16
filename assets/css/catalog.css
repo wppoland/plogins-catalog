@@ -18,7 +18,7 @@
 
 .catalog-price-notice {
 	/* Themeable tokens with theme-inheriting fallbacks. */
-	--catalog-notice-accent: #b8862b; /* brass placard */
+	--catalog-notice-accent: #9c6d18; /* deepened brass placard — clears WCAG AA (>=3:1) as a keyline */
 	--catalog-notice-ink: currentColor; /* inherits the theme's price text colour */
 	--catalog-notice-radius: 0.4em;
 	--catalog-notice-pad-block: 0.32em;
@@ -34,8 +34,9 @@
 	line-height: 1.2;
 	color: var(--catalog-notice-ink);
 	background: var(--catalog-notice-field);
-	/* The brass keyline is the placard's edge. */
-	border: 1px solid color-mix(in srgb, var(--catalog-notice-accent) 55%, transparent);
+	/* The brass keyline is the placard's edge — full-strength accent so the
+	   boundary clears WCAG AA (>=3:1); a transparent mix here diluted it below. */
+	border: 1px solid var(--catalog-notice-accent);
 	border-radius: var(--catalog-notice-radius);
 	/* Stamped-corner notch: a single bevelled corner, top-inline-end. */
 	border-start-end-radius: 0;
