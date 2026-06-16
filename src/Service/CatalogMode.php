@@ -50,7 +50,18 @@ final class CatalogMode implements HasHooks
      */
     public function applies(): bool
     {
-        return $this->roleRuleMatches();
+        $applies = $this->roleRuleMatches();
+
+        /**
+         * Filters whether catalog mode applies for the current visitor.
+         *
+         * Add-ons (e.g. Catalog Pro's scheduled windows) can force catalog
+         * mode off — or leave the FREE decision untouched — by returning a
+         * boolean here. Runs on every price/add-to-cart decision.
+         *
+         * @param bool $applies Whether the FREE plugin decided catalog mode applies.
+         */
+        return (bool) apply_filters('catalog/applies', $applies);
     }
 
     /**
