@@ -73,11 +73,11 @@ final class CatalogMode implements HasHooks
             return $price;
         }
 
-        if (! $this->settings->bool('hide_price')) {
+        if (! $this->shouldHidePrice($product)) {
             return $price;
         }
 
-        $notice = $this->settings->string('price_notice');
+        $notice = $this->priceNotice($product);
 
         return '' !== $notice
             ? '<span class="catalog-price-notice">' . esc_html($notice) . '</span>'
@@ -95,7 +95,7 @@ final class CatalogMode implements HasHooks
             return;
         }
 
-        if (! $this->settings->bool('hide_add_to_cart')) {
+        if (! $this->shouldHideAddToCart($product)) {
             return;
         }
 
@@ -111,7 +111,7 @@ final class CatalogMode implements HasHooks
             return $html;
         }
 
-        return $this->settings->bool('hide_add_to_cart') ? '' : $html;
+        return $this->shouldHideAddToCart($product) ? '' : $html;
     }
 
     /**
@@ -124,7 +124,46 @@ final class CatalogMode implements HasHooks
             return $purchasable;
         }
 
-        return $this->settings->bool('hide_add_to_cart') ? false : $purchasable;
+        return $this->shouldHideAddToCart($product) ? false : $purchasable;
+    }
+
+    private function shouldHidePrice(\WC_Product $product): bool
+    {
+        $hide = $this->settings->bool('hide_price');
+
+        /**
+         * Filters whether the price should be hidden for the current visitor.
+         *
+         * @param bool        $hide    Whether the FREE settings hide the price.
+         * @param \WC_Product $product Product being rendered.
+         */
+        return (bool) apply_filters('catalog/hide_price', $hide, $product);
+    }
+
+    private function shouldHideAddToCart(\WC_Product $product): bool
+    {
+        $hide = $this->settings->bool('hide_add_to_cart');
+
+        /**
+         * Filters whether add-to-cart should be hidden for the current visitor.
+         *
+         * @param bool        $hide    Whether the FREE settings hide add-to-cart.
+         * @param \WC_Product $product Product being rendered.
+         */
+        return (bool) apply_filters('catalog/hide_add_to_cart', $hide, $product);
+    }
+
+    private function priceNotice(\WC_Product $product): string
+    {
+        $notice = $this->settings->string('price_notice');
+
+        /**
+         * Filters the replacement text shown when the price is hidden.
+         *
+         * @param string      $notice  Notice from FREE settings.
+         * @param \WC_Product $product Product being rendered.
+         */
+        return (string) apply_filters('catalog/price_notice', $notice, $product);
     }
 
     /**
