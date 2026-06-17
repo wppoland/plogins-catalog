@@ -20,6 +20,8 @@ defined('ABSPATH') || exit;
  */
 final class CatalogMode implements HasHooks
 {
+    private string $singleReplacement = '';
+
     public function __construct(private readonly Settings $settings)
     {
     }
@@ -100,6 +102,22 @@ final class CatalogMode implements HasHooks
         }
 
         remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+
+        $this->singleReplacement = $this->addToCartReplacement($product, 'single');
+
+        if ('' !== $this->singleReplacement) {
+            add_action('woocommerce_single_product_summary', [$this, 'renderSingleReplacement'], 30);
+        }
+    }
+
+    public function renderSingleReplacement(): void
+    {
+        if ('' === $this->singleReplacement) {
+            return;
+        }
+
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- trusted HTML from catalog/add_to_cart_replacement filters.
+        echo $this->singleReplacement;
     }
 
     /**
@@ -111,7 +129,13 @@ final class CatalogMode implements HasHooks
             return $html;
         }
 
-        return $this->shouldHideAddToCart($product) ? '' : $html;
+        if (! $this->shouldHideAddToCart($product)) {
+            return $html;
+        }
+
+        $replacement = $this->addToCartReplacement($product, 'loop');
+
+        return '' !== $replacement ? $replacement : '';
     }
 
     /**
@@ -164,6 +188,20 @@ final class CatalogMode implements HasHooks
          * @param \WC_Product $product Product being rendered.
          */
         return (string) apply_filters('catalog/price_notice', $notice, $product);
+    }
+
+    private function addToCartReplacement(\WC_Product $product, string $context): string
+    {
+        /**
+         * Filters HTML shown in place of add-to-cart when catalog mode hides the cart.
+         *
+         * @param string      $html    Replacement HTML. Empty leaves the slot blank.
+         * @param \WC_Product $product Product being rendered.
+         * @param string      $context `single` or `loop`.
+         */
+        $html = apply_filters('catalog/add_to_cart_replacement', '', $product, $context);
+
+        return is_string($html) ? $html : '';
     }
 
     /**
