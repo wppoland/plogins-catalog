@@ -77,6 +77,10 @@ Yes. Use the visitor rule to hide prices from guests while allowing selected rol
 2. A product page with the price and add-to-cart hidden.
 3. Shop listing in catalog mode.
 
+== External Services ==
+
+Catalog does not connect to any external services. Price and add-to-cart visibility are decided on your own server from the current visitor's role, and your choices are kept in a single `catalog_settings` option in your WordPress database (plus a `catalog_db_version` marker for upgrades), both removed on uninstall. The plugin sends no data anywhere and loads only its own stylesheets bundled with the plugin.
+
 == Changelog ==
 
 = 0.1.2 =
