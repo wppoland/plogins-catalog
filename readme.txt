@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 0.1.0
+Stable tag: 0.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,9 @@ Yes. Use the visitor rule to hide prices from guests while allowing selected rol
 3. Shop listing in catalog mode.
 
 == Changelog ==
+
+= 0.1.1 =
+* Extension filters `catalog/hide_price`, `catalog/hide_add_to_cart` and `catalog/price_notice` for PRO per-role visibility rules.
 
 = 0.1.0 =
 * Initial release: hide the price and/or add-to-cart store-wide or by visitor role, optional price notice, single and listing support, and non-purchasable enforcement.
