@@ -193,15 +193,48 @@ final class CatalogMode implements HasHooks
     private function addToCartReplacement(\WC_Product $product, string $context): string
     {
         /**
+         * Filters a per-role CTA link shown when add-to-cart is hidden.
+         *
+         * Return `label` and `url` keys. Catalog Pro uses this for per-role CTA
+         * buttons on role pricing rows.
+         *
+         * @param array{label?: string, url?: string} $cta     CTA data.
+         * @param \WC_Product                         $product Product being rendered.
+         * @param string                              $context `single` or `loop`.
+         */
+        $cta = apply_filters('catalog/rule_cta', [], $product, $context);
+
+        $html = $this->renderRuleCta(is_array($cta) ? $cta : []);
+
+        /**
          * Filters HTML shown in place of add-to-cart when catalog mode hides the cart.
          *
          * @param string      $html    Replacement HTML. Empty leaves the slot blank.
          * @param \WC_Product $product Product being rendered.
          * @param string      $context `single` or `loop`.
          */
-        $html = apply_filters('catalog/add_to_cart_replacement', '', $product, $context);
+        $html = apply_filters('catalog/add_to_cart_replacement', $html, $product, $context);
 
         return is_string($html) ? $html : '';
+    }
+
+    /**
+     * @param array{label?: string, url?: string} $cta
+     */
+    private function renderRuleCta(array $cta): string
+    {
+        $label = sanitize_text_field((string) ($cta['label'] ?? ''));
+        $url   = esc_url((string) ($cta['url'] ?? ''));
+
+        if ('' === $label || '' === $url) {
+            return '';
+        }
+
+        return sprintf(
+            '<p class="catalog-rule-cta"><a class="button catalog-rule-cta__link" href="%s">%s</a></p>',
+            esc_url($url),
+            esc_html($label),
+        );
     }
 
     /**

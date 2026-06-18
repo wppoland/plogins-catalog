@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 0.1.2
+Stable tag: 0.1.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,6 +82,9 @@ Yes. Use the visitor rule to hide prices from guests while allowing selected rol
 Catalog does not connect to any external services. Price and add-to-cart visibility are decided on your own server from the current visitor's role, and your choices are kept in a single `catalog_settings` option in your WordPress database (plus a `catalog_db_version` marker for upgrades), both removed on uninstall. The plugin sends no data anywhere and loads only its own stylesheets bundled with the plugin.
 
 == Changelog ==
+
+= 0.1.3 =
+* `catalog/rule_cta` filter for per-role CTA links shown before add-to-cart replacement filters.
 
 = 0.1.2 =
 * `catalog/add_to_cart_replacement` filter for quote forms or CTA buttons when add-to-cart is hidden.
