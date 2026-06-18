@@ -29,6 +29,15 @@ orders online.
 The plugin is open source. Source code and bug reports live on GitHub at
 https://github.com/wppoland/catalog.
 
+= Documentation and links =
+
+* **Documentation** - https://plogins.com/catalog/docs/
+* **Plugin page** - https://plogins.com/catalog/
+* **Source code** - https://github.com/wppoland/catalog
+* **Bug reports and feature requests** - https://github.com/wppoland/catalog/issues
+* **Discussions and questions** - https://github.com/wppoland/catalog/discussions
+
+
 = Features =
 
 * Hide the price, the add-to-cart button, or both.

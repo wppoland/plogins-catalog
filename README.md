@@ -1,29 +1,7 @@
-# Catalog - Catalog Mode for WooCommerce
+# Catalog
 
-Turn your WooCommerce store into a browsable catalog. Catalog hides the price, the add-to-cart button, or both, across the whole store or only for certain visitors (for example, show prices only to logged-in wholesale customers).
-
-## Features
-
-- Hide the price and/or the add-to-cart button.
-- Role rules: everyone, only guests, only selected roles, or everyone except selected roles.
-- Optional price notice (e.g. "Contact us for pricing").
-- Works on single product pages and shop, category and tag listings.
-- Marks catalog products non-purchasable, blocking direct cart URLs and REST.
-
-## Installation
-
-1. Upload the plugin to `/wp-content/plugins/catalog`, or install it via **Plugins → Add New**.
-2. Activate it. WooCommerce must be active.
-3. Go to **WooCommerce → Catalog** to choose what to hide and for whom.
-
-## Frequently Asked Questions
-
-**Can I show prices only to logged-in customers?**
-Yes. The role rules let you hide prices and add-to-cart for guests while keeping them visible for selected roles.
-
-**Does it stop people adding hidden products to the cart directly?**
-Yes. Products in catalog mode are marked non-purchasable, so direct cart URLs and REST requests are blocked too.
-
-Built by WPPoland — https://plogins.com
-
-License: GPL-2.0-or-later
+- **Plugin page:** https://plogins.com/catalog/
+- **Documentation:** https://plogins.com/catalog/docs/
+- **Author:** [WPPoland.com](https://wppoland.com)
+- **WordPress.org contributor:** motylanogha
+- **Source:** https://github.com/wppoland/catalog
