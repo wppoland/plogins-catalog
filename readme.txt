@@ -1,5 +1,5 @@
 === Catalog - Catalog Mode for WooCommerce ===
-Contributors: wppoland
+Contributors: motylanogha
 Tags: woocommerce, catalog mode, hide price, hide add to cart, request a quote
 Requires at least: 6.5
 Tested up to: 7.0
