@@ -90,7 +90,7 @@ msgstr "Stosuj tryb katalogu w sklepie."
 #: src/Admin/Settings.php:138
 msgid ""
 "The master switch. When off, nothing is hidden and the catalog stylesheet is "
-"not loaded — your store sells as normal."
+"not loaded, your store sells as normal."
 msgstr ""
 
 #: src/Admin/Settings.php:142
@@ -194,7 +194,7 @@ msgstr ""
 
 #: src/Admin/Settings.php:206
 msgid ""
-"Not used by the current visitor rule — choose a \"selected roles\" rule "
+"Not used by the current visitor rule, choose a \"selected roles\" rule "
 "above to enable it."
 msgstr ""
 

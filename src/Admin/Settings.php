@@ -135,7 +135,7 @@ final class Settings implements HasHooks
                                         <?php esc_html_e('Apply catalog mode on the storefront.', 'catalog'); ?>
                                         <?php $this->defaultHint(true); ?>
                                     </label>
-                                    <p class="description"><?php esc_html_e('The master switch. When off, nothing is hidden and the catalog stylesheet is not loaded — your store sells as normal.', 'catalog'); ?></p>
+                                    <p class="description"><?php esc_html_e('The master switch. When off, nothing is hidden and the catalog stylesheet is not loaded, your store sells as normal.', 'catalog'); ?></p>
                                 </td>
                             </tr>
                             <?php
@@ -203,7 +203,7 @@ final class Settings implements HasHooks
                                             </label>
                                         <?php endforeach; ?>
                                         <p class="description"><?php esc_html_e('Tick the roles the rule applies to. Used only when the visitor rule is "Only selected roles" or "Everyone except selected roles".', 'catalog'); ?></p>
-                                        <p class="catalog-roles-inactive"><?php esc_html_e('Not used by the current visitor rule — choose a "selected roles" rule above to enable it.', 'catalog'); ?></p>
+                                        <p class="catalog-roles-inactive"><?php esc_html_e('Not used by the current visitor rule, choose a "selected roles" rule above to enable it.', 'catalog'); ?></p>
                                     </fieldset>
                                 </td>
                             </tr>
