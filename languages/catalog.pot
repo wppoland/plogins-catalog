@@ -76,7 +76,7 @@ msgid "Apply catalog mode on the storefront."
 msgstr ""
 
 #: src/Admin/Settings.php:138
-msgid "The master switch. When off, nothing is hidden and the catalog stylesheet is not loaded — your store sells as normal."
+msgid "The master switch. When off, nothing is hidden and the catalog stylesheet is not loaded, your store sells as normal."
 msgstr ""
 
 #: src/Admin/Settings.php:142
@@ -160,7 +160,7 @@ msgid "Tick the roles the rule applies to. Used only when the visitor rule is \"
 msgstr ""
 
 #: src/Admin/Settings.php:206
-msgid "Not used by the current visitor rule — choose a \"selected roles\" rule above to enable it."
+msgid "Not used by the current visitor rule, choose a \"selected roles\" rule above to enable it."
 msgstr ""
 
 #: src/Admin/Settings.php:256
