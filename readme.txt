@@ -1,11 +1,11 @@
-=== Catalog - Catalog Mode for WooCommerce ===
+=== Plogins Catalog for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, catalog mode, hide price, hide add to cart, request a quote
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 0.1.3
+Stable tag: 0.1.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,15 +27,14 @@ members-only pricing, and showroom sites that display products without taking
 orders online.
 
 The plugin is open source. Source code and bug reports live on GitHub at
-https://github.com/wppoland/catalog.
+https://github.com/wppoland/plogins-catalog.
 
 = Documentation and links =
 
-* **Documentation** - https://plogins.com/catalog/docs/
-* **Plugin page** - https://plogins.com/catalog/
-* **Source code** - https://github.com/wppoland/catalog
-* **Bug reports and feature requests** - https://github.com/wppoland/catalog/issues
-* **Discussions and questions** - https://github.com/wppoland/catalog/discussions
+* **Documentation** - https://plogins.com/plogins-catalog/docs/
+* **Plugin page** - https://plogins.com/plogins-catalog/
+* **Source code** - https://github.com/wppoland/plogins-catalog
+* **Bug reports and feature requests** - https://github.com/wppoland/plogins-catalog/issues
 
 
 = Features =
@@ -91,6 +90,9 @@ Yes. Use the visitor rule to hide prices from guests while allowing selected rol
 Catalog does not connect to any external services. Price and add-to-cart visibility are decided on your own server from the current visitor's role, and your choices are kept in a single `catalog_settings` option in your WordPress database (plus a `catalog_db_version` marker for upgrades), both removed on uninstall. The plugin sends no data anywhere and loads only its own stylesheets bundled with the plugin.
 
 == Changelog ==
+
+= 0.1.4 =
+* Renamed to Plogins Catalog for WooCommerce for a more distinctive plugin name.
 
 = 0.1.3 =
 * `catalog/rule_cta` filter for per-role CTA links shown before add-to-cart replacement filters.

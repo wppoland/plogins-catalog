@@ -4,7 +4,7 @@ includes:
 parameters:
     level: 6
     paths:
-        - catalog.php
+        - plogins-catalog.php
         - src
         - config
     excludePaths:
