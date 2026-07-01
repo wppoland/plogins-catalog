@@ -1,4 +1,4 @@
-=== Plogins Catalog for WooCommerce ===
+=== Plogins Catalog - Catalog Mode for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, catalog mode, hide price, hide add to cart, request a quote
 Requires at least: 6.5
