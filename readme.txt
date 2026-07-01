@@ -79,6 +79,11 @@ No. Products remain visible in listings unless your theme hides them; Catalog co
 
 Yes. Use the visitor rule to hide prices from guests while allowing selected roles to see prices and buy.
 
+
+= Does this plugin work on WordPress Multisite? =
+
+Yes. This plugin is compatible with WordPress Multisite. Network activate it or activate it on individual sites; each site keeps its own settings and data.
+
 == Screenshots ==
 
 1. The Catalog settings screen under WooCommerce.
