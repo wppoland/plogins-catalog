@@ -23,6 +23,13 @@ final class Settings implements HasHooks
 
     private const ROLE_MODES = ['everyone', 'guests', 'roles', 'except_roles'];
 
+    private ?ProUpsell $proUpsell = null;
+
+    private function proUpsell(): ProUpsell
+    {
+        return $this->proUpsell ??= new ProUpsell();
+    }
+
     public function registerHooks(): void
     {
         add_action('admin_menu', [$this, 'addMenuPage']);
@@ -32,6 +39,7 @@ final class Settings implements HasHooks
             'plugin_action_links_' . plugin_basename(\Catalog\PLUGIN_FILE),
             [$this, 'actionLinks'],
         );
+        $this->proUpsell()->registerHooks();
     }
 
     /**
@@ -111,6 +119,8 @@ final class Settings implements HasHooks
         <div class="wrap catalog-admin">
             <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
 
+            <?php $this->proUpsell()->banner(); ?>
+
             <div class="catalog-intro">
                 <div>
                     <h2><?php esc_html_e('Turn your store into a catalog', 'plogins-catalog'); ?></h2>
@@ -120,6 +130,7 @@ final class Settings implements HasHooks
                 </div>
             </div>
 
+            <div class="catalog-cols">
             <form class="catalog-form" method="post" action="options.php">
                 <?php settings_fields(self::PAGE); ?>
 
@@ -213,6 +224,11 @@ final class Settings implements HasHooks
 
                 <?php submit_button(); ?>
             </form>
+
+                <?php $this->proUpsell()->aside(); ?>
+            </div>
+
+            <?php $this->proUpsell()->cards(); ?>
         </div>
         <?php
     }

@@ -124,3 +124,82 @@
 		--catalog-a-muted: #a7aaad;
 	}
 }
+
+/* ------------------------------------------------------------------ *
+ * PRO upsell — dismissible banner, sidebar promo, "what PRO adds"
+ * locked cards. Pure advertising (no disabled inputs), scoped to
+ * .catalog-admin, using the plugin's own brass accent. Filled elements
+ * that carry white text (the PRO tag pill and the CTA buttons) use the
+ * fixed dark --catalog-a-accent-text (#7a5410) so white clears WCAG AA
+ * (6.78:1) in both colour schemes; the scheme-aware --catalog-a-accent
+ * is used only for decorative text and keylines.
+ * ------------------------------------------------------------------ */
+.catalog-admin {
+	--catalog-a-accent-text: #7a5410; /* fixed dark brass — white text clears AA (6.78:1) in light + dark */
+	--catalog-a-radius-sm: 6px;
+}
+
+/* Two-column wrapper (form + promo aside); single column on narrow screens. */
+.catalog-admin .catalog-cols { display: grid; gap: var(--catalog-a-gap); grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 1100px) {
+	.catalog-admin .catalog-cols { grid-template-columns: minmax(0, 1fr) 300px; }
+}
+
+/* Top banner */
+.catalog-admin .catalog-pro-banner {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin: 0 0 var(--catalog-a-gap);
+	padding: 12px 16px;
+	border: 1px solid color-mix(in srgb, var(--catalog-a-accent) 30%, var(--catalog-a-card-border));
+	border-inline-start: 4px solid var(--catalog-a-accent);
+	border-radius: var(--catalog-a-radius);
+	background: color-mix(in srgb, var(--catalog-a-accent) 7%, var(--catalog-a-card-bg));
+}
+.catalog-admin .catalog-pro-banner__tag,
+.catalog-admin .catalog-pro-card__badge,
+.catalog-admin .catalog-pro-aside__eyebrow {
+	font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+}
+.catalog-admin .catalog-pro-banner__tag { flex: 0 0 auto; padding: 2px 8px; border-radius: 999px; color: #fff; background: var(--catalog-a-accent-text); }
+.catalog-admin .catalog-pro-banner__text { flex: 1 1 auto; margin: 0; }
+.catalog-admin .catalog-pro-banner__sub { margin-inline-start: 4px; color: var(--catalog-a-muted); }
+.catalog-admin .catalog-pro-banner__price { margin-inline-start: 6px; color: var(--catalog-a-muted); font-weight: 600; white-space: nowrap; }
+.catalog-admin .catalog-pro-banner__dismiss { flex: 0 0 auto; font-size: 18px; line-height: 1; text-decoration: none; color: var(--catalog-a-muted); padding: 4px; border-radius: 4px; }
+.catalog-admin .catalog-pro-banner__dismiss:hover { color: var(--catalog-a-accent-text); background: color-mix(in srgb, var(--catalog-a-accent) 12%, transparent); }
+
+/* Accent CTA buttons (override WP blue with the readable dark brass accent) */
+.catalog-admin .catalog-pro-banner__cta.button-primary,
+.catalog-admin .catalog-pro-aside__cta.button-primary {
+	background: var(--catalog-a-accent-text); border-color: color-mix(in srgb, var(--catalog-a-accent-text) 80%, #000); color: #fff; text-shadow: none; box-shadow: none;
+}
+.catalog-admin .catalog-pro-banner__cta.button-primary:hover,
+.catalog-admin .catalog-pro-aside__cta.button-primary:hover { background: color-mix(in srgb, var(--catalog-a-accent-text) 88%, #000); }
+
+/* Sidebar promo card */
+.catalog-admin .catalog-pro-aside {
+	background: var(--catalog-a-card-bg); border: 1px solid var(--catalog-a-card-border); border-top: 3px solid var(--catalog-a-accent); border-radius: var(--catalog-a-radius); padding: 18px 20px; position: sticky; top: 40px;
+}
+.catalog-admin .catalog-pro-aside__eyebrow { margin: 0 0 4px; color: var(--catalog-a-accent); }
+.catalog-admin .catalog-pro-aside__heading { margin: 0 0 12px; font-size: 16px; line-height: 1.3; }
+.catalog-admin .catalog-pro-aside__list { margin: 0 0 16px; padding: 0; list-style: none; }
+.catalog-admin .catalog-pro-aside__list li { display: flex; align-items: flex-start; gap: 8px; padding: 5px 0; font-size: 13px; }
+.catalog-admin .catalog-pro-aside__lock::before,
+.catalog-admin .catalog-pro-card__lock::before { content: "\f160"; font-family: dashicons; font-size: 15px; line-height: 1.2; color: var(--catalog-a-accent); }
+.catalog-admin .catalog-pro-aside__cta { width: 100%; text-align: center; }
+.catalog-admin .catalog-pro-aside__price { margin: 10px 0 0; font-size: 12px; color: var(--catalog-a-muted); text-align: center; }
+
+/* "What PRO adds" locked cards */
+.catalog-admin .catalog-pro-cards { max-width: 60rem; margin: var(--catalog-a-gap) 0 0; }
+.catalog-admin .catalog-pro-cards__title { font-size: 15px; margin: 0 0 12px; }
+.catalog-admin .catalog-pro-cards__grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.catalog-admin .catalog-pro-card { position: relative; padding: 16px; border: 1px solid var(--catalog-a-card-border); border-radius: var(--catalog-a-radius-sm); background: color-mix(in srgb, var(--catalog-a-accent) 3%, var(--catalog-a-card-bg)); }
+.catalog-admin .catalog-pro-card__badge { position: absolute; top: 12px; inset-inline-end: 12px; padding: 1px 7px; border-radius: 999px; color: var(--catalog-a-accent); border: 1px solid color-mix(in srgb, var(--catalog-a-accent) 40%, var(--catalog-a-card-bg)); }
+.catalog-admin .catalog-pro-card__lock { display: inline-block; margin-bottom: 6px; }
+.catalog-admin .catalog-pro-card__title { margin: 0 0 6px; font-size: 14px; line-height: 1.3; }
+.catalog-admin .catalog-pro-card__desc { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--catalog-a-muted); }
+
+@media (prefers-reduced-motion: no-preference) {
+	.catalog-admin .catalog-pro-banner__cta, .catalog-admin .catalog-pro-aside__cta { transition: background-color .15s ease, border-color .15s ease; }
+}
