@@ -3,7 +3,7 @@
  * Plugin Name:       Plogins Catalog - Catalog Mode for WooCommerce
  * Plugin URI:        https://plogins.com/plogins-catalog/
  * Description:        Turn your store into a catalog: hide prices and/or add-to-cart, store-wide or only for selected visitor roles.
- * Version:           0.1.4
+ * Version:           1.0.1
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
@@ -24,7 +24,7 @@ namespace Catalog;
 
 defined('ABSPATH') || exit;
 
-const VERSION     = '0.1.4';
+const VERSION     = '1.0.1';
 const PLUGIN_FILE = __FILE__;
 
 define('CATALOG_DIR', plugin_dir_path(__FILE__));

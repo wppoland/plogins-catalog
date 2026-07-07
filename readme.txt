@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 0.1.4
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,6 +95,9 @@ Yes. This plugin is compatible with WordPress Multisite. Network activate it or 
 Catalog does not connect to any external services. Price and add-to-cart visibility are decided on your own server from the current visitor's role, and your choices are kept in a single `catalog_settings` option in your WordPress database (plus a `catalog_db_version` marker for upgrades), both removed on uninstall. The plugin sends no data anywhere and loads only its own stylesheets bundled with the plugin.
 
 == Changelog ==
+
+= 1.0.1 =
+* First stable release.
 
 = 0.1.4 =
 * Renamed to Plogins Catalog for WooCommerce for a more distinctive plugin name.
