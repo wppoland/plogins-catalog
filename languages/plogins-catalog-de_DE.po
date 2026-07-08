@@ -1,0 +1,228 @@
+# Copyright (C) 2026 WPPoland
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Plogins Catalog for WooCommerce 0.1.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/catalog\n"
+"POT-Creation-Date: 2026-06-18T09:05:45+00:00\n"
+"PO-Revision-Date: 2026-06-18T09:05:45+00:00\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: plogins-catalog\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#. Plugin Name of the plugin
+#: plogins-catalog.php
+msgid "Catalog - Catalog Mode for WooCommerce"
+msgstr "Katalog – Katalogmodus für WooCommerce"
+
+#. Plugin URI of the plugin
+#: plogins-catalog.php
+msgid "https://plogins.com/catalog/"
+msgstr "https://plogins.com/de/catalog/"
+
+#. Description of the plugin
+#: plogins-catalog.php
+msgid ""
+"Turn your store into a catalog: hide prices and/or add-to-cart, store-wide "
+"or only for selected visitor roles."
+msgstr ""
+"Verwandle dein Geschäft in einen Katalog: Preise und/oder den „In den "
+"Warenkorb“-Button ausblenden, im gesamten Geschäft oder nur für ausgewählte "
+"Besucherrollen."
+
+#. Author of the plugin
+#: plogins-catalog.php
+msgid "WPPoland"
+msgstr "WPPoland"
+
+#. Author URI of the plugin
+#: plogins-catalog.php
+msgid "https://plogins.com/"
+msgstr "https://plogins.com/"
+
+#: plogins-catalog.php:47
+msgid ""
+"Catalog - Catalog Mode for WooCommerce requires WooCommerce to be active."
+msgstr ""
+"Katalog – Der Katalogmodus für WooCommerce erfordert, dass WooCommerce aktiv"
+" ist."
+
+#: src/Admin/Settings.php:50
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: src/Admin/Settings.php:76
+msgid "Catalog Mode"
+msgstr "Katalogmodus"
+
+#: src/Admin/Settings.php:77
+msgid "Catalog"
+msgstr "Katalog"
+
+#: src/Admin/Settings.php:116
+msgid "Turn your store into a catalog"
+msgstr "Verwandle deinen Shop in einen Katalog"
+
+#: src/Admin/Settings.php:118
+msgid ""
+"Hide prices and/or the add-to-cart button across your store, or only for "
+"certain visitors (for example, show prices to logged-in wholesale "
+"customers)."
+msgstr ""
+"Blende Preise und/oder die Schaltfläche „In den Warenkorb“ in deinem "
+"gesamten Shop oder nur für bestimmte Besucher aus (zeige beispielsweise "
+"Preise für eingeloggte Großhandelskunden an)."
+
+#: src/Admin/Settings.php:127
+msgid "What to hide"
+msgstr "Was zu verbergen ist"
+
+#: src/Admin/Settings.php:131
+msgid "Enable catalog mode"
+msgstr "Katalogmodus aktivieren"
+
+#: src/Admin/Settings.php:135
+msgid "Apply catalog mode on the storefront."
+msgstr "Wende den Katalogmodus auf der Storefront an."
+
+#: src/Admin/Settings.php:138
+msgid ""
+"The master switch. When off, nothing is hidden and the catalog stylesheet is"
+" not loaded, your store sells as normal."
+msgstr ""
+"Der Hauptschalter. Wenn diese Option deaktiviert ist, wird nichts "
+"ausgeblendet und das Katalog-Stylesheet wird nicht geladen. dein Shop "
+"verkauft wie gewohnt."
+
+#: src/Admin/Settings.php:142
+msgid "Hide the price"
+msgstr "Verstecke den Preis"
+
+#: src/Admin/Settings.php:142
+msgid "Remove the price from catalog products."
+msgstr "Entferne den Preis von Katalogprodukten."
+
+#: src/Admin/Settings.php:142
+msgid ""
+"Removes the price wherever WooCommerce would print it. Optionally show a "
+"notice such as \"Contact us for pricing\" below."
+msgstr ""
+"Entfernt den Preis überall dort, wo WooCommerce ihn drucken würde. Zeige "
+"optional unten einen Hinweis wie „Kontaktiere uns für Preisinformationen“ "
+"an."
+
+#: src/Admin/Settings.php:143
+msgid "Hide add-to-cart"
+msgstr "„In den Warenkorb legen“ ausblenden"
+
+#: src/Admin/Settings.php:143
+msgid "Remove the add-to-cart button and block purchasing."
+msgstr "Entferne die Schaltfläche „In den Warenkorb“ und blockiere den Kauf."
+
+#: src/Admin/Settings.php:143
+msgid ""
+"Removes the add-to-cart button on product pages and listings, and prevents "
+"catalog products from being purchased server-side."
+msgstr ""
+"Entfernt die Schaltfläche „In den Warenkorb“ auf Produktseiten und "
+"Auflistungen und verhindert, dass Katalogprodukte serverseitig gekauft "
+"werden."
+
+#: src/Admin/Settings.php:147
+msgid "Price notice"
+msgstr "Preishinweis"
+
+#: src/Admin/Settings.php:150
+msgid "e.g. Contact us for pricing"
+msgstr "z.B. Kontaktiere uns für die Preisgestaltung"
+
+#: src/Admin/Settings.php:151
+msgid ""
+"Shown in place of the hidden price, styled as a small brass placard on the "
+"storefront. Leave blank to show nothing. Only applies when \"Hide the "
+"price\" is on."
+msgstr ""
+"Wird anstelle des versteckten Preises als kleines Messingschild an der "
+"Schaufensterfront angezeigt. Lass das Feld leer, um nichts anzuzeigen. Gilt "
+"nur, wenn „Preis ausblenden“ aktiviert ist."
+
+#: src/Admin/Settings.php:159
+msgid "Who it applies to"
+msgstr "Für wen es gilt"
+
+#: src/Admin/Settings.php:164
+msgid "Visitor rule"
+msgstr "Besucherregel"
+
+#: src/Admin/Settings.php:171
+msgid "Everyone"
+msgstr "Jeder"
+
+#: src/Admin/Settings.php:172
+msgid "Only logged-out visitors"
+msgstr "Nur abgemeldete Besucher"
+
+#: src/Admin/Settings.php:173
+msgid "Only selected roles"
+msgstr "Nur ausgewählte Rollen"
+
+#: src/Admin/Settings.php:174
+msgid "Everyone except selected roles"
+msgstr "Alle außer ausgewählten Rollen"
+
+#: src/Admin/Settings.php:185
+msgid ""
+"Choose who catalog mode hides prices and buying from. Everyone applies it to"
+" all visitors. Only logged-out visitors lets members see prices once they "
+"sign in. The two \"selected roles\" rules use the role list below."
+msgstr ""
+"Wähle aus, bei wem im Katalogmodus Preise und Einkäufe ausgeblendet werden. "
+"„Jeder“ wendet es auf alle Besucher an. „Nur abgemeldete Besucher“ lässt "
+"eingeloggte Mitglieder die Preise sehen, sobald sie angemeldet sind. Die "
+"beiden "
+"„Ausgewählte Rollen“-Regeln verwenden die Rollenliste unten."
+
+#: src/Admin/Settings.php:187
+msgid ""
+"Wholesale tip: pick \"Everyone except selected roles\" and tick your "
+"wholesale role so those customers still see prices and can buy, while "
+"everyone else gets the catalog."
+msgstr ""
+"Großhandelstipp: Wähle „Alle außer ausgewählten Rollen“ und kreuze deine "
+"Großhandelsrolle an, damit diese Kunden weiterhin die Preise sehen und "
+"kaufen können, während alle anderen den Katalog erhalten."
+
+#: src/Admin/Settings.php:192
+msgid "Roles"
+msgstr "Rollen"
+
+#: src/Admin/Settings.php:195
+msgid "Roles the visitor rule applies to"
+msgstr "Rollen, für die die Besucherregel gilt"
+
+#: src/Admin/Settings.php:205
+msgid ""
+"Tick the roles the rule applies to. Used only when the visitor rule is "
+"\"Only selected roles\" or \"Everyone except selected roles\"."
+msgstr ""
+"Kreuze die Rollen an, für die die Regel gilt. Wird nur verwendet, wenn die "
+"Besucherregel „Nur ausgewählte Rollen“ oder „Jeder außer ausgewählten "
+"Rollen“ lautet."
+
+#: src/Admin/Settings.php:206
+msgid ""
+"Not used by the current visitor rule, choose a \"selected roles\" rule above"
+" to enable it."
+msgstr ""
+"Wird von der aktuellen Besucherregel nicht verwendet. Wähle oben eine "
+"„Ausgewählte Rollen“-Regel aus, um sie zu aktivieren."
+
+#: src/Admin/Settings.php:256
+msgid "default"
+msgstr "Standard"

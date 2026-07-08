@@ -12,10 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
-"|| n%100>14) ? 1 : 2);\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Domain: plogins-catalog\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
 #: plogins-catalog.php
@@ -33,6 +32,8 @@ msgid ""
 "Turn your store into a catalog: hide prices and/or add-to-cart, store-wide "
 "or only for selected visitor roles."
 msgstr ""
+"Zamień swój sklep w katalog: ukryj ceny i/lub dodaj do koszyka, w całym "
+"sklepie lub tylko dla wybranych ról odwiedzających."
 
 #. Author of the plugin
 #: plogins-catalog.php
@@ -69,7 +70,8 @@ msgstr "Zamień swój sklep w katalog"
 #: src/Admin/Settings.php:118
 msgid ""
 "Hide prices and/or the add-to-cart button across your store, or only for "
-"certain visitors (for example, show prices to logged-in wholesale customers)."
+"certain visitors (for example, show prices to logged-in wholesale "
+"customers)."
 msgstr ""
 "Ukryj ceny i/lub przycisk dodawania do koszyka w całym sklepie albo tylko "
 "dla wybranych odwiedzających (na przykład pokazuj ceny zalogowanym klientom "
@@ -89,9 +91,11 @@ msgstr "Stosuj tryb katalogu w sklepie."
 
 #: src/Admin/Settings.php:138
 msgid ""
-"The master switch. When off, nothing is hidden and the catalog stylesheet is "
-"not loaded, your store sells as normal."
+"The master switch. When off, nothing is hidden and the catalog stylesheet is"
+" not loaded, your store sells as normal."
 msgstr ""
+"Główny wyłącznik. Gdy opcja jest wyłączona, nic nie jest ukryte, a arkusz "
+"stylów katalogu nie jest ładowany, Twój sklep sprzedaje się normalnie."
 
 #: src/Admin/Settings.php:142
 msgid "Hide the price"
@@ -139,6 +143,9 @@ msgid ""
 "storefront. Leave blank to show nothing. Only applies when \"Hide the "
 "price\" is on."
 msgstr ""
+"Pokazywany zamiast ukrytej ceny, stylizowany na małą mosiężną tabliczkę na "
+"witrynie sklepu. Pozostaw puste, aby nic nie pokazywać. Ma zastosowanie "
+"tylko wtedy, gdy włączona jest opcja „Ukryj cenę”."
 
 #: src/Admin/Settings.php:159
 msgid "Who it applies to"
@@ -166,10 +173,14 @@ msgstr "Wszyscy z wyjątkiem wybranych ról"
 
 #: src/Admin/Settings.php:185
 msgid ""
-"Choose who catalog mode hides prices and buying from. Everyone applies it to "
-"all visitors. Only logged-out visitors lets members see prices once they "
+"Choose who catalog mode hides prices and buying from. Everyone applies it to"
+" all visitors. Only logged-out visitors lets members see prices once they "
 "sign in. The two \"selected roles\" rules use the role list below."
 msgstr ""
+"Wybierz, dla kogo tryb katalogu ukrywa ceny i zakupy. Każdy stosuje to do "
+"wszystkich odwiedzających. Tylko niezalogowani goście pozwalają członkom "
+"zobaczyć ceny po zalogowaniu. Dwie reguły „wybranych ról” korzystają z "
+"poniższej listy ról."
 
 #: src/Admin/Settings.php:187
 msgid ""
@@ -177,6 +188,9 @@ msgid ""
 "wholesale role so those customers still see prices and can buy, while "
 "everyone else gets the catalog."
 msgstr ""
+"Wskazówka dotycząca sprzedaży hurtowej: wybierz „Wszyscy oprócz wybranych "
+"ról” i zaznacz swoją rolę hurtową, aby ci klienci nadal widzieli ceny i "
+"mogli kupować, podczas gdy wszyscy inni otrzymali katalog."
 
 #: src/Admin/Settings.php:192
 msgid "Roles"
@@ -184,34 +198,38 @@ msgstr "Role"
 
 #: src/Admin/Settings.php:195
 msgid "Roles the visitor rule applies to"
-msgstr ""
+msgstr "Role, do których odnosi się reguła gościa"
 
 #: src/Admin/Settings.php:205
 msgid ""
 "Tick the roles the rule applies to. Used only when the visitor rule is "
 "\"Only selected roles\" or \"Everyone except selected roles\"."
 msgstr ""
+"Zaznacz role, których dotyczy reguła. Używane tylko wtedy, gdy regułą gościa"
+" jest „Tylko wybrane role” lub „Wszyscy oprócz wybranych ról”."
 
 #: src/Admin/Settings.php:206
 msgid ""
-"Not used by the current visitor rule, choose a \"selected roles\" rule "
-"above to enable it."
+"Not used by the current visitor rule, choose a \"selected roles\" rule above"
+" to enable it."
 msgstr ""
+"Nieużywane w bieżącej regule gościa. Wybierz powyżej regułę „wybrane role”, "
+"aby ją włączyć."
 
 #: src/Admin/Settings.php:256
 msgid "default"
-msgstr ""
+msgstr "domyślny"
 
 #~ msgid ""
-#~ "Turn your store into a catalog: hide prices and/or add-to-cart, store-"
-#~ "wide or by product, category or role."
+#~ "Turn your store into a catalog: hide prices and/or add-to-cart, store-wide "
+#~ "or by product, category or role."
 #~ msgstr ""
-#~ "Zamień swój sklep w katalog: ukryj ceny i/lub przycisk dodawania do "
-#~ "koszyka — w całym sklepie albo dla wybranego produktu, kategorii lub roli."
+#~ "Zamień swój sklep w katalog: ukryj ceny i/lub przycisk dodawania do koszyka "
+#~ "— w całym sklepie albo dla wybranego produktu, kategorii lub roli."
 
 #~ msgid ""
-#~ "The master switch. When off, nothing is hidden and the catalog stylesheet "
-#~ "is not loaded."
+#~ "The master switch. When off, nothing is hidden and the catalog stylesheet is"
+#~ " not loaded."
 #~ msgstr ""
 #~ "Przełącznik główny. Po wyłączeniu nic nie jest ukrywane, a arkusz stylów "
 #~ "katalogu nie jest ładowany."
