@@ -5,54 +5,46 @@ Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Erfordert Plugins: woocommerce
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Verwandeln Sie dein Geschäft in einen Katalog: Blende den Preis, die Schaltfläche „In den Warenkorb“ oder beides aus, im gesamten Geschäft oder nur für ausgewählte Besucherrollen.
+Verwandle deinen Shop in einen Katalog: Blende den Preis, den Button „In den Warenkorb“ oder beides aus — shopweit oder nur für ausgewählte Besucherrollen.
 
 == Description ==
 
-Der Katalog verwandelt deinen WooCommerce-Shop in einen durchsuchbaren Katalog. Sie wählen
-ob der Preis, die Schaltfläche „In den Warenkorb“ oder beides ausgeblendet werden sollen und ob das so ist
-gilt für jeden Besucher oder nur für einige von ihnen. Eine gängige Einrichtung ist die Anzeige von Preisen
-an angemeldete Großhandelskunden, während sie vor allen anderen verborgen bleiben.
+Catalog verwandelt deinen WooCommerce-Shop in einen durchsuchbaren Katalog. Du entscheidest, ob der Preis, der Button „In den Warenkorb“ oder beides ausgeblendet wird und ob das für alle Besucher gilt oder nur für einige. Eine gängige Einrichtung ist, Preise eingeloggten Großhandelskunden zu zeigen und sie vor allen anderen zu verbergen.
 
-Das Ausblenden der Funktion „Zum Warenkorb hinzufügen“ bewirkt mehr als nur das Entfernen der Schaltfläche. Katalogprodukte sind ebenfalls vorhanden
-als nicht käuflich markiert, also eine vermutete „?add-to-cart=“-URL oder eine Store-API-Anfrage
-wird ein verstecktes Produkt nicht zur Kasse weiterleiten.
+Das Ausblenden von „In den Warenkorb“ ist mehr als das Entfernen des Buttons. Katalogprodukte werden auch als nicht käuflich markiert, sodass eine erratene `?add-to-cart=`-URL oder eine Store-API-Anfrage ein verstecktes Produkt nicht bis zur Kasse durchlässt.
 
-Typische Anwendungen sind Großhandels- und B2B-Shops, „Angebot anfordern“-Workflows,
-Preise gelten nur für Mitglieder und Showroom-Websites, auf denen Produkte angezeigt werden, ohne sie zu kaufen
-Bestellungen online.
+Typische Einsätze sind Großhandels- und B2B-Shops, „Angebot anfordern“-Workflows, Mitgliederpreise und Showroom-Websites, die Produkte zeigen, ohne Bestellungen online anzunehmen.
 
-Das Plugin ist Open Source. Quellcode und Fehlerberichte live auf GitHub unter
-https://github.com/wppoland/plogins-catalog.
+Das Plugin ist Open Source. Quellcode und Fehlerberichte findest du auf GitHub unter https://github.com/wppoland/plogins-catalog.
 
 = Documentation and links =
 
 * <strong>Dokumentation</strong> - https://plogins.com/de/plogins-catalog/docs/
 * <strong>Plugin-Seite</strong> - https://plogins.com/de/plogins-catalog/
-* <strong>Quellcode</strong> – https://github.com/wppoland/plogins-catalog
-* <strong>Fehlerberichte und Funktionsanfragen</strong> – https://github.com/wppoland/plogins-catalog/issues
+* <strong>Quellcode</strong> - https://github.com/wppoland/plogins-catalog
+* <strong>Fehlerberichte und Funktionswünsche</strong> - https://github.com/wppoland/plogins-catalog/issues
 
 
 = Features =
 
-* Blende den Preis, die Schaltfläche „In den Warenkorb“ oder beides aus.
+* Blende den Preis, den Button „In den Warenkorb“ oder beides aus.
 * Vier Besucherregeln: alle, nur abgemeldete Besucher, nur ausgewählte Rollen oder alle außer ausgewählten Rollen (damit Großhandelskunden Preise und Kasse behalten).
-* Optionaler Preishinweis, der anstelle des Preises angezeigt wird, z. B. „Kontaktiere uns für Preise“.
-* Gilt für einzelne Produktseiten sowie für Shop-, Kategorie- und Tag-Einträge.
-* Markiert versteckte Produkte als nicht käuflich, sodass sie nicht über direkte Warenkorb-URLs oder die Store-API gekauft werden können.
-* Einstellungsbildschirm mit Standard-WordPress-Administratorstilen, einschließlich Dunkelmodus.
-* Wird mit einer POT-Datei zur Übersetzung geliefert und entfernt deren Option bei der Deinstallation.
-* Erklärt die Kompatibilität von HPOS und Warenkorb-/Checkout-Blöcken.
+* Optionaler Preishinweis anstelle des Preises, z. B. „Kontaktiere uns für Preise“.
+* Gilt auf einzelnen Produktseiten sowie in Shop-, Kategorie- und Tag-Listen.
+* Markiert versteckte Produkte als nicht käuflich, sodass sie nicht über direkte Warenkorb-URLs oder die Store API gekauft werden können.
+* Einstellungsbildschirm in Standard-WordPress-Admin-Stilen, inklusive Dark Mode.
+* Wird mit einer POT-Datei zur Übersetzung geliefert und entfernt seine Option bei der Deinstallation.
+* Deklariert Kompatibilität mit HPOS und den Warenkorb-/Kassen-Blöcken.
 
 == Installation ==
 
-1. Lade das Plugin nach „/wp-content/plugins/catalog“ hoch oder installiere es über Plugins → Neu hinzufügen.
+1. Lade das Plugin nach `/wp-content/plugins/catalog` hoch oder installiere es über Plugins → Installieren.
 2. Aktiviere es. WooCommerce muss installiert und aktiv sein.
-3. Gehe zu <strong>WooCommerce → Katalog</strong> und wähle aus, was ausgeblendet werden soll, sowie die Besucherregel.
+3. Gehe zu <strong>WooCommerce → Catalog</strong> und wähle, was ausgeblendet werden soll, sowie die Besucherregel.
 
 == Frequently Asked Questions ==
 
@@ -62,54 +54,58 @@ Ja. WooCommerce muss installiert und aktiv sein.
 
 = Can I show prices only to logged-in or wholesale customers? =
 
-Ja. Setze die Besucherregel auf „Jeder außer ausgewählten Rollen“ und kreuze die Rollen an
-Das sollte weiterhin Preise sehen und kaufen (z. B. deine Großhandelsrolle), oder verwende „Nur“.
-„Abgemeldete Besucher“, um jedem eingeloggten Kunden Preise anzuzeigen.
+Ja. Setze die Besucherregel auf „Alle außer ausgewählten Rollen“ und aktiviere die Rollen, die weiterhin Preise sehen und kaufen sollen (z. B. deine Großhandelsrolle), oder nutze „Nur abgemeldete Besucher“, um Preise jedem eingeloggten Kunden zu zeigen.
 
 = Does it stop people buying via a direct URL? =
 
-Ja. Produkte im Katalogmodus mit ausgeblendeter Add-to-Cart-Funktion werden markiert
-nicht käuflich, daher sind auch direkte Warenkorb-URLs und die REST-API blockiert.
+Ja. Produkte im Katalogmodus mit ausgeblendetem „In den Warenkorb“ werden als nicht käuflich markiert, sodass auch direkte Warenkorb-URLs und die REST API blockiert sind.
 
 = Does catalog mode hide products from shop archives? =
 
-Nein. Produkte bleiben in den Einträgen sichtbar, es sei denn, dein Theme verbirgt sie; Der Katalog kontrolliert die Preistransparenz und die Kaufbarkeit.
+Nein. Produkte bleiben in Listen sichtbar, es sei denn, dein Theme verbirgt sie; Catalog steuert Preissichtbarkeit und Kaufbarkeit.
 
 = Can wholesale customers still see prices? =
 
-Ja. Verwende die Besucherregel, um Preise vor Gästen zu verbergen und gleichzeitig ausgewählten Rollen die Möglichkeit zu geben, Preise zu sehen und zu kaufen.
+Ja. Nutze die Besucherregel, um Preise vor Gästen zu verbergen und gleichzeitig ausgewählten Rollen Preise und Kauf zu erlauben.
 
 
 = Does this plugin work on WordPress Multisite? =
 
-Ja. Dieses Plugin ist mit WordPress Multisite kompatibel. Aktiviere es im Netzwerk oder auf einzelnen Websites. Jede Site behält ihre eigenen Einstellungen und Daten.
+Ja. Dieses Plugin ist mit WordPress Multisite kompatibel. Aktiviere es netzwerkweit oder auf einzelnen Websites; jede Website behält ihre eigenen Einstellungen und Daten.
 
 == Screenshots ==
 
-1. Der Bildschirm „Katalogeinstellungen“ unter WooCommerce.
-2. Eine Produktseite mit ausgeblendetem Preis und Add-to-Cart.
-3. Shop-Eintrag im Katalogmodus.
+1. Der Catalog-Einstellungsbildschirm unter WooCommerce.
+2. Eine Produktseite mit ausgeblendetem Preis und „In den Warenkorb“.
+3. Shop-Liste im Katalogmodus.
 
 == External Services ==
 
-Der Katalog stellt keine Verbindung zu externen Diensten her. Preis und Sichtbarkeit in den Warenkorb werden auf deinem eigenen Server anhand der Rolle des aktuellen Besuchers festgelegt, und deine Auswahl wird in einer einzigen „catalog_settings“-Option in deiner WordPress-Datenbank gespeichert (plus einer „catalog_db_version“-Markierung für Upgrades), beide werden bei der Deinstallation entfernt. Das Plugin sendet nirgendwo Daten und lädt nur seine eigenen Stylesheets, die mit dem Plugin gebündelt sind.
+Catalog stellt keine Verbindung zu externen Diensten her. Preis- und „In den Warenkorb“-Sichtbarkeit werden auf deinem eigenen Server anhand der Rolle des aktuellen Besuchers entschieden, und deine Auswahl wird in einer einzigen Option `catalog_settings` in deiner WordPress-Datenbank gespeichert (plus ein `catalog_db_version`-Marker für Upgrades), beides wird bei der Deinstallation entfernt. Das Plugin sendet keine Daten irgendwohin und lädt nur seine eigenen, mit dem Plugin gebündelten Stylesheets.
+
+== Translations ==
+
+Plogins Catalog enthält polnische, deutsche und spanische Übersetzungen für die Plugin-Oberfläche. Die Textdomain ist `plogins-catalog`, sodass Sprachpakete von WordPress.org diese mitgelieferten Übersetzungen ebenfalls überschreiben oder erweitern können.
 
 == Changelog ==
+
+= 1.0.2 =
+* Mitgelieferte polnische, deutsche und spanische Übersetzungen für die Plugin-Oberfläche hinzugefügt.
 
 = 1.0.1 =
 * Erste stabile Version.
 
 = 0.1.4 =
-* Für einen eindeutigeren Plugin-Namen in „Plogins-Katalog für WooCommerce“ umbenannt.
+* In Plogins Catalog für WooCommerce umbenannt, für einen eindeutigeren Plugin-Namen.
 
 = 0.1.3 =
-* „catalog/rule_cta“-Filter für CTA-Links pro Rolle, die vor den Add-to-Cart-Ersatzfiltern angezeigt werden.
+* Filter `catalog/rule_cta` für rollenspezifische CTA-Links, die vor den Add-to-Cart-Ersatzfiltern angezeigt werden.
 
 = 0.1.2 =
-* „catalog/add_to_cart_replacement“-Filter für Angebotsformulare oder CTA-Schaltflächen, wenn „In den Warenkorb“ ausgeblendet ist.
+* Filter `catalog/add_to_cart_replacement` für Angebotsformulare oder CTA-Buttons, wenn „In den Warenkorb“ ausgeblendet ist.
 
 = 0.1.1 =
-* Erweiterungsfilter „catalog/hide_price“, „catalog/hide_add_to_cart“ und „catalog/price_notice“ für PRO-Sichtbarkeitsregeln pro Rolle.
+* Erweiterungsfilter `catalog/hide_price`, `catalog/hide_add_to_cart` und `catalog/price_notice` für PRO-Sichtbarkeitsregeln pro Rolle.
 
 = 0.1.0 =
-* Erstveröffentlichung: Ausblenden des Preises und/oder der Add-to-Cart-Funktion im gesamten Geschäft oder nach Besucherrolle, optionale Preisbenachrichtigung, Einzel- und Auflistungsunterstützung sowie Durchsetzung nicht käuflicher Inhalte.
+* Erstveröffentlichung: Preis und/oder „In den Warenkorb“ shopweit oder nach Besucherrolle ausblenden, optionaler Preishinweis, Unterstützung für Einzelseiten und Listen sowie Durchsetzung der Nicht-Käuflichkeit.
