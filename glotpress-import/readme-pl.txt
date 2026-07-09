@@ -5,111 +5,107 @@ Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Wymaga wtyczek: woocommerce
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Zamień swój sklep w katalog: ukryj cenę, przycisk „dodaj do koszyka” lub jedno i drugie, w całym sklepie lub tylko dla wybranych ról odwiedzających.
+Zamień swój sklep w katalog: ukryj cenę, przycisk „Dodaj do koszyka” lub oba — w całym sklepie albo tylko dla wybranych ról odwiedzających.
 
 == Description ==
 
-Katalog zmienia Twój sklep WooCommerce w katalog, który można przeglądać. Ty wybierasz
-czy ukryć cenę, przycisk „dodaj do koszyka”, czy jedno i drugie, i czy to
-dotyczy każdego odwiedzającego lub tylko części z nich. Typową konfiguracją jest pokazywanie cen
-do zalogowanych klientów hurtowych, ukrywając ich przed wszystkimi innymi.
+Catalog zamienia Twój sklep WooCommerce w katalog do przeglądania. Ty decydujesz, czy ukryć cenę, przycisk „Dodaj do koszyka”, czy oba, oraz czy dotyczy to wszystkich odwiedzających, czy tylko części z nich. Typowa konfiguracja to pokazywanie cen zalogowanym klientom hurtowym i ukrywanie ich przed pozostałymi.
 
-Ukrycie dodatku do koszyka powoduje więcej niż tylko usunięcie przycisku. Produkty katalogowe też są
-oznaczony jako niemożliwy do zakupu, więc zgadnięty adres URL „?add-to-cart=” lub żądanie API Sklepu
-nie przepuści ukrytego produktu do kasy.
+Ukrycie „Dodaj do koszyka” to coś więcej niż usunięcie przycisku. Produkty w trybie katalogowym są też oznaczone jako niedostępne do zakupu, więc zgadnięty adres URL `?add-to-cart=` ani żądanie Store API nie przepchnie ukrytego produktu do kasy.
 
-Typowe zastosowania to sklepy hurtowe i B2B, przepływy pracy typu „zapytanie o wycenę”,
-ceny tylko dla członków i witryny salonów, które wyświetlają produkty bez pobierania
-zamówienia online.
+Typowe zastosowania to sklepy hurtowe i B2B, przepływy „zapytaj o wycenę”, ceny tylko dla członków oraz witryny showroomowe, które prezentują produkty bez przyjmowania zamówień online.
 
-Wtyczka jest oprogramowaniem typu open source. Kod źródłowy i raporty o błędach są dostępne na GitHubie pod adresem
-https://github.com/wppoland/plogins-catalog.
+Wtyczka jest open source. Kod źródłowy i zgłoszenia błędów znajdziesz na GitHubie: https://github.com/wppoland/plogins-catalog.
 
 = Documentation and links =
 
 * <strong>Dokumentacja</strong> - https://plogins.com/pl/plogins-catalog/docs/
 * <strong>Strona wtyczki</strong> - https://plogins.com/pl/plogins-catalog/
 * <strong>Kod źródłowy</strong> - https://github.com/wppoland/plogins-catalog
-* <strong>Raporty o błędach i prośby o nowe funkcje</strong> - https://github.com/wppoland/plogins-catalog/issues
+* <strong>Zgłoszenia błędów i propozycje funkcji</strong> - https://github.com/wppoland/plogins-catalog/issues
 
 
 = Features =
 
-* Ukryj cenę, przycisk „dodaj do koszyka” lub jedno i drugie.
-* Cztery zasady odwiedzających: wszyscy, tylko niezalogowani odwiedzający, tylko wybrane role lub wszyscy oprócz wybranych ról (aby klienci hurtowi zachowywali ceny i kasę).
-* Opcjonalna informacja o cenie wyświetlana w miejscu ceny, np. „Skontaktuj się z nami w sprawie ceny”.
-* Dotyczy stron pojedynczych produktów oraz list sklepów, kategorii i tagów.
-* Oznacza ukryte produkty, których nie można kupić, więc nie można ich kupić za pośrednictwem bezpośrednich adresów URL koszyka lub interfejsu API sklepu.
-* Ekran ustawień zbudowany ze standardowych stylów administracyjnych WordPress, w tym trybu ciemnego.
-* Dostarczany z plikiem POT do tłumaczenia i usuwa tę opcję podczas dezinstalacji.
-* Deklaruje kompatybilność HPOS i bloków koszyka/kasy.
+* Ukryj cenę, przycisk „Dodaj do koszyka” lub oba.
+* Cztery reguły dla odwiedzających: wszyscy, tylko niezalogowani, tylko wybrane role albo wszyscy oprócz wybranych ról (aby klienci hurtowi zachowali ceny i kasę).
+* Opcjonalna informacja o cenie wyświetlana zamiast ceny, np. „Skontaktuj się z nami w sprawie ceny”.
+* Działa na stronach pojedynczych produktów oraz na listach sklepu, kategorii i tagów.
+* Oznacza ukryte produkty jako niedostępne do zakupu, więc nie da się ich kupić przez bezpośrednie adresy URL koszyka ani Store API.
+* Ekran ustawień zbudowany w standardowych stylach panelu WordPress, z obsługą trybu ciemnego.
+* Dostarczany z plikiem POT do tłumaczenia; usuwa swoją opcję przy odinstalowaniu.
+* Deklaruje zgodność z HPOS oraz blokami koszyka/kasy.
 
 == Installation ==
 
-1. Prześlij wtyczkę do `/wp-content/plugins/catalog` lub zainstaluj poprzez Wtyczki → Dodaj nową.
-2. Aktywuj. WooCommerce musi być zainstalowany i aktywny.
-3. Przejdź do <strong>WooCommerce → Katalog</strong> i wybierz, co chcesz ukryć oraz regułę odwiedzania.
+1. Wgraj wtyczkę do `/wp-content/plugins/catalog` lub zainstaluj przez Wtyczki → Dodaj nową.
+2. Włącz ją. WooCommerce musi być zainstalowane i aktywne.
+3. Przejdź do <strong>WooCommerce → Catalog</strong> i wybierz, co ukryć, oraz regułę dla odwiedzających.
 
 == Frequently Asked Questions ==
 
 = Does it require WooCommerce? =
 
-Tak. WooCommerce musi być zainstalowany i aktywny.
+Tak. WooCommerce musi być zainstalowane i aktywne.
 
 = Can I show prices only to logged-in or wholesale customers? =
 
-Tak. Ustaw regułę gościa na „Wszyscy oprócz wybranych ról” i zaznacz role
-który nadal powinien widzieć ceny i kupować (np. Twoja rola jako hurtownik) lub użyć opcji „Tylko
-niezalogowani goście”, aby pokazać ceny każdemu zalogowanemu klientowi.
+Tak. Ustaw regułę odwiedzających na „Wszyscy oprócz wybranych ról” i zaznacz role, które nadal mają widzieć ceny i kupować (np. Twoją rolę hurtową), albo użyj „Tylko niezalogowani”, aby pokazywać ceny każdemu zalogowanemu klientowi.
 
 = Does it stop people buying via a direct URL? =
 
-Tak. Produkty znajdujące się w trybie katalogowym z ukrytym dodatkiem do koszyka są zaznaczone
-nie można kupić, więc bezpośrednie adresy URL koszyka i interfejs API REST również są blokowane.
+Tak. Produkty w trybie katalogowym z ukrytym „Dodaj do koszyka” są oznaczone jako niedostępne do zakupu, więc bezpośrednie adresy URL koszyka i REST API też są blokowane.
 
 = Does catalog mode hide products from shop archives? =
 
-Nie. Produkty pozostają widoczne na listach, chyba że Twój motyw je ukrywa; Katalog kontroluje widoczność cen i możliwość zakupu.
+Nie. Produkty pozostają widoczne na listach, chyba że Twój motyw je ukrywa; Catalog kontroluje widoczność cen i możliwość zakupu.
 
 = Can wholesale customers still see prices? =
 
-Tak. Użyj reguły gościa, aby ukryć ceny przed gośćmi, jednocześnie pozwalając wybranym rolom zobaczyć ceny i kupować.
+Tak. Użyj reguły odwiedzających, aby ukryć ceny przed gośćmi, a jednocześnie pozwolić wybranym rolom widzieć ceny i kupować.
 
 
 = Does this plugin work on WordPress Multisite? =
 
-Tak. Ta wtyczka jest kompatybilna z WordPress Multisite. Aktywuj go w sieci lub aktywuj na poszczególnych stronach; każda witryna przechowuje własne ustawienia i dane.
+Tak. Ta wtyczka jest zgodna z WordPress Multisite. Włącz ją dla całej sieci lub w pojedynczych witrynach; każda witryna zachowuje własne ustawienia i dane.
 
 == Screenshots ==
 
-1. Ekran ustawień katalogu w WooCommerce.
-2. Strona produktu z ukrytą ceną i dodatkiem do koszyka.
-3. Lista sklepów w trybie katalogu.
+1. Ekran ustawień Catalog w WooCommerce.
+2. Strona produktu z ukrytą ceną i przyciskiem „Dodaj do koszyka”.
+3. Lista sklepu w trybie katalogowym.
 
 == External Services ==
 
-Katalog nie łączy się z żadnymi usługami zewnętrznymi. Cena i widoczność dodatków do koszyka są ustalane na Twoim własnym serwerze na podstawie roli bieżącego gościa, a Twoje wybory są przechowywane w pojedynczej opcji „catalog_settings” w Twojej bazie danych WordPress (plus znacznik „catalog_db_version” dla aktualizacji), oba usuwane podczas dezinstalacji. Wtyczka nie wysyła nigdzie danych i ładuje tylko własne arkusze stylów dołączone do wtyczki.
+Catalog nie łączy się z żadną usługą zewnętrzną. Widoczność ceny i przycisku „Dodaj do koszyka” jest ustalana na Twoim serwerze na podstawie roli bieżącego odwiedzającego, a Twoje wybory są przechowywane w jednej opcji `catalog_settings` w bazie danych WordPress (plus znacznik `catalog_db_version` na potrzeby aktualizacji) — obie są usuwane przy odinstalowaniu. Wtyczka nie wysyła danych nigdzie poza witrynę i ładuje wyłącznie własne arkusze stylów dołączone do wtyczki.
+
+== Translations ==
+
+Plogins Catalog zawiera polskie, niemieckie i hiszpańskie tłumaczenia interfejsu wtyczki. Domena tekstowa to `plogins-catalog`, więc pakiety językowe z WordPress.org mogą również nadpisać lub rozszerzyć te dołączone tłumaczenia.
 
 == Changelog ==
+
+= 1.0.2 =
+* Dodano dołączone polskie, niemieckie i hiszpańskie tłumaczenia interfejsu wtyczki.
 
 = 1.0.1 =
 * Pierwsza stabilna wersja.
 
 = 0.1.4 =
-* Zmieniono nazwę na Katalog Plogin dla WooCommerce, aby uzyskać bardziej charakterystyczną nazwę wtyczki.
+* Zmieniono nazwę na Plogins Catalog dla WooCommerce, aby nazwa wtyczki była bardziej charakterystyczna.
 
 = 0.1.3 =
-* Filtr „katalog/rule_cta” dla linków CTA dla poszczególnych ról wyświetlanych przed filtrami zastępczymi dodawanymi do koszyka.
+* Filtr `catalog/rule_cta` dla linków CTA per rola wyświetlanych przed filtrami zastępującymi „Dodaj do koszyka”.
 
 = 0.1.2 =
-* Filtr `katalog/add_to_cart_replacement` dla formularzy wyceny lub przycisków CTA, gdy dodatek do koszyka jest ukryty.
+* Filtr `catalog/add_to_cart_replacement` dla formularzy wyceny lub przycisków CTA, gdy „Dodaj do koszyka” jest ukryte.
 
 = 0.1.1 =
-* Filtry rozszerzeń `katalog/ukryj_cena`, `katalog/ukryj_add_do_koszyka` i `katalog/powiadomienie o cenie` dla reguł widoczności PRO dla poszczególnych ról.
+* Filtry rozszerzeń `catalog/hide_price`, `catalog/hide_add_to_cart` i `catalog/price_notice` dla reguł widoczności PRO per rola.
 
 = 0.1.0 =
-* Wersja pierwsza: ukryj cenę i/lub opcję dodawania do koszyka w całym sklepie lub według roli gościa, opcjonalne powiadomienie o cenie, obsługa pojedynczych produktów i aukcji oraz egzekwowanie zasad niezwiązanych z zakupem.
+* Pierwsze wydanie: ukrywanie ceny i/lub „Dodaj do koszyka” w całym sklepie lub według roli odwiedzającego, opcjonalna informacja o cenie, obsługa stron pojedynczych i list oraz wymuszanie niedostępności do zakupu.

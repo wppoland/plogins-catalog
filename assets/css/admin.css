@@ -124,3 +124,16 @@
 		--catalog-a-muted: #a7aaad;
 	}
 }
+
+/* Accessibility: honour the OS "reduce motion" preference for this plugin UI. */
+@media (prefers-reduced-motion: reduce) {
+  [class*="catalog-"],
+  [class*="catalog-"] *,
+  [class*="catalog-"] *::before,
+  [class*="catalog-"] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
