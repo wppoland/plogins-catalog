@@ -115,16 +115,6 @@
 .catalog-form:has(#catalog_role_mode option[value="guests"]:checked) .catalog-roles-row .catalog-roles-inactive {
 	display: block;
 }
-
-@media (prefers-color-scheme: dark) {
-	.catalog-admin {
-		--catalog-a-accent: #d8a23e; /* lifted brass — 7.27:1 on the #1e1e1e dark card */
-		--catalog-a-card-bg: #1e1e1e;
-		--catalog-a-card-border: #3c434a;
-		--catalog-a-muted: #a7aaad;
-	}
-}
-
 /* Accessibility: honour the OS "reduce motion" preference for this plugin UI. */
 @media (prefers-reduced-motion: reduce) {
   [class*="catalog-"],
