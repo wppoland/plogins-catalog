@@ -285,7 +285,7 @@ msgstr "Co dodaje %s"
 #~ "wide or by product, category or role."
 #~ msgstr ""
 #~ "Zamień swój sklep w katalog: ukryj ceny i/lub przycisk dodawania do "
-#~ "koszyka — w całym sklepie albo dla wybranego produktu, kategorii lub roli."
+#~ "koszyka, w całym sklepie albo dla wybranego produktu, kategorii lub roli."
 
 #~ msgid ""
 #~ "The master switch. When off, nothing is hidden and the catalog stylesheet "
