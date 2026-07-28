@@ -4,18 +4,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Plogins Catalog for WooCommerce 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/catalog\n"
-"POT-Creation-Date: 2026-06-16T20:24:30+00:00\n"
+"POT-Creation-Date: 2026-06-18T09:05:45+00:00\n"
 "PO-Revision-Date: 2026-06-15 00:00+0000\n"
-"Last-Translator: WPPoland <hello@plogins.com>\n"
-"Language-Team: Polish <pl_PL@li.org>\n"
+"Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
+"Language-Team: Polish <pl@li.org>\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
 "|| n%100>14) ? 1 : 2);\n"
-"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: plogins-catalog\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
 #: plogins-catalog.php
@@ -33,6 +33,8 @@ msgid ""
 "Turn your store into a catalog: hide prices and/or add-to-cart, store-wide "
 "or only for selected visitor roles."
 msgstr ""
+"Zamień swój sklep w katalog: ukryj ceny i/lub dodaj do koszyka, w całym "
+"sklepie lub tylko dla wybranych ról odwiedzających."
 
 #. Author of the plugin
 #: plogins-catalog.php
@@ -92,6 +94,8 @@ msgid ""
 "The master switch. When off, nothing is hidden and the catalog stylesheet is "
 "not loaded, your store sells as normal."
 msgstr ""
+"Główny wyłącznik. Gdy opcja jest wyłączona, nic nie jest ukryte, a arkusz "
+"stylów katalogu nie jest ładowany, Twój sklep sprzedaje się normalnie."
 
 #: src/Admin/Settings.php:142
 msgid "Hide the price"
@@ -139,6 +143,9 @@ msgid ""
 "storefront. Leave blank to show nothing. Only applies when \"Hide the "
 "price\" is on."
 msgstr ""
+"Pokazywany zamiast ukrytej ceny, stylizowany na małą mosiężną tabliczkę na "
+"witrynie sklepu. Pozostaw puste, aby nic nie pokazywać. Ma zastosowanie "
+"tylko wtedy, gdy włączona jest opcja „Ukryj cenę”."
 
 #: src/Admin/Settings.php:159
 msgid "Who it applies to"
@@ -170,6 +177,10 @@ msgid ""
 "all visitors. Only logged-out visitors lets members see prices once they "
 "sign in. The two \"selected roles\" rules use the role list below."
 msgstr ""
+"Wybierz, dla kogo tryb katalogu ukrywa ceny i zakupy. Każdy stosuje to do "
+"wszystkich odwiedzających. Tylko niezalogowani goście pozwalają członkom "
+"zobaczyć ceny po zalogowaniu. Dwie reguły „wybranych ról” korzystają z "
+"poniższej listy ról."
 
 #: src/Admin/Settings.php:187
 msgid ""
@@ -177,6 +188,9 @@ msgid ""
 "wholesale role so those customers still see prices and can buy, while "
 "everyone else gets the catalog."
 msgstr ""
+"Wskazówka dotycząca sprzedaży hurtowej: wybierz „Wszyscy oprócz wybranych "
+"ról” i zaznacz swoją rolę hurtową, aby ci klienci nadal widzieli ceny i "
+"mogli kupować, podczas gdy wszyscy inni otrzymali katalog."
 
 #: src/Admin/Settings.php:192
 msgid "Roles"
@@ -184,30 +198,94 @@ msgstr "Role"
 
 #: src/Admin/Settings.php:195
 msgid "Roles the visitor rule applies to"
-msgstr ""
+msgstr "Role, do których odnosi się reguła gościa"
 
 #: src/Admin/Settings.php:205
 msgid ""
 "Tick the roles the rule applies to. Used only when the visitor rule is "
 "\"Only selected roles\" or \"Everyone except selected roles\"."
 msgstr ""
+"Zaznacz role, których dotyczy reguła. Używane tylko wtedy, gdy regułą gościa "
+"jest „Tylko wybrane role” lub „Wszyscy oprócz wybranych ról”."
 
 #: src/Admin/Settings.php:206
 msgid ""
-"Not used by the current visitor rule, choose a \"selected roles\" rule "
-"above to enable it."
+"Not used by the current visitor rule, choose a \"selected roles\" rule above "
+"to enable it."
 msgstr ""
+"Nieużywane w bieżącej regule gościa. Wybierz powyżej regułę „wybrane role”, "
+"aby ją włączyć."
 
 #: src/Admin/Settings.php:256
 msgid "default"
-msgstr ""
+msgstr "domyślny"
+
+#: src/Admin/ProUpsell.php:78
+msgid "Wkrótce"
+msgstr "Wkrótce"
+
+#: src/Admin/ProUpsell.php:78
+msgid "Coming soon"
+msgstr "Wkrótce"
+
+#. translators: %d: yearly price in PLN
+#: src/Admin/ProUpsell.php:83
+#, php-format
+msgid "od %d zł/rok"
+msgstr "od %d zł/rok"
+
+#. translators: 1: currency symbol, 2: yearly price
+#: src/Admin/ProUpsell.php:88
+#, php-format
+msgid "from %1$s%2$d/yr"
+msgstr "od %1$s%2$d/rok"
+
+#: src/Admin/ProUpsell.php:97
+msgid "Upgrade to PRO"
+msgstr "Przejdź na PRO"
+
+#: src/Admin/ProUpsell.php:98
+msgid "Powiadom mnie"
+msgstr "Powiadom mnie"
+
+#: src/Admin/ProUpsell.php:98
+msgid "Get notified"
+msgstr "Powiadom mnie"
+
+#: src/Admin/ProUpsell.php:128
+msgid "Permission denied."
+msgstr "Brak uprawnień."
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:158
+#, php-format
+msgid "Do more with %s"
+msgstr "Zrób więcej dzięki %s"
+
+#: src/Admin/ProUpsell.php:165
+msgid "Dismiss this notice"
+msgstr "Odrzuć to powiadomienie"
+
+#: src/Admin/ProUpsell.php:182
+msgid "Unlock every PRO feature"
+msgstr "Odblokuj wszystkie funkcje PRO"
+
+#: src/Admin/ProUpsell.php:195
+msgid "one licence, every PRO feature"
+msgstr "jedna licencja, wszystkie funkcje PRO"
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:214
+#, php-format
+msgid "What %s adds"
+msgstr "Co dodaje %s"
 
 #~ msgid ""
 #~ "Turn your store into a catalog: hide prices and/or add-to-cart, store-"
 #~ "wide or by product, category or role."
 #~ msgstr ""
 #~ "Zamień swój sklep w katalog: ukryj ceny i/lub przycisk dodawania do "
-#~ "koszyka — w całym sklepie albo dla wybranego produktu, kategorii lub roli."
+#~ "koszyka, w całym sklepie albo dla wybranego produktu, kategorii lub roli."
 
 #~ msgid ""
 #~ "The master switch. When off, nothing is hidden and the catalog stylesheet "
