@@ -1,9 +1,9 @@
 /**
- * Catalog — storefront styles.
+ * Catalog, storefront styles.
  *
  * The single shopper-facing moment: where a price would be, catalog mode shows
  * a notice ("Contact us for pricing"). We render it as a small "price on
- * request" placard — the kind you meet in a showroom or atelier where the
+ * request" placard, the kind you meet in a showroom or atelier where the
  * goods aren't tagged with numbers and the answer is "ask us".
  *
  * Grounding: a stamped brass placard. The accent is a warm brass/ochre, not a
@@ -11,14 +11,14 @@
  * theme-inheriting fallbacks so a store can retint it in one place.
  *
  * The one earned micro-interaction: on first paint the brass keyline wipes in
- * once, left to right, as if the placard were just stamped — then rests. No
+ * once, left to right, as if the placard were just stamped, then rests. No
  * layout shift (inline-flex, no absolute positioning that reflows), and the
  * motion is gated behind prefers-reduced-motion.
  */
 
 .catalog-price-notice {
 	/* Themeable tokens with theme-inheriting fallbacks. */
-	--catalog-notice-accent: #9c6d18; /* deepened brass placard — clears WCAG AA (>=3:1) as a keyline */
+	--catalog-notice-accent: #9c6d18; /* deepened brass placard, clears WCAG AA (>=3:1) as a keyline */
 	--catalog-notice-ink: currentColor; /* inherits the theme's price text colour */
 	--catalog-notice-radius: 0.4em;
 	--catalog-notice-pad-block: 0.32em;
@@ -34,7 +34,7 @@
 	line-height: 1.2;
 	color: var(--catalog-notice-ink);
 	background: var(--catalog-notice-field);
-	/* The brass keyline is the placard's edge — full-strength accent so the
+	/* The brass keyline is the placard's edge, full-strength accent so the
 	   boundary clears WCAG AA (>=3:1); a transparent mix here diluted it below. */
 	border: 1px solid var(--catalog-notice-accent);
 	border-radius: var(--catalog-notice-radius);
@@ -49,7 +49,7 @@
 	);
 }
 
-/* The stamped seal dot — a small brass bead, grounds the accent without a heavy
+/* The stamped seal dot, a small brass bead, grounds the accent without a heavy
    chip. Decorative, hidden from assistive tech. */
 .catalog-price-notice::before {
 	content: "";

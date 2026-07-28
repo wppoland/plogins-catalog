@@ -5,7 +5,7 @@
  * The plugin ships enabled and hiding both the price and the add-to-cart button
  * store-wide, so activating it immediately turns the store into a browsable
  * catalog. The merchant then chooses which elements to hide and (optionally)
- * restricts catalog mode to specific roles — for example, exempting a wholesale
+ * restricts catalog mode to specific roles, for example, exempting a wholesale
  * role so those customers still see prices and can buy.
  *
  * @package Catalog

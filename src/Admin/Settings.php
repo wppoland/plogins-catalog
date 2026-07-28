@@ -130,7 +130,6 @@ final class Settings implements HasHooks
                 </div>
             </div>
 
-            <div class="catalog-cols">
             <form class="catalog-form" method="post" action="options.php">
                 <?php settings_fields(self::PAGE); ?>
 
@@ -225,9 +224,6 @@ final class Settings implements HasHooks
                 <?php submit_button(); ?>
             </form>
 
-                <?php $this->proUpsell()->aside(); ?>
-            </div>
-
             <?php $this->proUpsell()->cards(); ?>
         </div>
         <?php
@@ -260,7 +256,7 @@ final class Settings implements HasHooks
 
     /**
      * Render a quiet "(default)" pill next to a control whose shipped default is
-     * the given on-state. Presentation only — it reflects the packaged default,
+     * the given on-state. Presentation only, it reflects the packaged default,
      * never the saved value, so merchants can see the zero-config starting point.
      */
     private function defaultHint(bool $isDefault): void
