@@ -11,7 +11,7 @@ defined('ABSPATH') || exit;
 /**
  * Storefront catalog behaviour.
  *
- * Decides — per current user — whether catalog mode applies, then hides the
+ * Decides, per current user, whether catalog mode applies, then hides the
  * price and/or the add-to-cart button on single product pages and in
  * shop/category/related loops. The decision combines the master switch with the
  * role rule (everyone / guests / specific roles / except roles), letting a store
@@ -58,7 +58,7 @@ final class CatalogMode implements HasHooks
          * Filters whether catalog mode applies for the current visitor.
          *
          * Add-ons (e.g. Catalog Pro's scheduled windows) can force catalog
-         * mode off — or leave the FREE decision untouched — by returning a
+         * mode off, or leave the FREE decision untouched, by returning a
          * boolean here. Runs on every price/add-to-cart decision.
          *
          * @param bool $applies Whether the FREE plugin decided catalog mode applies.

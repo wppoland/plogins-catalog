@@ -9,7 +9,7 @@ Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Zamień swój sklep w katalog: ukryj cenę, przycisk „Dodaj do koszyka” lub oba — w całym sklepie albo tylko dla wybranych ról odwiedzających.
+Zamień swój sklep w katalog: ukryj cenę, przycisk „Dodaj do koszyka” lub oba, w całym sklepie albo tylko dla wybranych ról odwiedzających.
 
 == Description ==
 
@@ -81,7 +81,7 @@ Tak. Ta wtyczka jest zgodna z WordPress Multisite. Włącz ją dla całej sieci 
 
 == External Services ==
 
-Catalog nie łączy się z żadną usługą zewnętrzną. Widoczność ceny i przycisku „Dodaj do koszyka” jest ustalana na Twoim serwerze na podstawie roli bieżącego odwiedzającego, a Twoje wybory są przechowywane w jednej opcji `catalog_settings` w bazie danych WordPress (plus znacznik `catalog_db_version` na potrzeby aktualizacji) — obie są usuwane przy odinstalowaniu. Wtyczka nie wysyła danych nigdzie poza witrynę i ładuje wyłącznie własne arkusze stylów dołączone do wtyczki.
+Catalog nie łączy się z żadną usługą zewnętrzną. Widoczność ceny i przycisku „Dodaj do koszyka” jest ustalana na Twoim serwerze na podstawie roli bieżącego odwiedzającego, a Twoje wybory są przechowywane w jednej opcji `catalog_settings` w bazie danych WordPress (plus znacznik `catalog_db_version` na potrzeby aktualizacji), obie są usuwane przy odinstalowaniu. Wtyczka nie wysyła danych nigdzie poza witrynę i ładuje wyłącznie własne arkusze stylów dołączone do wtyczki.
 
 == Translations ==
 

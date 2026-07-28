@@ -1,12 +1,12 @@
 /**
- * Catalog — admin settings screen.
+ * Catalog, admin settings screen.
  *
  * A polished, themeable layer on top of the WordPress settings UI. Tokens live
  * under --catalog-a-* so the look can be tuned in one place. Colours adapt to
  * the admin colour scheme via prefers-color-scheme.
  *
- * The one distinctive touch is the brass keyline — the same warm placard accent
- * the storefront "price on request" notice uses — so admin and storefront read
+ * The one distinctive touch is the brass keyline, the same warm placard accent
+ * the storefront "price on request" notice uses, so admin and storefront read
  * as one family. The admin brass is deepened to #8a6012 so it clears WCAG AA as
  * text on BOTH wp-admin surfaces it can sit on: 5.58:1 on the #fff card and
  * 4.90:1 on the #f0f0f1 body. As a keyline (a UI element, 3:1 floor) it is well
@@ -14,7 +14,7 @@
  */
 
 .catalog-admin {
-	--catalog-a-accent: #8a6012; /* deepened storefront brass — clears AA text on #fff (5.58:1) and #f0f0f1 (4.90:1) */
+	--catalog-a-accent: #8a6012; /* deepened storefront brass, clears AA text on #fff (5.58:1) and #f0f0f1 (4.90:1) */
 	--catalog-a-radius: 10px;
 	--catalog-a-gap: clamp(1rem, 2vw, 1.5rem);
 	--catalog-a-card-bg: #fff;
@@ -71,7 +71,7 @@
 	margin-block-start: 0.5rem;
 }
 
-/* "(default)" hint — quiet, so the merchant can see the shipped state without
+/* "(default)" hint, quiet, so the merchant can see the shipped state without
    it competing with the control label. */
 .catalog-default {
 	margin-inline-start: 0.4rem;
@@ -116,7 +116,7 @@
 	display: block;
 }
 /* ------------------------------------------------------------------ *
- * PRO upsell — dismissible banner, sidebar promo, "what PRO adds"
+ * PRO upsell, dismissible banner, sidebar promo, "what PRO adds"
  * locked cards. Pure advertising (no disabled inputs), scoped entirely to
  * .catalog-admin so nothing leaks into the rest of wp-admin. Reuses the
  * family brass accent (--catalog-a-accent #8a6012, AA as white-on-brass 5.58:1)
