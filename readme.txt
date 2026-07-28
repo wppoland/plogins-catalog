@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,9 @@ Catalog does not connect to any external services. Price and add-to-cart visibil
 Plogins Catalog includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-catalog`, so WordPress.org language packs can also override or extend these bundled translations.
 
 == Changelog ==
+
+= 1.0.4 =
+* Translations: completed Polish, German and Spanish for the PRO upgrade panel.
 
 = 1.0.3 =
 * Fixed low-contrast admin headings under an OS dark-mode preference.

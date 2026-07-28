@@ -26,7 +26,9 @@ msgstr ""
 
 #. Description of the plugin
 #: plogins-catalog.php
-msgid "Turn your store into a catalog: hide prices and/or add-to-cart, store-wide or only for selected visitor roles."
+msgid ""
+"Turn your store into a catalog: hide prices and/or add-to-cart, store-wide "
+"or only for selected visitor roles."
 msgstr ""
 
 #. Author of the plugin
@@ -40,7 +42,8 @@ msgid "https://plogins.com/"
 msgstr ""
 
 #: plogins-catalog.php:47
-msgid "Catalog - Catalog Mode for WooCommerce requires WooCommerce to be active."
+msgid ""
+"Catalog - Catalog Mode for WooCommerce requires WooCommerce to be active."
 msgstr ""
 
 #: src/Admin/Settings.php:50
@@ -60,7 +63,9 @@ msgid "Turn your store into a catalog"
 msgstr ""
 
 #: src/Admin/Settings.php:118
-msgid "Hide prices and/or the add-to-cart button across your store, or only for certain visitors (for example, show prices to logged-in wholesale customers)."
+msgid ""
+"Hide prices and/or the add-to-cart button across your store, or only for "
+"certain visitors (for example, show prices to logged-in wholesale customers)."
 msgstr ""
 
 #: src/Admin/Settings.php:127
@@ -76,7 +81,9 @@ msgid "Apply catalog mode on the storefront."
 msgstr ""
 
 #: src/Admin/Settings.php:138
-msgid "The master switch. When off, nothing is hidden and the catalog stylesheet is not loaded, your store sells as normal."
+msgid ""
+"The master switch. When off, nothing is hidden and the catalog stylesheet is "
+"not loaded, your store sells as normal."
 msgstr ""
 
 #: src/Admin/Settings.php:142
@@ -88,7 +95,9 @@ msgid "Remove the price from catalog products."
 msgstr ""
 
 #: src/Admin/Settings.php:142
-msgid "Removes the price wherever WooCommerce would print it. Optionally show a notice such as \"Contact us for pricing\" below."
+msgid ""
+"Removes the price wherever WooCommerce would print it. Optionally show a "
+"notice such as \"Contact us for pricing\" below."
 msgstr ""
 
 #: src/Admin/Settings.php:143
@@ -100,7 +109,9 @@ msgid "Remove the add-to-cart button and block purchasing."
 msgstr ""
 
 #: src/Admin/Settings.php:143
-msgid "Removes the add-to-cart button on product pages and listings, and prevents catalog products from being purchased server-side."
+msgid ""
+"Removes the add-to-cart button on product pages and listings, and prevents "
+"catalog products from being purchased server-side."
 msgstr ""
 
 #: src/Admin/Settings.php:147
@@ -112,7 +123,10 @@ msgid "e.g. Contact us for pricing"
 msgstr ""
 
 #: src/Admin/Settings.php:151
-msgid "Shown in place of the hidden price, styled as a small brass placard on the storefront. Leave blank to show nothing. Only applies when \"Hide the price\" is on."
+msgid ""
+"Shown in place of the hidden price, styled as a small brass placard on the "
+"storefront. Leave blank to show nothing. Only applies when \"Hide the "
+"price\" is on."
 msgstr ""
 
 #: src/Admin/Settings.php:159
@@ -140,11 +154,17 @@ msgid "Everyone except selected roles"
 msgstr ""
 
 #: src/Admin/Settings.php:185
-msgid "Choose who catalog mode hides prices and buying from. Everyone applies it to all visitors. Only logged-out visitors lets members see prices once they sign in. The two \"selected roles\" rules use the role list below."
+msgid ""
+"Choose who catalog mode hides prices and buying from. Everyone applies it to "
+"all visitors. Only logged-out visitors lets members see prices once they "
+"sign in. The two \"selected roles\" rules use the role list below."
 msgstr ""
 
 #: src/Admin/Settings.php:187
-msgid "Wholesale tip: pick \"Everyone except selected roles\" and tick your wholesale role so those customers still see prices and can buy, while everyone else gets the catalog."
+msgid ""
+"Wholesale tip: pick \"Everyone except selected roles\" and tick your "
+"wholesale role so those customers still see prices and can buy, while "
+"everyone else gets the catalog."
 msgstr ""
 
 #: src/Admin/Settings.php:192
@@ -156,13 +176,77 @@ msgid "Roles the visitor rule applies to"
 msgstr ""
 
 #: src/Admin/Settings.php:205
-msgid "Tick the roles the rule applies to. Used only when the visitor rule is \"Only selected roles\" or \"Everyone except selected roles\"."
+msgid ""
+"Tick the roles the rule applies to. Used only when the visitor rule is "
+"\"Only selected roles\" or \"Everyone except selected roles\"."
 msgstr ""
 
 #: src/Admin/Settings.php:206
-msgid "Not used by the current visitor rule, choose a \"selected roles\" rule above to enable it."
+msgid ""
+"Not used by the current visitor rule, choose a \"selected roles\" rule above "
+"to enable it."
 msgstr ""
 
 #: src/Admin/Settings.php:256
 msgid "default"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:78
+msgid "Wkrótce"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:78
+msgid "Coming soon"
+msgstr ""
+
+#. translators: %d: yearly price in PLN
+#: src/Admin/ProUpsell.php:83
+#, php-format
+msgid "od %d zł/rok"
+msgstr ""
+
+#. translators: 1: currency symbol, 2: yearly price
+#: src/Admin/ProUpsell.php:88
+#, php-format
+msgid "from %1$s%2$d/yr"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:97
+msgid "Upgrade to PRO"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:98
+msgid "Powiadom mnie"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:98
+msgid "Get notified"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:128
+msgid "Permission denied."
+msgstr ""
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:158
+#, php-format
+msgid "Do more with %s"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:165
+msgid "Dismiss this notice"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:182
+msgid "Unlock every PRO feature"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:195
+msgid "one licence, every PRO feature"
+msgstr ""
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:214
+#, php-format
+msgid "What %s adds"
 msgstr ""

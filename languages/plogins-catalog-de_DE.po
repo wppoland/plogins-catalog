@@ -50,8 +50,8 @@ msgstr "https://plogins.com/"
 msgid ""
 "Catalog - Catalog Mode for WooCommerce requires WooCommerce to be active."
 msgstr ""
-"Katalog – Der Katalogmodus für WooCommerce erfordert, dass WooCommerce aktiv"
-" ist."
+"Katalog – Der Katalogmodus für WooCommerce erfordert, dass WooCommerce aktiv "
+"ist."
 
 #: src/Admin/Settings.php:50
 msgid "Settings"
@@ -72,8 +72,7 @@ msgstr "Verwandle deinen Shop in einen Katalog"
 #: src/Admin/Settings.php:118
 msgid ""
 "Hide prices and/or the add-to-cart button across your store, or only for "
-"certain visitors (for example, show prices to logged-in wholesale "
-"customers)."
+"certain visitors (for example, show prices to logged-in wholesale customers)."
 msgstr ""
 "Blende Preise und/oder die Schaltfläche „In den Warenkorb“ in deinem "
 "gesamten Shop oder nur für bestimmte Besucher aus (zeige beispielsweise "
@@ -93,8 +92,8 @@ msgstr "Wende den Katalogmodus auf der Storefront an."
 
 #: src/Admin/Settings.php:138
 msgid ""
-"The master switch. When off, nothing is hidden and the catalog stylesheet is"
-" not loaded, your store sells as normal."
+"The master switch. When off, nothing is hidden and the catalog stylesheet is "
+"not loaded, your store sells as normal."
 msgstr ""
 "Der Hauptschalter. Wenn diese Option deaktiviert ist, wird nichts "
 "ausgeblendet und das Katalog-Stylesheet wird nicht geladen. dein Shop "
@@ -114,8 +113,7 @@ msgid ""
 "notice such as \"Contact us for pricing\" below."
 msgstr ""
 "Entfernt den Preis überall dort, wo WooCommerce ihn drucken würde. Zeige "
-"optional unten einen Hinweis wie „Kontaktiere uns für Preisinformationen“ "
-"an."
+"optional unten einen Hinweis wie „Kontaktiere uns für Preisinformationen“ an."
 
 #: src/Admin/Settings.php:143
 msgid "Hide add-to-cart"
@@ -178,8 +176,8 @@ msgstr "Alle außer ausgewählten Rollen"
 
 #: src/Admin/Settings.php:185
 msgid ""
-"Choose who catalog mode hides prices and buying from. Everyone applies it to"
-" all visitors. Only logged-out visitors lets members see prices once they "
+"Choose who catalog mode hides prices and buying from. Everyone applies it to "
+"all visitors. Only logged-out visitors lets members see prices once they "
 "sign in. The two \"selected roles\" rules use the role list below."
 msgstr ""
 "Wähle aus, bei wem im Katalogmodus Preise und Einkäufe ausgeblendet werden. "
@@ -216,8 +214,8 @@ msgstr ""
 
 #: src/Admin/Settings.php:206
 msgid ""
-"Not used by the current visitor rule, choose a \"selected roles\" rule above"
-" to enable it."
+"Not used by the current visitor rule, choose a \"selected roles\" rule above "
+"to enable it."
 msgstr ""
 "Wird von der aktuellen Besucherregel nicht verwendet. Wähle oben eine "
 "„Ausgewählte Rollen“-Regel aus, um sie zu aktivieren."
@@ -225,3 +223,63 @@ msgstr ""
 #: src/Admin/Settings.php:256
 msgid "default"
 msgstr "Standard"
+
+#: src/Admin/ProUpsell.php:78
+msgid "Wkrótce"
+msgstr "Demnächst"
+
+#: src/Admin/ProUpsell.php:78
+msgid "Coming soon"
+msgstr "Demnächst"
+
+#. translators: %d: yearly price in PLN
+#: src/Admin/ProUpsell.php:83
+#, php-format
+msgid "od %d zł/rok"
+msgstr "ab %d zł/Jahr"
+
+#. translators: 1: currency symbol, 2: yearly price
+#: src/Admin/ProUpsell.php:88
+#, php-format
+msgid "from %1$s%2$d/yr"
+msgstr "ab %1$s%2$d/Jahr"
+
+#: src/Admin/ProUpsell.php:97
+msgid "Upgrade to PRO"
+msgstr "Auf PRO upgraden"
+
+#: src/Admin/ProUpsell.php:98
+msgid "Powiadom mnie"
+msgstr "Benachrichtige mich"
+
+#: src/Admin/ProUpsell.php:98
+msgid "Get notified"
+msgstr "Benachrichtige mich"
+
+#: src/Admin/ProUpsell.php:128
+msgid "Permission denied."
+msgstr "Zugriff verweigert."
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:158
+#, php-format
+msgid "Do more with %s"
+msgstr "Mehr erreichen mit %s"
+
+#: src/Admin/ProUpsell.php:165
+msgid "Dismiss this notice"
+msgstr "Diesen Hinweis ausblenden"
+
+#: src/Admin/ProUpsell.php:182
+msgid "Unlock every PRO feature"
+msgstr "Alle PRO-Funktionen freischalten"
+
+#: src/Admin/ProUpsell.php:195
+msgid "one licence, every PRO feature"
+msgstr "eine Lizenz, alle PRO-Funktionen"
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:214
+#, php-format
+msgid "What %s adds"
+msgstr "Was %s ergänzt"
