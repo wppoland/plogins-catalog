@@ -116,8 +116,10 @@ final class CatalogMode implements HasHooks
             return;
         }
 
-        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- trusted HTML from catalog/add_to_cart_replacement filters.
-        echo $this->singleReplacement;
+        // The old note called this trusted HTML, which nothing enforced: the value
+        // comes from a public filter. wp_kses_post allows everything a replacement
+        // block legitimately needs and drops scripts, so the contract survives.
+        echo wp_kses_post($this->singleReplacement);
     }
 
     /**
