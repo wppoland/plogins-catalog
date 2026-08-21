@@ -27,14 +27,14 @@ members-only pricing, and showroom sites that display products without taking
 orders online.
 
 The plugin is open source. Source code and bug reports live on GitHub at
-https://github.com/wppoland/plogins-catalog.
+[github.com/wppoland/plogins-catalog](https://github.com/wppoland/plogins-catalog).
 
 = Documentation and links =
 
-* **Documentation** - https://plogins.com/plogins-catalog/docs/
-* **Plugin page** - https://plogins.com/plogins-catalog/
-* **Source code** - https://github.com/wppoland/plogins-catalog
-* **Bug reports and feature requests** - https://github.com/wppoland/plogins-catalog/issues
+* **Documentation**: [plogins.com/plogins-catalog/docs/](https://plogins.com/plogins-catalog/docs/)
+* **Plugin page**: [plogins.com/plogins-catalog/](https://plogins.com/plogins-catalog/)
+* **Source code**: [github.com/wppoland/plogins-catalog](https://github.com/wppoland/plogins-catalog)
+* **Bug reports and feature requests**: [github.com/wppoland/plogins-catalog/issues](https://github.com/wppoland/plogins-catalog/issues)
 
 
 = Features =
