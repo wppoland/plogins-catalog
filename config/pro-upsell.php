@@ -15,7 +15,6 @@ return [
     'sellable'   => true,
     'price_from' => 29,
     'currency'   => 'EUR',
-    'price_pln'  => 129,
     'lead'       => [
         'en' => 'Catalog Pro is feature-complete: scheduled windows, per-role visibility, quote forms and per-rule CTA buttons.',
         'pl' => 'Catalog Pro jest feature-complete: harmonogram, widoczność per rola, formularz wyceny i CTA per reguła.',
