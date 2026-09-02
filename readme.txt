@@ -44,7 +44,7 @@ The plugin is open source. Source code and bug reports live on GitHub at
 * Optional price notice shown in place of the price, such as "Contact us for pricing".
 * Applies on single product pages and on shop, category, and tag listings.
 * Marks hidden products non-purchasable, so they can't be bought through direct cart URLs or the Store API.
-* Settings screen built with standard WordPress admin styles, including dark mode.
+* Settings screen built with standard WordPress admin styles.
 * Ships with a POT file for translation and removes its option on uninstall.
 * Declares HPOS and cart/checkout blocks compatibility.
 
