@@ -18,8 +18,8 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: plogins-catalog.php
-msgid "Catalog - Catalog Mode for WooCommerce"
-msgstr "Katalog, Katalogmodus für WooCommerce"
+msgid "Plogins Catalog - Catalog Mode for WooCommerce"
+msgstr "Plogins Katalog, Katalogmodus für WooCommerce"
 
 #. Plugin URI of the plugin
 #: plogins-catalog.php
@@ -48,9 +48,11 @@ msgstr "https://plogins.com/"
 
 #: plogins-catalog.php:47
 msgid ""
-"Catalog - Catalog Mode for WooCommerce requires WooCommerce to be active."
+"Plogins Catalog - Catalog Mode for WooCommerce requires WooCommerce to be "
+"active."
 msgstr ""
-"Katalog, Der Katalogmodus für WooCommerce erfordert, dass WooCommerce aktiv "
+"Plogins Katalog, Der Katalogmodus für WooCommerce erfordert, dass WooCommerce "
+"aktiv "
 "ist."
 
 #: src/Admin/Settings.php:50
