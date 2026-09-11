@@ -42,9 +42,9 @@ Das Plugin ist Open Source. Quellcode und Fehlerberichte findest du auf GitHub u
 
 == Installation ==
 
-1. Lade das Plugin nach `/wp-content/plugins/catalog` hoch oder installiere es über Plugins → Installieren.
+1. Lade das Plugin nach `/wp-content/plugins/catalog` hoch oder installiere es über Plugins > Installieren.
 2. Aktiviere es. WooCommerce muss installiert und aktiv sein.
-3. Gehe zu <strong>WooCommerce → Catalog</strong> und wähle, was ausgeblendet werden soll, sowie die Besucherregel.
+3. Gehe zu <strong>WooCommerce > Catalog</strong> und wähle, was ausgeblendet werden soll, sowie die Besucherregel.
 
 == Frequently Asked Questions ==
 

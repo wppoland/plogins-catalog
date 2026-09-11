@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.10
+Stable tag: 1.0.11
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,9 +50,9 @@ The plugin is open source. Source code and bug reports live on GitHub at
 
 == Installation ==
 
-1. Upload the plugin to `/wp-content/plugins/catalog`, or install via Plugins → Add New.
+1. Upload the plugin to `/wp-content/plugins/catalog`, or install via Plugins > Add New.
 2. Activate it. WooCommerce must be installed and active.
-3. Go to **WooCommerce → Catalog** and choose what to hide and the visitor rule.
+3. Go to **WooCommerce > Catalog** and choose what to hide and the visitor rule.
 
 == Frequently Asked Questions ==
 
@@ -99,6 +99,10 @@ Catalog does not connect to any external services. Price and add-to-cart visibil
 Plogins Catalog is fully translatable and ships the `plogins-catalog.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.0.11 =
+* Fixed: the PRO upgrade promo kept selling to people who had already bought the paid edition. Only the banner could be dismissed, so the sidebar promo and the locked feature cards followed a paying customer around for good. The promo now checks whether the paid edition is active and steps aside when it is.
+* Fixed: arrow glyphs in the admin menu paths, and in the strings handed to translators. An arrow inside a translatable string makes the glyph every translator's problem and changes the layout in any locale that drops it.
 
 = 1.0.10 =
 * Fixed: deleting the plugin left the per-user "dismiss" flag from the PRO notice in the database. Uninstall now removes it for every user, not just the one who dismissed it.
