@@ -10,7 +10,7 @@ use Catalog\Service\Settings as SettingsStore;
 defined('ABSPATH') || exit;
 
 /**
- * Admin settings page registered as a WooCommerce submenu ("WooCommerce →
+ * Admin settings page registered as a WooCommerce submenu ("WooCommerce >
  * Catalog"). Stores everything in the `catalog_settings` option (array): what to
  * hide (price / add-to-cart), an optional price notice, and the role rule
  * (everyone / guests / specific roles / except roles). All output is escaped;

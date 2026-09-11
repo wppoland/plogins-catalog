@@ -42,9 +42,9 @@ El plugin es de código abierto. El código fuente y los informes de errores est
 
 == Installation ==
 
-1. Sube el plugin a `/wp-content/plugins/catalog` o instálalo desde Plugins → Añadir nuevo.
+1. Sube el plugin a `/wp-content/plugins/catalog` o instálalo desde Plugins > Añadir nuevo.
 2. Actívalo. WooCommerce debe estar instalado y activo.
-3. Ve a <strong>WooCommerce → Catalog</strong> y elige qué ocultar y la regla de visitante.
+3. Ve a <strong>WooCommerce > Catalog</strong> y elige qué ocultar y la regla de visitante.
 
 == Frequently Asked Questions ==
 
