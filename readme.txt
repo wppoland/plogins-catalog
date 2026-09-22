@@ -1,11 +1,11 @@
-=== Plogins Catalog - Catalog Mode for WooCommerce ===
+=== Vitrino - Catalog Mode for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, catalog mode, hide price, hide add to cart, request a quote
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.11
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Turn your store into a catalog: hide the price, the add-to-cart button, or both,
 
 == Description ==
 
-Catalog turns your WooCommerce store into a browsable catalog. You choose
+Vitrino turns your WooCommerce store into a browsable catalog. You choose
 whether to hide the price, the add-to-cart button, or both, and whether that
 applies to every visitor or only some of them. A common setup is to show prices
 to logged-in wholesale customers while hiding them from everyone else.
@@ -50,7 +50,7 @@ The plugin is open source. Source code and bug reports live on GitHub at
 
 == Installation ==
 
-1. Upload the plugin to `/wp-content/plugins/catalog`, or install via Plugins > Add New.
+1. Upload the plugin to `/wp-content/plugins/vitrino`, or install via Plugins > Add New.
 2. Activate it. WooCommerce must be installed and active.
 3. Go to **WooCommerce > Catalog** and choose what to hide and the visitor rule.
 
@@ -96,9 +96,12 @@ Catalog does not connect to any external services. Price and add-to-cart visibil
 
 == Translations ==
 
-Plogins Catalog is fully translatable and ships the `plogins-catalog.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
+Vitrino is fully translatable and ships the `vitrino.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.0 =
+* Renamed to Vitrino. The WordPress.org review team asks a plugin name to lead with a distinctive, coined identifier rather than a generic descriptive word. Vitrino is Esperanto for a shop window. The text domain follows the name; the stored data, the settings and every hook are unchanged.
 
 = 1.0.11 =
 * Fixed: the PRO upgrade promo kept selling to people who had already bought the paid edition. Only the banner could be dismissed, so the sidebar promo and the locked feature cards followed a paying customer around for good. The promo now checks whether the paid edition is active and steps aside when it is.

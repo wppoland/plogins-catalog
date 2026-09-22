@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       Plogins Catalog - Catalog Mode for WooCommerce
+ * Plugin Name:       Vitrino - Catalog Mode for WooCommerce
  * Plugin URI:        https://plogins.com/plogins-catalog/
  * Description:        Turn your store into a catalog: hide prices and/or add-to-cart, store-wide or only for selected visitor roles.
- * Version:           1.0.11
+ * Version:           1.1.0
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
@@ -11,7 +11,7 @@
  * Author URI:        https://wppoland.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       plogins-catalog
+ * Text Domain:       vitrino
  * Domain Path:       /languages
  * WC requires at least: 8.0
  * WC tested up to: 11.0
@@ -25,7 +25,7 @@ namespace Catalog;
 
 defined('ABSPATH') || exit;
 
-const VERSION     = '1.0.11';
+const VERSION     = '1.1.0';
 const PLUGIN_FILE = __FILE__;
 
 define('CATALOG_DIR', plugin_dir_path(__FILE__));
@@ -45,7 +45,7 @@ add_action('plugins_loaded', static function (): void {
     if (! class_exists('WooCommerce')) {
         add_action('admin_notices', static function (): void {
             echo '<div class="notice notice-error"><p>';
-            echo esc_html__('Plogins Catalog - Catalog Mode for WooCommerce requires WooCommerce to be active.', 'plogins-catalog');
+            echo esc_html__('Vitrino requires WooCommerce to be active.', 'vitrino');
             echo '</p></div>';
         });
         return;

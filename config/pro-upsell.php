@@ -4,20 +4,20 @@
  * scripts/gen-pro-upsell.mjs. The admin upsell renders this; curate the
  * feature list to fit this plugin's settings screen (do not invent features).
  *
- * @package plogins-catalog-pro
+ * @package vitrino-pro
  */
 
 defined('ABSPATH') || exit;
 
 return [
-    'name'       => 'Catalog Pro',
+    'name'       => 'Vitrino Pro',
     'url'        => 'https://plogins.com/plogins-catalog-pro/pricing/',
     'sellable'   => true,
     'price_from' => 29,
     'currency'   => 'EUR',
     'lead'       => [
-        'en' => 'Catalog Pro is feature-complete: scheduled windows, per-role visibility, quote forms and per-rule CTA buttons.',
-        'pl' => 'Catalog Pro jest feature-complete: harmonogram, widoczność per rola, formularz wyceny i CTA per reguła.',
+        'en' => 'Vitrino Pro is feature-complete: scheduled windows, per-role visibility, quote forms and per-rule CTA buttons.',
+        'pl' => 'Vitrino Pro jest feature-complete: harmonogram, widoczność per rola, formularz wyceny i CTA per reguła.',
     ],
     'features'   => [
         [
