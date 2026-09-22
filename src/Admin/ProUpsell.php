@@ -82,13 +82,13 @@ final class ProUpsell
     private function priceLabel(): string
     {
         if (! $this->sellable()) {
-            return $this->isPolish() ? __('Wkrótce', 'plogins-catalog') : __('Coming soon', 'plogins-catalog');
+            return $this->isPolish() ? __('Wkrótce', 'vitrino') : __('Coming soon', 'vitrino');
         }
         $d = $this->data();
         if (! empty($d['price_from'])) {
             $cur = ($d['currency'] ?? 'EUR') === 'EUR' ? '€' : (string) $d['currency'] . ' ';
             /* translators: 1: currency symbol, 2: yearly price */
-            return sprintf(__('from %1$s%2$d/yr', 'plogins-catalog'), $cur, (int) $d['price_from']);
+            return sprintf(__('from %1$s%2$d/yr', 'vitrino'), $cur, (int) $d['price_from']);
         }
         return '';
     }
@@ -97,8 +97,8 @@ final class ProUpsell
     private function ctaLabel(): string
     {
         return $this->sellable()
-            ? __('Upgrade to PRO', 'plogins-catalog')
-            : ($this->isPolish() ? __('Powiadom mnie', 'plogins-catalog') : __('Get notified', 'plogins-catalog'));
+            ? __('Upgrade to PRO', 'vitrino')
+            : ($this->isPolish() ? __('Powiadom mnie', 'vitrino') : __('Get notified', 'vitrino'));
     }
 
     /** @return array<int, array{title: string, desc: string}> */
@@ -128,7 +128,7 @@ final class ProUpsell
     public function handleDismiss(): void
     {
         if (! current_user_can('manage_woocommerce')) {
-            wp_die(esc_html__('Permission denied.', 'plogins-catalog'));
+            wp_die(esc_html__('Permission denied.', 'vitrino'));
         }
         check_admin_referer(self::ACTION);
         update_user_meta(get_current_user_id(), self::META, 1);
@@ -146,7 +146,7 @@ final class ProUpsell
         if (! $this->enabled() || $this->bannerDismissed()) {
             return;
         }
-        $name     = (string) ($this->data()['name'] ?? 'Catalog Pro');
+        $name     = (string) ($this->data()['name'] ?? 'Vitrino Pro');
         $price    = $this->priceLabel();
         $subtitle = implode(', ', array_slice(array_map(
             static fn (array $f): string => $f['title'],
@@ -158,14 +158,14 @@ final class ProUpsell
             <p class="catalog-pro-banner__text">
                 <strong><?php
                 /* translators: %s: PRO edition name */
-                printf(esc_html__('Do more with %s', 'plogins-catalog'), esc_html($name)); ?></strong>
+                printf(esc_html__('Do more with %s', 'vitrino'), esc_html($name)); ?></strong>
                 <?php if ($subtitle !== '') : ?><span class="catalog-pro-banner__sub"><?php echo esc_html($subtitle); ?></span><?php endif; ?>
                 <?php if ($price !== '') : ?><span class="catalog-pro-banner__price"><?php echo esc_html($price); ?></span><?php endif; ?>
             </p>
             <a class="button button-primary catalog-pro-banner__cta" href="<?php echo esc_url($this->url()); ?>" target="_blank" rel="noopener noreferrer">
                 <?php echo esc_html($this->ctaLabel()); ?>
             </a>
-            <a class="catalog-pro-banner__dismiss" href="<?php echo esc_url($this->dismissUrl()); ?>" aria-label="<?php esc_attr_e('Dismiss this notice', 'plogins-catalog'); ?>">&times;</a>
+            <a class="catalog-pro-banner__dismiss" href="<?php echo esc_url($this->dismissUrl()); ?>" aria-label="<?php esc_attr_e('Dismiss this notice', 'vitrino'); ?>">&times;</a>
         </div>
         <?php
     }
@@ -176,13 +176,13 @@ final class ProUpsell
         if (! $this->enabled()) {
             return;
         }
-        $name     = (string) ($this->data()['name'] ?? 'Catalog Pro');
+        $name     = (string) ($this->data()['name'] ?? 'Vitrino Pro');
         $price    = $this->priceLabel();
         $features = $this->features();
         ?>
         <aside class="catalog-card catalog-pro-aside" aria-labelledby="catalog-pro-aside-h">
             <p class="catalog-pro-aside__eyebrow"><?php echo esc_html($name); ?></p>
-            <h2 id="catalog-pro-aside-h" class="catalog-pro-aside__heading"><?php esc_html_e('Unlock every PRO feature', 'plogins-catalog'); ?></h2>
+            <h2 id="catalog-pro-aside-h" class="catalog-pro-aside__heading"><?php esc_html_e('Unlock every PRO feature', 'vitrino'); ?></h2>
             <ul class="catalog-pro-aside__list">
                 <?php foreach ($features as $f) : ?>
                     <li>
@@ -195,7 +195,7 @@ final class ProUpsell
                 <?php echo esc_html($this->ctaLabel()); ?>
             </a>
             <?php if ($price !== '') : ?>
-                <p class="catalog-pro-aside__price"><?php echo esc_html($price); ?><?php if ($this->sellable()) : ?> · <?php esc_html_e('one licence, every PRO feature', 'plogins-catalog'); ?><?php endif; ?></p>
+                <p class="catalog-pro-aside__price"><?php echo esc_html($price); ?><?php if ($this->sellable()) : ?> · <?php esc_html_e('one licence, every PRO feature', 'vitrino'); ?><?php endif; ?></p>
             <?php endif; ?>
         </aside>
         <?php
@@ -208,13 +208,13 @@ final class ProUpsell
             return;
         }
         $features = $this->features();
-        $name     = (string) ($this->data()['name'] ?? 'Catalog Pro');
+        $name     = (string) ($this->data()['name'] ?? 'Vitrino Pro');
         ?>
         <section class="catalog-pro-cards" aria-labelledby="catalog-pro-cards-h">
             <h2 id="catalog-pro-cards-h" class="catalog-pro-cards__title">
                 <?php
                 /* translators: %s: PRO edition name */
-                printf(esc_html__('What %s adds', 'plogins-catalog'), esc_html($name)); ?>
+                printf(esc_html__('What %s adds', 'vitrino'), esc_html($name)); ?>
             </h2>
             <div class="catalog-pro-cards__grid">
                 <?php foreach ($features as $f) : ?>
