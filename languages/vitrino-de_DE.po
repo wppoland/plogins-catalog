@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plogins Catalog for WooCommerce 0.1.3\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/catalog\n"
-"POT-Creation-Date: 2026-06-18T09:05:45+00:00\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/vitrino\n"
+"POT-Creation-Date: 2026-09-09T14:37:49+00:00\n"
 "PO-Revision-Date: 2026-06-18T09:05:45+00:00\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
@@ -18,13 +18,13 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: vitrino.php
-msgid "Plogins Catalog - Catalog Mode for WooCommerce"
-msgstr "Plogins Katalog, Katalogmodus für WooCommerce"
+msgid "Vitrino - Catalog Mode for WooCommerce"
+msgstr ""
 
 #. Plugin URI of the plugin
 #: vitrino.php
-msgid "https://plogins.com/catalog/"
-msgstr "https://plogins.com/de/catalog/"
+msgid "https://plogins.com/plogins-catalog/"
+msgstr ""
 
 #. Description of the plugin
 #: vitrino.php
@@ -38,40 +38,89 @@ msgstr ""
 
 #. Author of the plugin
 #: vitrino.php
-msgid "WPPoland"
-msgstr "WPPoland"
+msgid "WPPoland.com"
+msgstr ""
 
 #. Author URI of the plugin
 #: vitrino.php
-msgid "https://plogins.com/"
-msgstr "https://plogins.com/"
-
-#: vitrino.php:47
-msgid ""
-"Plogins Catalog - Catalog Mode for WooCommerce requires WooCommerce to be "
-"active."
+msgid "https://wppoland.com"
 msgstr ""
-"Plogins Katalog, Der Katalogmodus für WooCommerce erfordert, dass WooCommerce "
-"aktiv "
-"ist."
 
-#: src/Admin/Settings.php:50
+#: vitrino.php:48
+msgid "Vitrino requires WooCommerce to be active."
+msgstr ""
+
+#: src/Admin/ProUpsell.php:78
+msgid "Wkrótce"
+msgstr "Demnächst"
+
+#: src/Admin/ProUpsell.php:78
+msgid "Coming soon"
+msgstr "Demnächst"
+
+#. translators: 1: currency symbol, 2: yearly price
+#: src/Admin/ProUpsell.php:84
+#, php-format
+msgid "from %1$s%2$d/yr"
+msgstr "ab %1$s%2$d/Jahr"
+
+#: src/Admin/ProUpsell.php:93
+msgid "Upgrade to PRO"
+msgstr "Auf PRO upgraden"
+
+#: src/Admin/ProUpsell.php:94
+msgid "Powiadom mnie"
+msgstr "Benachrichtige mich"
+
+#: src/Admin/ProUpsell.php:94
+msgid "Get notified"
+msgstr "Benachrichtige mich"
+
+#: src/Admin/ProUpsell.php:124
+msgid "Permission denied."
+msgstr "Zugriff verweigert."
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:154
+#, php-format
+msgid "Do more with %s"
+msgstr "Mehr erreichen mit %s"
+
+#: src/Admin/ProUpsell.php:161
+msgid "Dismiss this notice"
+msgstr "Diesen Hinweis ausblenden"
+
+#: src/Admin/ProUpsell.php:178
+msgid "Unlock every PRO feature"
+msgstr "Alle PRO-Funktionen freischalten"
+
+#: src/Admin/ProUpsell.php:191
+msgid "one licence, every PRO feature"
+msgstr "eine Lizenz, alle PRO-Funktionen"
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:210
+#, php-format
+msgid "What %s adds"
+msgstr "Was %s ergänzt"
+
+#: src/Admin/Settings.php:58
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: src/Admin/Settings.php:76
-msgid "Catalog Mode"
-msgstr "Katalogmodus"
+#: src/Admin/Settings.php:84
+msgid "Vitrino: catalog mode"
+msgstr ""
 
-#: src/Admin/Settings.php:77
+#: src/Admin/Settings.php:85
 msgid "Catalog"
 msgstr "Katalog"
 
-#: src/Admin/Settings.php:116
+#: src/Admin/Settings.php:126
 msgid "Turn your store into a catalog"
 msgstr "Verwandle deinen Shop in einen Katalog"
 
-#: src/Admin/Settings.php:118
+#: src/Admin/Settings.php:128
 msgid ""
 "Hide prices and/or the add-to-cart button across your store, or only for "
 "certain visitors (for example, show prices to logged-in wholesale customers)."
@@ -80,19 +129,19 @@ msgstr ""
 "gesamten Shop oder nur für bestimmte Besucher aus (zeige beispielsweise "
 "Preise für eingeloggte Großhandelskunden an)."
 
-#: src/Admin/Settings.php:127
+#: src/Admin/Settings.php:137
 msgid "What to hide"
 msgstr "Was zu verbergen ist"
 
-#: src/Admin/Settings.php:131
+#: src/Admin/Settings.php:141
 msgid "Enable catalog mode"
 msgstr "Katalogmodus aktivieren"
 
-#: src/Admin/Settings.php:135
+#: src/Admin/Settings.php:145
 msgid "Apply catalog mode on the storefront."
 msgstr "Wende den Katalogmodus auf der Storefront an."
 
-#: src/Admin/Settings.php:138
+#: src/Admin/Settings.php:148
 msgid ""
 "The master switch. When off, nothing is hidden and the catalog stylesheet is "
 "not loaded, your store sells as normal."
@@ -101,15 +150,15 @@ msgstr ""
 "ausgeblendet und das Katalog-Stylesheet wird nicht geladen. dein Shop "
 "verkauft wie gewohnt."
 
-#: src/Admin/Settings.php:142
+#: src/Admin/Settings.php:152
 msgid "Hide the price"
 msgstr "Verstecke den Preis"
 
-#: src/Admin/Settings.php:142
+#: src/Admin/Settings.php:152
 msgid "Remove the price from catalog products."
 msgstr "Entferne den Preis von Katalogprodukten."
 
-#: src/Admin/Settings.php:142
+#: src/Admin/Settings.php:152
 msgid ""
 "Removes the price wherever WooCommerce would print it. Optionally show a "
 "notice such as \"Contact us for pricing\" below."
@@ -117,15 +166,15 @@ msgstr ""
 "Entfernt den Preis überall dort, wo WooCommerce ihn drucken würde. Zeige "
 "optional unten einen Hinweis wie „Kontaktiere uns für Preisinformationen“ an."
 
-#: src/Admin/Settings.php:143
+#: src/Admin/Settings.php:153
 msgid "Hide add-to-cart"
 msgstr "„In den Warenkorb legen“ ausblenden"
 
-#: src/Admin/Settings.php:143
+#: src/Admin/Settings.php:153
 msgid "Remove the add-to-cart button and block purchasing."
 msgstr "Entferne die Schaltfläche „In den Warenkorb“ und blockiere den Kauf."
 
-#: src/Admin/Settings.php:143
+#: src/Admin/Settings.php:153
 msgid ""
 "Removes the add-to-cart button on product pages and listings, and prevents "
 "catalog products from being purchased server-side."
@@ -134,15 +183,15 @@ msgstr ""
 "Auflistungen und verhindert, dass Katalogprodukte serverseitig gekauft "
 "werden."
 
-#: src/Admin/Settings.php:147
+#: src/Admin/Settings.php:157
 msgid "Price notice"
 msgstr "Preishinweis"
 
-#: src/Admin/Settings.php:150
+#: src/Admin/Settings.php:160
 msgid "e.g. Contact us for pricing"
 msgstr "z.B. Kontaktiere uns für die Preisgestaltung"
 
-#: src/Admin/Settings.php:151
+#: src/Admin/Settings.php:161
 msgid ""
 "Shown in place of the hidden price, styled as a small brass placard on the "
 "storefront. Leave blank to show nothing. Only applies when \"Hide the "
@@ -152,31 +201,31 @@ msgstr ""
 "Schaufensterfront angezeigt. Lass das Feld leer, um nichts anzuzeigen. Gilt "
 "nur, wenn „Preis ausblenden“ aktiviert ist."
 
-#: src/Admin/Settings.php:159
+#: src/Admin/Settings.php:169
 msgid "Who it applies to"
 msgstr "Für wen es gilt"
 
-#: src/Admin/Settings.php:164
+#: src/Admin/Settings.php:174
 msgid "Visitor rule"
 msgstr "Besucherregel"
 
-#: src/Admin/Settings.php:171
+#: src/Admin/Settings.php:181
 msgid "Everyone"
 msgstr "Jeder"
 
-#: src/Admin/Settings.php:172
+#: src/Admin/Settings.php:182
 msgid "Only logged-out visitors"
 msgstr "Nur abgemeldete Besucher"
 
-#: src/Admin/Settings.php:173
+#: src/Admin/Settings.php:183
 msgid "Only selected roles"
 msgstr "Nur ausgewählte Rollen"
 
-#: src/Admin/Settings.php:174
+#: src/Admin/Settings.php:184
 msgid "Everyone except selected roles"
 msgstr "Alle außer ausgewählten Rollen"
 
-#: src/Admin/Settings.php:185
+#: src/Admin/Settings.php:195
 msgid ""
 "Choose who catalog mode hides prices and buying from. Everyone applies it to "
 "all visitors. Only logged-out visitors lets members see prices once they "
@@ -187,7 +236,7 @@ msgstr ""
 "eingeloggte Mitglieder die Preise sehen, sobald sie angemeldet sind. Die "
 "beiden „Ausgewählte Rollen“-Regeln verwenden die Rollenliste unten."
 
-#: src/Admin/Settings.php:187
+#: src/Admin/Settings.php:197
 msgid ""
 "Wholesale tip: pick \"Everyone except selected roles\" and tick your "
 "wholesale role so those customers still see prices and can buy, while "
@@ -197,15 +246,15 @@ msgstr ""
 "Großhandelsrolle an, damit diese Kunden weiterhin die Preise sehen und "
 "kaufen können, während alle anderen den Katalog erhalten."
 
-#: src/Admin/Settings.php:192
+#: src/Admin/Settings.php:202
 msgid "Roles"
 msgstr "Rollen"
 
-#: src/Admin/Settings.php:195
+#: src/Admin/Settings.php:205
 msgid "Roles the visitor rule applies to"
 msgstr "Rollen, für die die Besucherregel gilt"
 
-#: src/Admin/Settings.php:205
+#: src/Admin/Settings.php:215
 msgid ""
 "Tick the roles the rule applies to. Used only when the visitor rule is "
 "\"Only selected roles\" or \"Everyone except selected roles\"."
@@ -214,7 +263,7 @@ msgstr ""
 "Besucherregel „Nur ausgewählte Rollen“ oder „Jeder außer ausgewählten "
 "Rollen“ lautet."
 
-#: src/Admin/Settings.php:206
+#: src/Admin/Settings.php:216
 msgid ""
 "Not used by the current visitor rule, choose a \"selected roles\" rule above "
 "to enable it."
@@ -222,66 +271,32 @@ msgstr ""
 "Wird von der aktuellen Besucherregel nicht verwendet. Wähle oben eine "
 "„Ausgewählte Rollen“-Regel aus, um sie zu aktivieren."
 
-#: src/Admin/Settings.php:256
+#: src/Admin/Settings.php:268
 msgid "default"
 msgstr "Standard"
 
-#: src/Admin/ProUpsell.php:78
-msgid "Wkrótce"
-msgstr "Demnächst"
+#~ msgid "Plogins Catalog - Catalog Mode for WooCommerce"
+#~ msgstr "Plogins Katalog, Katalogmodus für WooCommerce"
 
-#: src/Admin/ProUpsell.php:78
-msgid "Coming soon"
-msgstr "Demnächst"
+#~ msgid "https://plogins.com/catalog/"
+#~ msgstr "https://plogins.com/de/catalog/"
 
-#. translators: %d: yearly price in PLN
-#: src/Admin/ProUpsell.php:83
+#~ msgid "WPPoland"
+#~ msgstr "WPPoland"
+
+#~ msgid "https://plogins.com/"
+#~ msgstr "https://plogins.com/"
+
+#~ msgid ""
+#~ "Plogins Catalog - Catalog Mode for WooCommerce requires WooCommerce to be "
+#~ "active."
+#~ msgstr ""
+#~ "Plogins Katalog, Der Katalogmodus für WooCommerce erfordert, dass "
+#~ "WooCommerce aktiv ist."
+
+#~ msgid "Catalog Mode"
+#~ msgstr "Katalogmodus"
+
 #, php-format
-msgid "od %d zł/rok"
-msgstr "ab %d zł/Jahr"
-
-#. translators: 1: currency symbol, 2: yearly price
-#: src/Admin/ProUpsell.php:88
-#, php-format
-msgid "from %1$s%2$d/yr"
-msgstr "ab %1$s%2$d/Jahr"
-
-#: src/Admin/ProUpsell.php:97
-msgid "Upgrade to PRO"
-msgstr "Auf PRO upgraden"
-
-#: src/Admin/ProUpsell.php:98
-msgid "Powiadom mnie"
-msgstr "Benachrichtige mich"
-
-#: src/Admin/ProUpsell.php:98
-msgid "Get notified"
-msgstr "Benachrichtige mich"
-
-#: src/Admin/ProUpsell.php:128
-msgid "Permission denied."
-msgstr "Zugriff verweigert."
-
-#. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:158
-#, php-format
-msgid "Do more with %s"
-msgstr "Mehr erreichen mit %s"
-
-#: src/Admin/ProUpsell.php:165
-msgid "Dismiss this notice"
-msgstr "Diesen Hinweis ausblenden"
-
-#: src/Admin/ProUpsell.php:182
-msgid "Unlock every PRO feature"
-msgstr "Alle PRO-Funktionen freischalten"
-
-#: src/Admin/ProUpsell.php:195
-msgid "one licence, every PRO feature"
-msgstr "eine Lizenz, alle PRO-Funktionen"
-
-#. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:214
-#, php-format
-msgid "What %s adds"
-msgstr "Was %s ergänzt"
+#~ msgid "od %d zł/rok"
+#~ msgstr "ab %d zł/Jahr"
