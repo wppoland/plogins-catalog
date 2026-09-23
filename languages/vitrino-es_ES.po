@@ -32,7 +32,7 @@ msgid ""
 "Turn your store into a catalog: hide prices and/or add-to-cart, store-wide "
 "or only for selected visitor roles."
 msgstr ""
-"Convierta su tienda en un catálogo: oculte los precios y/o el botón de "
+"Convierte tu tienda en un catálogo: oculta los precios y/o el botón de "
 "añadir al carrito, en toda la tienda o solo para roles de visitantes "
 "seleccionados."
 
@@ -69,15 +69,15 @@ msgstr "Catálogo"
 
 #: src/Admin/Settings.php:116
 msgid "Turn your store into a catalog"
-msgstr "Convierta su tienda en un catálogo"
+msgstr "Convierte tu tienda en un catálogo"
 
 #: src/Admin/Settings.php:118
 msgid ""
 "Hide prices and/or the add-to-cart button across your store, or only for "
 "certain visitors (for example, show prices to logged-in wholesale customers)."
 msgstr ""
-"Oculte los precios y/o el botón Añadir al carrito en su tienda, o solo para "
-"ciertos visitantes (por ejemplo, muestre los precios a los clientes "
+"Oculta los precios y/o el botón Añadir al carrito en tu tienda, o solo para "
+"ciertos visitantes (por ejemplo, muestra los precios a los clientes "
 "mayoristas que hayan iniciado sesión)."
 
 #: src/Admin/Settings.php:127
@@ -98,7 +98,7 @@ msgid ""
 "not loaded, your store sells as normal."
 msgstr ""
 "El interruptor maestro. Cuando está desactivado, no hay nada oculto y la "
-"hoja de estilo del catálogo no está cargada, su tienda vende normalmente."
+"hoja de estilo del catálogo no está cargada, tu tienda vende normalmente."
 
 #: src/Admin/Settings.php:142
 msgid "Hide the price"
@@ -114,7 +114,7 @@ msgid ""
 "notice such as \"Contact us for pricing\" below."
 msgstr ""
 "Elimina el precio dondequiera que WooCommerce lo imprima. Opcionalmente, "
-"muestre un aviso como \"Contáctenos para conocer los precios\" a "
+"muestra un aviso como \"Contáctanos para conocer los precios\" a "
 "continuación."
 
 #: src/Admin/Settings.php:143
@@ -123,7 +123,7 @@ msgstr "Ocultar añadir al carrito"
 
 #: src/Admin/Settings.php:143
 msgid "Remove the add-to-cart button and block purchasing."
-msgstr "Elimine el botón Añadir al carrito y bloquee la compra."
+msgstr "Elimina el botón Añadir al carrito y bloquea la compra."
 
 #: src/Admin/Settings.php:143
 msgid ""
@@ -139,7 +139,7 @@ msgstr "Aviso de precio"
 
 #: src/Admin/Settings.php:150
 msgid "e.g. Contact us for pricing"
-msgstr "p.ej. Contáctenos para precios"
+msgstr "p.ej. Contáctanos para precios"
 
 #: src/Admin/Settings.php:151
 msgid ""
@@ -148,7 +148,7 @@ msgid ""
 "price\" is on."
 msgstr ""
 "Se muestra en lugar del precio oculto, con el estilo de un pequeño cartel de "
-"latón en el escaparate. Déjelo en blanco para no mostrar nada. Sólo aplica "
+"latón en el escaparate. Déjalo en blanco para no mostrar nada. Sólo aplica "
 "cuando \"Ocultar el precio\" está activado."
 
 #: src/Admin/Settings.php:159
@@ -181,7 +181,7 @@ msgid ""
 "all visitors. Only logged-out visitors lets members see prices once they "
 "sign in. The two \"selected roles\" rules use the role list below."
 msgstr ""
-"Elija a quién el modo de catálogo oculta los precios y las compras. Todos lo "
+"Elige a quién el modo de catálogo oculta los precios y las compras. Todos lo "
 "aplican a todos los visitantes. Sólo los visitantes desconectados permiten a "
 "los miembros ver los precios una vez que inician sesión. Las dos reglas de "
 "\"roles seleccionados\" utilizan la lista de roles a continuación."
@@ -192,8 +192,8 @@ msgid ""
 "wholesale role so those customers still see prices and can buy, while "
 "everyone else gets the catalog."
 msgstr ""
-"Consejo de venta al por mayor: elija \"Todos excepto los roles "
-"seleccionados\" y marque su rol de mayorista para que esos clientes aún vean "
+"Consejo de venta al por mayor: elige \"Todos excepto los roles "
+"seleccionados\" y marca tu rol de mayorista para que esos clientes aún vean "
 "los precios y puedan comprar, mientras que todos los demás obtienen el "
 "catálogo."
 
@@ -210,7 +210,7 @@ msgid ""
 "Tick the roles the rule applies to. Used only when the visitor rule is "
 "\"Only selected roles\" or \"Everyone except selected roles\"."
 msgstr ""
-"Marque los roles a los que se aplica la regla. Se utiliza únicamente cuando "
+"Marca los roles a los que se aplica la regla. Se utiliza únicamente cuando "
 "la regla de visitante es \"Sólo roles seleccionados\" o \"Todos excepto los "
 "roles seleccionados\"."
 
@@ -219,7 +219,7 @@ msgid ""
 "Not used by the current visitor rule, choose a \"selected roles\" rule above "
 "to enable it."
 msgstr ""
-"No utilizado por la regla de visitante actual, elija una regla de \"roles "
+"No utilizado por la regla de visitante actual, elige una regla de \"roles "
 "seleccionados\" arriba para habilitarla."
 
 #: src/Admin/Settings.php:256
