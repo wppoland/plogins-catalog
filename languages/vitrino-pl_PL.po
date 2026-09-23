@@ -20,12 +20,12 @@ msgstr ""
 #. Plugin Name of the plugin
 #: vitrino.php
 msgid "Vitrino - Catalog Mode for WooCommerce"
-msgstr ""
+msgstr "Catalog - Tryb katalogu dla WooCommerce"
 
 #. Plugin URI of the plugin
 #: vitrino.php
 msgid "https://plogins.com/plogins-catalog/"
-msgstr ""
+msgstr "https://plogins.com/plogins-catalog/"
 
 #. Description of the plugin
 #: vitrino.php
@@ -39,16 +39,16 @@ msgstr ""
 #. Author of the plugin
 #: vitrino.php
 msgid "WPPoland.com"
-msgstr ""
+msgstr "WPPoland.com"
 
 #. Author URI of the plugin
 #: vitrino.php
 msgid "https://wppoland.com"
-msgstr ""
+msgstr "https://wppoland.com"
 
 #: vitrino.php:48
 msgid "Vitrino requires WooCommerce to be active."
-msgstr ""
+msgstr "Catalog wymaga aktywnego WooCommerce."
 
 #: src/Admin/ProUpsell.php:78
 msgid "Wkrótce"
@@ -110,7 +110,7 @@ msgstr "Ustawienia"
 
 #: src/Admin/Settings.php:84
 msgid "Vitrino: catalog mode"
-msgstr ""
+msgstr "Catalog: tryb katalogu"
 
 #: src/Admin/Settings.php:85
 msgid "Catalog"
