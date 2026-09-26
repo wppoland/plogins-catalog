@@ -10,7 +10,7 @@ use Catalog\Service\Settings as SettingsStore;
 defined('ABSPATH') || exit;
 
 /**
- * Admin settings page registered as a WooCommerce submenu ("WooCommerce →
+ * Admin settings page registered as a WooCommerce submenu ("WooCommerce >
  * Catalog"). Stores everything in the `catalog_settings` option (array): what to
  * hide (price / add-to-cart), an optional price notice, and the role rule
  * (everyone / guests / specific roles / except roles). All output is escaped;
@@ -55,7 +55,7 @@ final class Settings implements HasHooks
         $settingsLink = sprintf(
             '<a href="%s">%s</a>',
             esc_url($url),
-            esc_html__('Settings', 'plogins-catalog'),
+            esc_html__('Settings', 'vitrino'),
         );
 
         array_unshift($links, $settingsLink);
@@ -81,8 +81,8 @@ final class Settings implements HasHooks
     {
         add_submenu_page(
             'woocommerce',
-            __('Catalog Mode', 'plogins-catalog'),
-            __('Catalog', 'plogins-catalog'),
+            __('Vitrino: catalog mode', 'vitrino'),
+            __('Catalog', 'vitrino'),
             'manage_woocommerce',
             self::PAGE,
             [$this, 'renderPage'],
@@ -123,9 +123,9 @@ final class Settings implements HasHooks
 
             <div class="catalog-intro">
                 <div>
-                    <h2><?php esc_html_e('Turn your store into a catalog', 'plogins-catalog'); ?></h2>
+                    <h2><?php esc_html_e('Turn your store into a catalog', 'vitrino'); ?></h2>
                     <p>
-                        <?php esc_html_e('Hide prices and/or the add-to-cart button across your store, or only for certain visitors (for example, show prices to logged-in wholesale customers).', 'plogins-catalog'); ?>
+                        <?php esc_html_e('Hide prices and/or the add-to-cart button across your store, or only for certain visitors (for example, show prices to logged-in wholesale customers).', 'vitrino'); ?>
                     </p>
                 </div>
             </div>
@@ -134,31 +134,31 @@ final class Settings implements HasHooks
                 <?php settings_fields(self::PAGE); ?>
 
                 <div class="catalog-card">
-                    <h2><?php esc_html_e('What to hide', 'plogins-catalog'); ?></h2>
+                    <h2><?php esc_html_e('What to hide', 'vitrino'); ?></h2>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <tr>
-                                <th scope="row"><?php esc_html_e('Enable catalog mode', 'plogins-catalog'); ?></th>
+                                <th scope="row"><?php esc_html_e('Enable catalog mode', 'vitrino'); ?></th>
                                 <td>
                                     <label for="catalog_enabled">
                                         <input type="checkbox" id="catalog_enabled" name="<?php echo esc_attr(self::OPTION); ?>[enabled]" value="1" <?php checked((bool) ($settings['enabled'] ?? false), true); ?> />
-                                        <?php esc_html_e('Apply catalog mode on the storefront.', 'plogins-catalog'); ?>
+                                        <?php esc_html_e('Apply catalog mode on the storefront.', 'vitrino'); ?>
                                         <?php $this->defaultHint(true); ?>
                                     </label>
-                                    <p class="description"><?php esc_html_e('The master switch. When off, nothing is hidden and the catalog stylesheet is not loaded, your store sells as normal.', 'plogins-catalog'); ?></p>
+                                    <p class="description"><?php esc_html_e('The master switch. When off, nothing is hidden and the catalog stylesheet is not loaded, your store sells as normal.', 'vitrino'); ?></p>
                                 </td>
                             </tr>
                             <?php
-                            $this->checkboxRow('hide_price', __('Hide the price', 'plogins-catalog'), __('Remove the price from catalog products.', 'plogins-catalog'), $settings, __('Removes the price wherever WooCommerce would print it. Optionally show a notice such as "Contact us for pricing" below.', 'plogins-catalog'), true);
-                            $this->checkboxRow('hide_add_to_cart', __('Hide add-to-cart', 'plogins-catalog'), __('Remove the add-to-cart button and block purchasing.', 'plogins-catalog'), $settings, __('Removes the add-to-cart button on product pages and listings, and prevents catalog products from being purchased server-side.', 'plogins-catalog'), true);
+                            $this->checkboxRow('hide_price', __('Hide the price', 'vitrino'), __('Remove the price from catalog products.', 'vitrino'), $settings, __('Removes the price wherever WooCommerce would print it. Optionally show a notice such as "Contact us for pricing" below.', 'vitrino'), true);
+                            $this->checkboxRow('hide_add_to_cart', __('Hide add-to-cart', 'vitrino'), __('Remove the add-to-cart button and block purchasing.', 'vitrino'), $settings, __('Removes the add-to-cart button on product pages and listings, and prevents catalog products from being purchased server-side.', 'vitrino'), true);
                             ?>
                             <tr>
                                 <th scope="row">
-                                    <label for="catalog_price_notice"><?php esc_html_e('Price notice', 'plogins-catalog'); ?></label>
+                                    <label for="catalog_price_notice"><?php esc_html_e('Price notice', 'vitrino'); ?></label>
                                 </th>
                                 <td>
-                                    <input type="text" id="catalog_price_notice" name="<?php echo esc_attr(self::OPTION); ?>[price_notice]" value="<?php echo esc_attr((string) ($settings['price_notice'] ?? '')); ?>" class="regular-text" placeholder="<?php esc_attr_e('e.g. Contact us for pricing', 'plogins-catalog'); ?>" />
-                                    <p class="description"><?php esc_html_e('Shown in place of the hidden price, styled as a small brass placard on the storefront. Leave blank to show nothing. Only applies when "Hide the price" is on.', 'plogins-catalog'); ?></p>
+                                    <input type="text" id="catalog_price_notice" name="<?php echo esc_attr(self::OPTION); ?>[price_notice]" value="<?php echo esc_attr((string) ($settings['price_notice'] ?? '')); ?>" class="regular-text" placeholder="<?php esc_attr_e('e.g. Contact us for pricing', 'vitrino'); ?>" />
+                                    <p class="description"><?php esc_html_e('Shown in place of the hidden price, styled as a small brass placard on the storefront. Leave blank to show nothing. Only applies when "Hide the price" is on.', 'vitrino'); ?></p>
                                 </td>
                             </tr>
                         </tbody>
@@ -166,22 +166,22 @@ final class Settings implements HasHooks
                 </div>
 
                 <div class="catalog-card">
-                    <h2><?php esc_html_e('Who it applies to', 'plogins-catalog'); ?></h2>
+                    <h2><?php esc_html_e('Who it applies to', 'vitrino'); ?></h2>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <label for="catalog_role_mode"><?php esc_html_e('Visitor rule', 'plogins-catalog'); ?></label>
+                                    <label for="catalog_role_mode"><?php esc_html_e('Visitor rule', 'vitrino'); ?></label>
                                 </th>
                                 <td>
                                     <select id="catalog_role_mode" name="<?php echo esc_attr(self::OPTION); ?>[role_mode]">
                                         <?php
                                         $currentMode = (string) ($settings['role_mode'] ?? 'everyone');
                                         $modeLabels  = [
-                                            'everyone'     => __('Everyone', 'plogins-catalog'),
-                                            'guests'       => __('Only logged-out visitors', 'plogins-catalog'),
-                                            'roles'        => __('Only selected roles', 'plogins-catalog'),
-                                            'except_roles' => __('Everyone except selected roles', 'plogins-catalog'),
+                                            'everyone'     => __('Everyone', 'vitrino'),
+                                            'guests'       => __('Only logged-out visitors', 'vitrino'),
+                                            'roles'        => __('Only selected roles', 'vitrino'),
+                                            'except_roles' => __('Everyone except selected roles', 'vitrino'),
                                         ];
                                         foreach (self::ROLE_MODES as $mode) :
                                             ?>
@@ -192,17 +192,17 @@ final class Settings implements HasHooks
                                     </select>
                                     <?php $this->defaultHint('everyone' === ($settings['role_mode'] ?? 'everyone')); ?>
                                     <p class="description">
-                                        <?php esc_html_e('Choose who catalog mode hides prices and buying from. Everyone applies it to all visitors. Only logged-out visitors lets members see prices once they sign in. The two "selected roles" rules use the role list below.', 'plogins-catalog'); ?>
+                                        <?php esc_html_e('Choose who catalog mode hides prices and buying from. Everyone applies it to all visitors. Only logged-out visitors lets members see prices once they sign in. The two "selected roles" rules use the role list below.', 'vitrino'); ?>
                                         <br />
-                                        <?php esc_html_e('Wholesale tip: pick "Everyone except selected roles" and tick your wholesale role so those customers still see prices and can buy, while everyone else gets the catalog.', 'plogins-catalog'); ?>
+                                        <?php esc_html_e('Wholesale tip: pick "Everyone except selected roles" and tick your wholesale role so those customers still see prices and can buy, while everyone else gets the catalog.', 'vitrino'); ?>
                                     </p>
                                 </td>
                             </tr>
                             <tr class="catalog-roles-row">
-                                <th scope="row"><?php esc_html_e('Roles', 'plogins-catalog'); ?></th>
+                                <th scope="row"><?php esc_html_e('Roles', 'vitrino'); ?></th>
                                 <td>
                                     <fieldset>
-                                        <legend class="screen-reader-text"><?php esc_html_e('Roles the visitor rule applies to', 'plogins-catalog'); ?></legend>
+                                        <legend class="screen-reader-text"><?php esc_html_e('Roles the visitor rule applies to', 'vitrino'); ?></legend>
                                         <?php
                                         $selectedRoles = (array) ($settings['role_list'] ?? []);
                                         foreach ($this->editableRoles() as $slug => $name) :
@@ -212,8 +212,8 @@ final class Settings implements HasHooks
                                                 <?php echo esc_html($name); ?>
                                             </label>
                                         <?php endforeach; ?>
-                                        <p class="description"><?php esc_html_e('Tick the roles the rule applies to. Used only when the visitor rule is "Only selected roles" or "Everyone except selected roles".', 'plogins-catalog'); ?></p>
-                                        <p class="catalog-roles-inactive"><?php esc_html_e('Not used by the current visitor rule, choose a "selected roles" rule above to enable it.', 'plogins-catalog'); ?></p>
+                                        <p class="description"><?php esc_html_e('Tick the roles the rule applies to. Used only when the visitor rule is "Only selected roles" or "Everyone except selected roles".', 'vitrino'); ?></p>
+                                        <p class="catalog-roles-inactive"><?php esc_html_e('Not used by the current visitor rule, choose a "selected roles" rule above to enable it.', 'vitrino'); ?></p>
                                     </fieldset>
                                 </td>
                             </tr>
@@ -265,7 +265,7 @@ final class Settings implements HasHooks
             return;
         }
         ?>
-        <span class="catalog-default"><?php esc_html_e('default', 'plogins-catalog'); ?></span>
+        <span class="catalog-default"><?php esc_html_e('default', 'vitrino'); ?></span>
         <?php
     }
 
