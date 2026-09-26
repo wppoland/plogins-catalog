@@ -42,9 +42,9 @@ Wtyczka jest open source. Kod źródłowy i zgłoszenia błędów znajdziesz na 
 
 == Installation ==
 
-1. Wgraj wtyczkę do `/wp-content/plugins/catalog` lub zainstaluj przez Wtyczki → Dodaj nową.
+1. Wgraj wtyczkę do `/wp-content/plugins/catalog` lub zainstaluj przez Wtyczki > Dodaj nową.
 2. Włącz ją. WooCommerce musi być zainstalowane i aktywne.
-3. Przejdź do <strong>WooCommerce → Catalog</strong> i wybierz, co ukryć, oraz regułę dla odwiedzających.
+3. Przejdź do <strong>WooCommerce > Catalog</strong> i wybierz, co ukryć, oraz regułę dla odwiedzających.
 
 == Frequently Asked Questions ==
 

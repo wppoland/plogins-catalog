@@ -1,11 +1,11 @@
-=== Catalog - Catalog Mode for WooCommerce ===
+=== Vitrino - Catalog Mode for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, catalog mode, hide price, hide add to cart, request a quote
 Requires at least: 6.5
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.5
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Turn your store into a catalog: hide the price, the add-to-cart button, or both,
 
 == Description ==
 
-Catalog turns your WooCommerce store into a browsable catalog. You choose
+Vitrino turns your WooCommerce store into a browsable catalog. You choose
 whether to hide the price, the add-to-cart button, or both, and whether that
 applies to every visitor or only some of them. A common setup is to show prices
 to logged-in wholesale customers while hiding them from everyone else.
@@ -27,14 +27,14 @@ members-only pricing, and showroom sites that display products without taking
 orders online.
 
 The plugin is open source. Source code and bug reports live on GitHub at
-https://github.com/wppoland/plogins-catalog.
+[github.com/wppoland/plogins-catalog](https://github.com/wppoland/plogins-catalog).
 
 = Documentation and links =
 
-* **Documentation** - https://plogins.com/plogins-catalog/docs/
-* **Plugin page** - https://plogins.com/plogins-catalog/
-* **Source code** - https://github.com/wppoland/plogins-catalog
-* **Bug reports and feature requests** - https://github.com/wppoland/plogins-catalog/issues
+* **Documentation**: [plogins.com/plogins-catalog/docs/](https://plogins.com/plogins-catalog/docs/)
+* **Plugin page**: [plogins.com/plogins-catalog/](https://plogins.com/plogins-catalog/)
+* **Source code**: [github.com/wppoland/plogins-catalog](https://github.com/wppoland/plogins-catalog)
+* **Bug reports and feature requests**: [github.com/wppoland/plogins-catalog/issues](https://github.com/wppoland/plogins-catalog/issues)
 
 
 = Features =
@@ -44,15 +44,15 @@ https://github.com/wppoland/plogins-catalog.
 * Optional price notice shown in place of the price, such as "Contact us for pricing".
 * Applies on single product pages and on shop, category, and tag listings.
 * Marks hidden products non-purchasable, so they can't be bought through direct cart URLs or the Store API.
-* Settings screen built with standard WordPress admin styles, including dark mode.
+* Settings screen built with standard WordPress admin styles.
 * Ships with a POT file for translation and removes its option on uninstall.
 * Declares HPOS and cart/checkout blocks compatibility.
 
 == Installation ==
 
-1. Upload the plugin to `/wp-content/plugins/catalog`, or install via Plugins → Add New.
+1. Upload the plugin to `/wp-content/plugins/vitrino`, or install via Plugins > Add New.
 2. Activate it. WooCommerce must be installed and active.
-3. Go to **WooCommerce → Catalog** and choose what to hide and the visitor rule.
+3. Go to **WooCommerce > Catalog** and choose what to hide and the visitor rule.
 
 == Frequently Asked Questions ==
 
@@ -96,9 +96,34 @@ Catalog does not connect to any external services. Price and add-to-cart visibil
 
 == Translations ==
 
-Plogins Catalog includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-catalog`, so WordPress.org language packs can also override or extend these bundled translations.
+Vitrino is fully translatable and ships the `vitrino.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.1 =
+* The sidebar upgrade promo now follows the same dismissal as the banner. Dismissing the banner used to leave a full-height advert on the settings screen for good, which is not what the WordPress.org guideline on upgrade prompts means by used with moderation.
+
+= 1.1.0 =
+* Renamed to Vitrino. The WordPress.org review team asks a plugin name to lead with a distinctive, coined identifier rather than a generic descriptive word. Vitrino is Esperanto for a shop window. The text domain follows the name; the stored data, the settings and every hook are unchanged.
+
+= 1.0.11 =
+* Fixed: the PRO upgrade promo kept selling to people who had already bought the paid edition. Only the banner could be dismissed, so the sidebar promo and the locked feature cards followed a paying customer around for good. The promo now checks whether the paid edition is active and steps aside when it is.
+* Fixed: arrow glyphs in the admin menu paths, and in the strings handed to translators. An arrow inside a translatable string makes the glyph every translator's problem and changes the layout in any locale that drops it.
+
+= 1.0.10 =
+* Fixed: deleting the plugin left the per-user "dismiss" flag from the PRO notice in the database. Uninstall now removes it for every user, not just the one who dismissed it.
+
+= 1.0.9 =
+* The translation template was regenerated. It still named an older version of the plugin and pointed at source lines that had since moved, which is what translation tools read to show a string in context.
+
+= 1.0.8 =
+* Renamed to Plogins Catalog - Catalog Mode for WooCommerce so the name leads with the brand rather than a generic word, which is what the WordPress.org plugin review team asks for. The plugin slug is unchanged.
+
+= 1.0.7 =
+* Tested against WordPress 7.1. Verified by activating this build on a clean 7.1 install with WooCommerce 11.1, not by editing the header.
+
+= 1.0.6 =
+* Fixed the PRO promo on the settings screen quoting a price in PLN. PRO is priced and charged in EUR, so an admin on a Polish site was shown a zloty amount and then billed in euro, and the zloty figure was a fixed conversion that drifted from the real charge as the rate moved. The promo now shows the euro price that is actually taken.
 
 = 1.0.4 =
 * Translations: completed Polish, German and Spanish for the PRO upgrade panel.
