@@ -205,7 +205,7 @@ final class Settings implements HasHooks
                                         <legend class="screen-reader-text"><?php esc_html_e('Roles the visitor rule applies to', 'vitrino'); ?></legend>
                                         <?php
                                         $selectedRoles = (array) ($settings['role_list'] ?? []);
-                                        foreach ($this->editableRoles() as $slug => $name) :
+                                        foreach ($this->siteRoles() as $slug => $name) :
                                             ?>
                                             <label class="catalog-role">
                                                 <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[role_list][]" value="<?php echo esc_attr($slug); ?>" <?php checked(in_array($slug, $selectedRoles, true), true); ?> />
@@ -270,21 +270,18 @@ final class Settings implements HasHooks
     }
 
     /**
-     * Editable role slug => display name map.
+     * Every site role, slug => display name. Not get_editable_roles(): that is
+     * about who may edit users, and WooCommerce narrows it to Customer for shop
+     * managers, so their save silently dropped every other selected role.
      *
      * @return array<string, string>
      */
-    private function editableRoles(): array
+    private function siteRoles(): array
     {
-        if (! function_exists('get_editable_roles')) {
-            require_once ABSPATH . 'wp-admin/includes/user.php';
-        }
-
         $roles = [];
 
-        foreach (get_editable_roles() as $slug => $details) {
-            $name = isset($details['name']) ? (string) $details['name'] : (string) $slug;
-            $roles[(string) $slug] = translate_user_role($name);
+        foreach (wp_roles()->get_names() as $slug => $name) {
+            $roles[(string) $slug] = translate_user_role((string) $name);
         }
 
         return $roles;
@@ -307,7 +304,7 @@ final class Settings implements HasHooks
             $roleMode = 'everyone';
         }
 
-        $validRoles = array_keys($this->editableRoles());
+        $validRoles = array_keys($this->siteRoles());
         $roleList   = [];
         if (isset($raw['role_list']) && is_array($raw['role_list'])) {
             foreach ($raw['role_list'] as $role) {
