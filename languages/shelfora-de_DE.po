@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plogins Catalog for WooCommerce 0.1.3\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/vitrino\n"
-"POT-Creation-Date: 2026-10-05T11:15:18+00:00\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/shelfora\n"
+"POT-Creation-Date: 2026-10-06T20:47:21+00:00\n"
 "PO-Revision-Date: 2026-06-18T09:05:45+00:00\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
@@ -13,38 +13,42 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Domain: vitrino\n"
+"X-Domain: shelfora\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
 #. Plugin Name of the plugin
-#: vitrino.php
-msgid "Vitrino - Catalog Mode for WooCommerce"
-msgstr "Vitrino - Katalogmodus für WooCommerce"
+#: shelfora.php
+msgid "Shelfora - Catalog Mode for WooCommerce"
+msgstr ""
 
 #. Plugin URI of the plugin
-#: vitrino.php
+#: shelfora.php
 msgid "https://plogins.com/plogins-catalog/"
 msgstr "https://plogins.com/plogins-catalog/"
 
 #. Description of the plugin
-#: vitrino.php
+#: shelfora.php
 msgid ""
-"Turn your store into a catalog: hide prices and/or add-to-cart, store-wide or"
-" only for selected visitor roles."
+"Turn your store into a catalog: hide prices and/or add-to-cart, store-wide "
+"or only for selected visitor roles."
 msgstr ""
 "Verwandle dein Geschäft in einen Katalog: Preise und/oder den „In den "
 "Warenkorb“-Button ausblenden, im gesamten Geschäft oder nur für ausgewählte "
 "Besucherrollen."
 
 #. Author of the plugin
-#: vitrino.php
+#: shelfora.php
 msgid "WPPoland.com"
 msgstr "WPPoland.com"
 
 #. Author URI of the plugin
-#: vitrino.php
+#: shelfora.php
 msgid "https://wppoland.com"
 msgstr "https://wppoland.com"
+
+#: shelfora.php:48
+msgid "Shelfora requires WooCommerce to be active."
+msgstr ""
 
 #: src/Admin/ProUpsell.php:85
 msgid "Coming soon"
@@ -97,8 +101,8 @@ msgid "Settings"
 msgstr "Einstellungen"
 
 #: src/Admin/Settings.php:84
-msgid "Vitrino: catalog mode"
-msgstr "Vitrino: Katalogmodus"
+msgid "Shelfora: catalog mode"
+msgstr ""
 
 #: src/Admin/Settings.php:85
 msgid "Catalog"
@@ -113,9 +117,9 @@ msgid ""
 "Hide prices and/or the add-to-cart button across your store, or only for "
 "certain visitors (for example, show prices to logged-in wholesale customers)."
 msgstr ""
-"Blende Preise und/oder die Schaltfläche „In den Warenkorb“ in deinem gesamten"
-" Shop oder nur für bestimmte Besucher aus (zeige beispielsweise Preise für "
-"eingeloggte Großhandelskunden an)."
+"Blende Preise und/oder die Schaltfläche „In den Warenkorb“ in deinem "
+"gesamten Shop oder nur für bestimmte Besucher aus (zeige beispielsweise "
+"Preise für eingeloggte Großhandelskunden an)."
 
 #: src/Admin/Settings.php:137
 msgid "What to hide"
@@ -182,8 +186,8 @@ msgstr "z.B. Kontaktiere uns für die Preisgestaltung"
 #: src/Admin/Settings.php:161
 msgid ""
 "Shown in place of the hidden price, styled as a small brass placard on the "
-"storefront. Leave blank to show nothing. Only applies when \"Hide the price\""
-" is on."
+"storefront. Leave blank to show nothing. Only applies when \"Hide the "
+"price\" is on."
 msgstr ""
 "Wird anstelle des versteckten Preises als kleines Messingschild an der "
 "Schaufensterfront angezeigt. Lass das Feld leer, um nichts anzuzeigen. Gilt "
@@ -216,8 +220,8 @@ msgstr "Alle außer ausgewählten Rollen"
 #: src/Admin/Settings.php:195
 msgid ""
 "Choose who catalog mode hides prices and buying from. Everyone applies it to "
-"all visitors. Only logged-out visitors lets members see prices once they sign"
-" in. The two \"selected roles\" rules use the role list below."
+"all visitors. Only logged-out visitors lets members see prices once they "
+"sign in. The two \"selected roles\" rules use the role list below."
 msgstr ""
 "Wähle aus, bei wem im Katalogmodus Preise und Einkäufe ausgeblendet werden. "
 "„Jeder“ wendet es auf alle Besucher an. „Nur abgemeldete Besucher“ lässt "
@@ -231,8 +235,8 @@ msgid ""
 "everyone else gets the catalog."
 msgstr ""
 "Großhandelstipp: Wähle „Alle außer ausgewählten Rollen“ und kreuze deine "
-"Großhandelsrolle an, damit diese Kunden weiterhin die Preise sehen und kaufen"
-" können, während alle anderen den Katalog erhalten."
+"Großhandelsrolle an, damit diese Kunden weiterhin die Preise sehen und "
+"kaufen können, während alle anderen den Katalog erhalten."
 
 #: src/Admin/Settings.php:202
 msgid "Roles"
@@ -244,12 +248,12 @@ msgstr "Rollen, für die die Besucherregel gilt"
 
 #: src/Admin/Settings.php:215
 msgid ""
-"Tick the roles the rule applies to. Used only when the visitor rule is \"Only"
-" selected roles\" or \"Everyone except selected roles\"."
+"Tick the roles the rule applies to. Used only when the visitor rule is "
+"\"Only selected roles\" or \"Everyone except selected roles\"."
 msgstr ""
 "Kreuze die Rollen an, für die die Regel gilt. Wird nur verwendet, wenn die "
-"Besucherregel „Nur ausgewählte Rollen“ oder „Jeder außer ausgewählten Rollen“"
-" lautet."
+"Besucherregel „Nur ausgewählte Rollen“ oder „Jeder außer ausgewählten "
+"Rollen“ lautet."
 
 #: src/Admin/Settings.php:216
 msgid ""
@@ -263,9 +267,14 @@ msgstr ""
 msgid "default"
 msgstr "Standard"
 
-#: vitrino.php:48
-msgid "Vitrino requires WooCommerce to be active."
-msgstr "Vitrino setzt ein aktives WooCommerce voraus."
+#~ msgid "Vitrino - Catalog Mode for WooCommerce"
+#~ msgstr "Vitrino - Katalogmodus für WooCommerce"
+
+#~ msgid "Vitrino: catalog mode"
+#~ msgstr "Vitrino: Katalogmodus"
+
+#~ msgid "Vitrino requires WooCommerce to be active."
+#~ msgstr "Vitrino setzt ein aktives WooCommerce voraus."
 
 #~ msgid "Wkrótce"
 #~ msgstr "Demnächst"
@@ -289,8 +298,8 @@ msgstr "Vitrino setzt ein aktives WooCommerce voraus."
 #~ "Plogins Catalog - Catalog Mode for WooCommerce requires WooCommerce to be "
 #~ "active."
 #~ msgstr ""
-#~ "Plogins Katalog, Der Katalogmodus für WooCommerce erfordert, dass WooCommerce"
-#~ " aktiv ist."
+#~ "Plogins Katalog, Der Katalogmodus für WooCommerce erfordert, dass "
+#~ "WooCommerce aktiv ist."
 
 #~ msgid "Catalog Mode"
 #~ msgstr "Katalogmodus"
