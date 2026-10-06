@@ -136,7 +136,7 @@ final class CatalogMode implements HasHooks
             return $content;
         }
 
-        return wp_kses_post($this->addToCartReplacement($product, 'single'));
+        return self::ksesReplacement($this->addToCartReplacement($product, 'single'));
     }
 
     /**
@@ -252,9 +252,29 @@ final class CatalogMode implements HasHooks
         }
 
         // The old note called this trusted HTML, which nothing enforced: the value
-        // comes from a public filter. wp_kses_post allows everything a replacement
-        // block legitimately needs and drops scripts, so the contract survives.
-        echo wp_kses_post($this->singleReplacement);
+        // comes from a public filter, so it is filtered, and scripts are dropped.
+        echo self::ksesReplacement($this->singleReplacement); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- filtered by wp_kses in ksesReplacement().
+    }
+
+    /**
+     * Post HTML plus form fields. A replacement is often a form (the PRO quote
+     * request), and wp_kses_post strips form, input, select, textarea and button,
+     * which left that form as bare labels.
+     */
+    private static function ksesReplacement(string $html): string
+    {
+        $allowed = wp_kses_allowed_html('post');
+        $common  = ['id' => true, 'class' => true, 'name' => true, 'value' => true, 'required' => true, 'disabled' => true, 'aria-label' => true, 'aria-describedby' => true];
+        $allowed['form']     = ['id' => true, 'class' => true, 'action' => true, 'method' => true, 'novalidate' => true, 'data-*' => true];
+        $allowed['input']    = $common + ['type' => true, 'min' => true, 'max' => true, 'step' => true, 'placeholder' => true, 'checked' => true, 'autocomplete' => true, 'data-*' => true];
+        $allowed['textarea'] = $common + ['rows' => true, 'cols' => true, 'placeholder' => true];
+        $allowed['select']   = $common + ['multiple' => true];
+        $allowed['option']   = ['value' => true, 'selected' => true];
+        $allowed['button']   = $common + ['type' => true, 'data-*' => true];
+        $allowed['label']    = ['for' => true, 'class' => true, 'id' => true];
+        $allowed['p']        = ($allowed['p'] ?? []) + ['role' => true, 'aria-live' => true, 'hidden' => true];
+
+        return wp_kses($html, $allowed);
     }
 
     /**
