@@ -105,6 +105,10 @@ namespace {
     }
     $check('4999' === $other->get_data()['prices']['price'], 'non-product routes are untouched');
 
+    $state = ['state' => ['woocommerce/products' => ['products' => [7 => ['id' => 7, 'prices' => (object) ['price' => '4999']]]]]];
+    $state = method_exists($mode, 'filterInteractivityData') ? $mode->filterInteractivityData($state) : $state;
+    $check('' === $state['state']['woocommerce/products']['products'][7]['prices']->price, 'block page interactivity state loses the price');
+
     $GLOBALS['options']['catalog_settings']['hide_price'] = false;
     $shown = new Catalog\Service\CatalogMode(new Catalog\Service\Settings());
     $check(method_exists($shown, 'filterStructuredData') && isset($shown->filterStructuredData($ld, new WC_Product())['offers']), 'JSON-LD keeps the offer when the price is shown');

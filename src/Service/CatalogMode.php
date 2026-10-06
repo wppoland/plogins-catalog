@@ -40,6 +40,9 @@ final class CatalogMode implements HasHooks
         add_filter('woocommerce_structured_data_product', [$this, 'filterStructuredData'], 100, 2);
         add_filter('woocommerce_available_variation', [$this, 'filterVariationData'], 100, 3);
         add_filter('rest_request_after_callbacks', [$this, 'filterStoreApiResponse'], 100, 3);
+        // Block pages hydrate the same Store API data straight from the
+        // controller, skipping REST filters, into the interactivity state.
+        add_filter('script_module_data_@wordpress/interactivity', [$this, 'filterInteractivityData'], 100);
 
         // Single product: remove the add-to-cart form.
         add_action('woocommerce_single_product_summary', [$this, 'maybeReplaceSingle'], 1);
@@ -190,6 +193,29 @@ final class CatalogMode implements HasHooks
         $response->set_data($data);
 
         return $response;
+    }
+
+    /**
+     * Blank the prices in the woocommerce/products interactivity state.
+     */
+    public function filterInteractivityData(mixed $data): mixed
+    {
+        if (! is_array($data) || ! isset($data['state']['woocommerce/products']) || ! is_array($data['state']['woocommerce/products'])) {
+            return $data;
+        }
+
+        foreach (['products', 'productVariations'] as $key) {
+            $items = $data['state']['woocommerce/products'][$key] ?? null;
+
+            if (is_array($items)) {
+                $data['state']['woocommerce/products'][$key] = array_map(
+                    fn (mixed $item): mixed => is_array($item) ? $this->blankStoreApiPrices($item) : $item,
+                    $items,
+                );
+            }
+        }
+
+        return $data;
     }
 
     /**
