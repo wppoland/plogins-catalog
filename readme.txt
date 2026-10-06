@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,9 @@ Vitrino does not connect to any external services. Price and add-to-cart visibil
 Vitrino is fully translatable and ships the `vitrino.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.4 =
+* A replacement that is a form (for example a quote request form from an add-on) keeps its fields. The output filter allowed post HTML only, which removed form, input, textarea and button and left bare labels. Scripts and event attributes are still removed.
 
 = 1.1.3 =
 * Fixed: on block themes such as Twenty Twenty-Five, variable and external products kept their add-to-cart form (or the external buy button), and the replacement text or call to action never showed on product pages. The add-to-cart block is now replaced the same way the classic form is.

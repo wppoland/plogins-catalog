@@ -29,6 +29,8 @@ namespace {
     function esc_url(string $s): string { return $s; }
     function esc_html(string $s): string { return $s; }
     function wp_kses_post(string $s): string { return $s; }
+    function wp_kses(string $s, array $a): string { return $s; }
+    function wp_kses_allowed_html(string $c): array { return ["p" => []]; }
     function is_user_logged_in(): bool { return false; }
     function get_the_ID(): int { return 7; }
     function translate_user_role(string $n): string { return $n; }
