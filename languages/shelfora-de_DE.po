@@ -19,7 +19,7 @@ msgstr ""
 #. Plugin Name of the plugin
 #: shelfora.php
 msgid "Shelfora - Catalog Mode for WooCommerce"
-msgstr ""
+msgstr "Shelfora - Katalogmodus für WooCommerce"
 
 #. Plugin URI of the plugin
 #: shelfora.php
@@ -48,7 +48,7 @@ msgstr "https://wppoland.com"
 
 #: shelfora.php:48
 msgid "Shelfora requires WooCommerce to be active."
-msgstr ""
+msgstr "Shelfora erfordert die Aktivierung von WooCommerce."
 
 #: src/Admin/ProUpsell.php:85
 msgid "Coming soon"
@@ -102,7 +102,7 @@ msgstr "Einstellungen"
 
 #: src/Admin/Settings.php:84
 msgid "Shelfora: catalog mode"
-msgstr ""
+msgstr "Shelfora: Katalogmodus"
 
 #: src/Admin/Settings.php:85
 msgid "Catalog"
