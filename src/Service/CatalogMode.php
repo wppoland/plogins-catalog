@@ -70,7 +70,7 @@ final class CatalogMode implements HasHooks
         /**
          * Filters whether catalog mode applies for the current visitor.
          *
-         * Add-ons (e.g. Vitrino Pro's scheduled windows) can force catalog
+         * Add-ons (e.g. Shelfora Pro's scheduled windows) can force catalog
          * mode off, or leave the FREE decision untouched, by returning a
          * boolean here. Runs on every price/add-to-cart decision.
          *
@@ -352,7 +352,7 @@ final class CatalogMode implements HasHooks
         /**
          * Filters a per-role CTA link shown when add-to-cart is hidden.
          *
-         * Return `label` and `url` keys. Vitrino Pro uses this for per-role CTA
+         * Return `label` and `url` keys. Shelfora Pro uses this for per-role CTA
          * buttons on role pricing rows.
          *
          * @param array{label?: string, url?: string} $cta     CTA data.
