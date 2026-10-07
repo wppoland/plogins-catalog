@@ -1,11 +1,11 @@
-=== Vitrino - Catalog Mode for WooCommerce ===
+=== Shelfora - Catalog Mode for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, catalog mode, hide price, hide add to cart, request a quote
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Turn your store into a catalog: hide the price, the add-to-cart button, or both,
 
 == Description ==
 
-Vitrino turns your WooCommerce store into a browsable catalog. You choose
+Shelfora turns your WooCommerce store into a browsable catalog. You choose
 whether to hide the price, the add-to-cart button, or both, and whether that
 applies to every visitor or only some of them. A common setup is to show prices
 to logged-in wholesale customers while hiding them from everyone else.
@@ -50,7 +50,7 @@ The plugin is open source. Source code and bug reports live on GitHub at
 
 == Installation ==
 
-1. Upload the plugin to `/wp-content/plugins/vitrino`, or install via Plugins > Add New.
+1. Upload the plugin to `/wp-content/plugins/shelfora`, or install via Plugins > Add New.
 2. Activate it. WooCommerce must be installed and active.
 3. Go to **WooCommerce > Catalog** and choose what to hide and the visitor rule.
 
@@ -73,7 +73,7 @@ non-purchasable, so direct cart URLs and the REST API are blocked too.
 
 = Does catalog mode hide products from shop archives? =
 
-No. Products remain visible in listings unless your theme hides them; Vitrino controls price visibility and purchasability.
+No. Products remain visible in listings unless your theme hides them; Shelfora controls price visibility and purchasability.
 
 = Can wholesale customers still see prices? =
 
@@ -92,13 +92,16 @@ Yes. This plugin is compatible with WordPress Multisite. Network activate it or 
 
 == External Services ==
 
-Vitrino does not connect to any external services. Price and add-to-cart visibility are decided on your own server from the current visitor's role, and your choices are kept in a single `catalog_settings` option in your WordPress database (plus a `catalog_db_version` marker for upgrades), both removed on uninstall. The plugin sends no data anywhere and loads only its own stylesheets bundled with the plugin.
+Shelfora does not connect to any external services. Price and add-to-cart visibility are decided on your own server from the current visitor's role, and your choices are kept in a single `catalog_settings` option in your WordPress database (plus a `catalog_db_version` marker for upgrades), both removed on uninstall. The plugin sends no data anywhere and loads only its own stylesheets bundled with the plugin.
 
 == Translations ==
 
-Vitrino is fully translatable and ships the `vitrino.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
+Shelfora is fully translatable and ships the `shelfora.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.5 =
+* Renamed to Shelfora, a coined English name, following the WordPress.org naming guidelines. Settings, database keys and hooks are untouched.
 
 = 1.1.4 =
 * A replacement that is a form (for example a quote request form from an add-on) keeps its fields. The output filter allowed post HTML only, which removed form, input, textarea and button and left bare labels. Scripts and event attributes are still removed.
