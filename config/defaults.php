@@ -37,4 +37,7 @@ return [
 
     // Optional notice shown in place of the price (e.g. "Contact us for pricing").
     'price_notice' => '',
+
+    // Allow administrators and shop managers to see live storefront prices and cart (admin preview).
+    'admin_bypass' => false,
 ];

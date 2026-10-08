@@ -55,7 +55,7 @@ final class Settings implements HasHooks
         $settingsLink = sprintf(
             '<a href="%s">%s</a>',
             esc_url($url),
-            esc_html__('Settings', 'vitrino'),
+            esc_html__('Settings', 'shelfora'),
         );
 
         array_unshift($links, $settingsLink);
@@ -81,8 +81,8 @@ final class Settings implements HasHooks
     {
         add_submenu_page(
             'woocommerce',
-            __('Vitrino: catalog mode', 'vitrino'),
-            __('Catalog', 'vitrino'),
+            __('Shelfora: catalog mode', 'shelfora'),
+            __('Catalog', 'shelfora'),
             'manage_woocommerce',
             self::PAGE,
             [$this, 'renderPage'],
@@ -123,9 +123,9 @@ final class Settings implements HasHooks
 
             <div class="catalog-intro">
                 <div>
-                    <h2><?php esc_html_e('Turn your store into a catalog', 'vitrino'); ?></h2>
+                    <h2><?php esc_html_e('Turn your store into a catalog', 'shelfora'); ?></h2>
                     <p>
-                        <?php esc_html_e('Hide prices and/or the add-to-cart button across your store, or only for certain visitors (for example, show prices to logged-in wholesale customers).', 'vitrino'); ?>
+                        <?php esc_html_e('Hide prices and/or the add-to-cart button across your store, or only for certain visitors (for example, show prices to logged-in wholesale customers).', 'shelfora'); ?>
                     </p>
                 </div>
             </div>
@@ -134,31 +134,32 @@ final class Settings implements HasHooks
                 <?php settings_fields(self::PAGE); ?>
 
                 <div class="catalog-card">
-                    <h2><?php esc_html_e('What to hide', 'vitrino'); ?></h2>
+                    <h2><?php esc_html_e('What to hide', 'shelfora'); ?></h2>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <tr>
-                                <th scope="row"><?php esc_html_e('Enable catalog mode', 'vitrino'); ?></th>
+                                <th scope="row"><?php esc_html_e('Enable catalog mode', 'shelfora'); ?></th>
                                 <td>
                                     <label for="catalog_enabled">
                                         <input type="checkbox" id="catalog_enabled" name="<?php echo esc_attr(self::OPTION); ?>[enabled]" value="1" <?php checked((bool) ($settings['enabled'] ?? false), true); ?> />
-                                        <?php esc_html_e('Apply catalog mode on the storefront.', 'vitrino'); ?>
+                                        <?php esc_html_e('Apply catalog mode on the storefront.', 'shelfora'); ?>
                                         <?php $this->defaultHint(true); ?>
                                     </label>
-                                    <p class="description"><?php esc_html_e('The master switch. When off, nothing is hidden and the catalog stylesheet is not loaded, your store sells as normal.', 'vitrino'); ?></p>
+                                    <p class="description"><?php esc_html_e('The master switch. When off, nothing is hidden and the catalog stylesheet is not loaded, your store sells as normal.', 'shelfora'); ?></p>
                                 </td>
                             </tr>
                             <?php
-                            $this->checkboxRow('hide_price', __('Hide the price', 'vitrino'), __('Remove the price from catalog products.', 'vitrino'), $settings, __('Removes the price wherever WooCommerce would print it. Optionally show a notice such as "Contact us for pricing" below.', 'vitrino'), true);
-                            $this->checkboxRow('hide_add_to_cart', __('Hide add-to-cart', 'vitrino'), __('Remove the add-to-cart button and block purchasing.', 'vitrino'), $settings, __('Removes the add-to-cart button on product pages and listings, and prevents catalog products from being purchased server-side.', 'vitrino'), true);
+                            $this->checkboxRow('hide_price', __('Hide the price', 'shelfora'), __('Remove the price from catalog products.', 'shelfora'), $settings, __('Removes the price wherever WooCommerce would print it. Optionally show a notice such as "Contact us for pricing" below.', 'shelfora'), true);
+                            $this->checkboxRow('hide_add_to_cart', __('Hide add-to-cart', 'shelfora'), __('Remove the add-to-cart button and block purchasing.', 'shelfora'), $settings, __('Removes the add-to-cart button on product pages and listings, and prevents catalog products from being purchased server-side.', 'shelfora'), true);
+                            $this->checkboxRow('admin_bypass', __('Admin preview bypass', 'shelfora'), __('Allow store administrators and managers to always see prices and add-to-cart buttons.', 'shelfora'), $settings, __('When enabled, users with manage_woocommerce capability can test and view the normal purchasing workflow without signing out.', 'shelfora'), false);
                             ?>
                             <tr>
                                 <th scope="row">
-                                    <label for="catalog_price_notice"><?php esc_html_e('Price notice', 'vitrino'); ?></label>
+                                    <label for="catalog_price_notice"><?php esc_html_e('Price notice', 'shelfora'); ?></label>
                                 </th>
                                 <td>
-                                    <input type="text" id="catalog_price_notice" name="<?php echo esc_attr(self::OPTION); ?>[price_notice]" value="<?php echo esc_attr((string) ($settings['price_notice'] ?? '')); ?>" class="regular-text" placeholder="<?php esc_attr_e('e.g. Contact us for pricing', 'vitrino'); ?>" />
-                                    <p class="description"><?php esc_html_e('Shown in place of the hidden price, styled as a small brass placard on the storefront. Leave blank to show nothing. Only applies when "Hide the price" is on.', 'vitrino'); ?></p>
+                                    <input type="text" id="catalog_price_notice" name="<?php echo esc_attr(self::OPTION); ?>[price_notice]" value="<?php echo esc_attr((string) ($settings['price_notice'] ?? '')); ?>" class="regular-text" placeholder="<?php esc_attr_e('e.g. Contact us for pricing', 'shelfora'); ?>" />
+                                    <p class="description"><?php esc_html_e('Shown in place of the hidden price, styled as a small brass placard on the storefront. Leave blank to show nothing. Only applies when "Hide the price" is on.', 'shelfora'); ?></p>
                                 </td>
                             </tr>
                         </tbody>
@@ -166,22 +167,22 @@ final class Settings implements HasHooks
                 </div>
 
                 <div class="catalog-card">
-                    <h2><?php esc_html_e('Who it applies to', 'vitrino'); ?></h2>
+                    <h2><?php esc_html_e('Who it applies to', 'shelfora'); ?></h2>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <label for="catalog_role_mode"><?php esc_html_e('Visitor rule', 'vitrino'); ?></label>
+                                    <label for="catalog_role_mode"><?php esc_html_e('Visitor rule', 'shelfora'); ?></label>
                                 </th>
                                 <td>
                                     <select id="catalog_role_mode" name="<?php echo esc_attr(self::OPTION); ?>[role_mode]">
                                         <?php
                                         $currentMode = (string) ($settings['role_mode'] ?? 'everyone');
                                         $modeLabels  = [
-                                            'everyone'     => __('Everyone', 'vitrino'),
-                                            'guests'       => __('Only logged-out visitors', 'vitrino'),
-                                            'roles'        => __('Only selected roles', 'vitrino'),
-                                            'except_roles' => __('Everyone except selected roles', 'vitrino'),
+                                            'everyone'     => __('Everyone', 'shelfora'),
+                                            'guests'       => __('Only logged-out visitors', 'shelfora'),
+                                            'roles'        => __('Only selected roles', 'shelfora'),
+                                            'except_roles' => __('Everyone except selected roles', 'shelfora'),
                                         ];
                                         foreach (self::ROLE_MODES as $mode) :
                                             ?>
@@ -192,28 +193,28 @@ final class Settings implements HasHooks
                                     </select>
                                     <?php $this->defaultHint('everyone' === ($settings['role_mode'] ?? 'everyone')); ?>
                                     <p class="description">
-                                        <?php esc_html_e('Choose who catalog mode hides prices and buying from. Everyone applies it to all visitors. Only logged-out visitors lets members see prices once they sign in. The two "selected roles" rules use the role list below.', 'vitrino'); ?>
+                                        <?php esc_html_e('Choose who catalog mode hides prices and buying from. Everyone applies it to all visitors. Only logged-out visitors lets members see prices once they sign in. The two "selected roles" rules use the role list below.', 'shelfora'); ?>
                                         <br />
-                                        <?php esc_html_e('Wholesale tip: pick "Everyone except selected roles" and tick your wholesale role so those customers still see prices and can buy, while everyone else gets the catalog.', 'vitrino'); ?>
+                                        <?php esc_html_e('Wholesale tip: pick "Everyone except selected roles" and tick your wholesale role so those customers still see prices and can buy, while everyone else gets the catalog.', 'shelfora'); ?>
                                     </p>
                                 </td>
                             </tr>
                             <tr class="catalog-roles-row">
-                                <th scope="row"><?php esc_html_e('Roles', 'vitrino'); ?></th>
+                                <th scope="row"><?php esc_html_e('Roles', 'shelfora'); ?></th>
                                 <td>
                                     <fieldset>
-                                        <legend class="screen-reader-text"><?php esc_html_e('Roles the visitor rule applies to', 'vitrino'); ?></legend>
+                                        <legend class="screen-reader-text"><?php esc_html_e('Roles the visitor rule applies to', 'shelfora'); ?></legend>
                                         <?php
                                         $selectedRoles = (array) ($settings['role_list'] ?? []);
-                                        foreach ($this->editableRoles() as $slug => $name) :
+                                        foreach ($this->siteRoles() as $slug => $name) :
                                             ?>
                                             <label class="catalog-role">
                                                 <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[role_list][]" value="<?php echo esc_attr($slug); ?>" <?php checked(in_array($slug, $selectedRoles, true), true); ?> />
                                                 <?php echo esc_html($name); ?>
                                             </label>
                                         <?php endforeach; ?>
-                                        <p class="description"><?php esc_html_e('Tick the roles the rule applies to. Used only when the visitor rule is "Only selected roles" or "Everyone except selected roles".', 'vitrino'); ?></p>
-                                        <p class="catalog-roles-inactive"><?php esc_html_e('Not used by the current visitor rule, choose a "selected roles" rule above to enable it.', 'vitrino'); ?></p>
+                                        <p class="description"><?php esc_html_e('Tick the roles the rule applies to. Used only when the visitor rule is "Only selected roles" or "Everyone except selected roles".', 'shelfora'); ?></p>
+                                        <p class="catalog-roles-inactive"><?php esc_html_e('Not used by the current visitor rule, choose a "selected roles" rule above to enable it.', 'shelfora'); ?></p>
                                     </fieldset>
                                 </td>
                             </tr>
@@ -265,26 +266,23 @@ final class Settings implements HasHooks
             return;
         }
         ?>
-        <span class="catalog-default"><?php esc_html_e('default', 'vitrino'); ?></span>
+        <span class="catalog-default"><?php esc_html_e('default', 'shelfora'); ?></span>
         <?php
     }
 
     /**
-     * Editable role slug => display name map.
+     * Every site role, slug => display name. Not get_editable_roles(): that is
+     * about who may edit users, and WooCommerce narrows it to Customer for shop
+     * managers, so their save silently dropped every other selected role.
      *
      * @return array<string, string>
      */
-    private function editableRoles(): array
+    private function siteRoles(): array
     {
-        if (! function_exists('get_editable_roles')) {
-            require_once ABSPATH . 'wp-admin/includes/user.php';
-        }
-
         $roles = [];
 
-        foreach (get_editable_roles() as $slug => $details) {
-            $name = isset($details['name']) ? (string) $details['name'] : (string) $slug;
-            $roles[(string) $slug] = translate_user_role($name);
+        foreach (wp_roles()->get_names() as $slug => $name) {
+            $roles[(string) $slug] = translate_user_role((string) $name);
         }
 
         return $roles;
@@ -307,7 +305,7 @@ final class Settings implements HasHooks
             $roleMode = 'everyone';
         }
 
-        $validRoles = array_keys($this->editableRoles());
+        $validRoles = array_keys($this->siteRoles());
         $roleList   = [];
         if (isset($raw['role_list']) && is_array($raw['role_list'])) {
             foreach ($raw['role_list'] as $role) {
@@ -323,6 +321,7 @@ final class Settings implements HasHooks
             'enabled'          => ! empty($raw['enabled']),
             'hide_price'       => ! empty($raw['hide_price']),
             'hide_add_to_cart' => ! empty($raw['hide_add_to_cart']),
+            'admin_bypass'     => ! empty($raw['admin_bypass']),
             'price_notice'     => isset($raw['price_notice']) ? sanitize_text_field((string) $raw['price_notice']) : '',
 
             'role_mode' => $roleMode,
