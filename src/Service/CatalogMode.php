@@ -35,8 +35,21 @@ final class CatalogMode implements HasHooks
         // Price hiding everywhere the price HTML is generated.
         add_filter('woocommerce_get_price_html', [$this, 'filterPriceHtml'], 100, 2);
 
+        // The raw price also leaves through JSON-LD, the variation form data and
+        // the Store API, none of which goes through the price HTML.
+        add_filter('woocommerce_structured_data_product', [$this, 'filterStructuredData'], 100, 2);
+        add_filter('woocommerce_available_variation', [$this, 'filterVariationData'], 100, 3);
+        add_filter('rest_request_after_callbacks', [$this, 'filterStoreApiResponse'], 100, 3);
+        // Block pages hydrate the same Store API data straight from the
+        // controller, skipping REST filters, into the interactivity state.
+        add_filter('script_module_data_@wordpress/interactivity', [$this, 'filterInteractivityData'], 100);
+
         // Single product: remove the add-to-cart form.
         add_action('woocommerce_single_product_summary', [$this, 'maybeReplaceSingle'], 1);
+
+        // Block themes never fire woocommerce_single_product_summary; the form is a block.
+        add_filter('render_block_woocommerce/add-to-cart-form', [$this, 'filterAddToCartBlock'], 100, 3);
+        add_filter('render_block_woocommerce/add-to-cart-with-options', [$this, 'filterAddToCartBlock'], 100, 3);
 
         // Loops: remove the add-to-cart link.
         add_filter('woocommerce_loop_add_to_cart_link', [$this, 'filterLoopButton'], 100, 2);
@@ -52,12 +65,17 @@ final class CatalogMode implements HasHooks
      */
     public function applies(): bool
     {
+        // Admin preview: bypass catalog mode for store managers when enabled
+        if ($this->settings->bool('admin_bypass') && current_user_can('manage_woocommerce')) {
+            return false;
+        }
+
         $applies = $this->roleRuleMatches();
 
         /**
          * Filters whether catalog mode applies for the current visitor.
          *
-         * Add-ons (e.g. Vitrino Pro's scheduled windows) can force catalog
+         * Add-ons (e.g. Shelfora Pro's scheduled windows) can force catalog
          * mode off, or leave the FREE decision untouched, by returning a
          * boolean here. Runs on every price/add-to-cart decision.
          *
@@ -110,6 +128,128 @@ final class CatalogMode implements HasHooks
         }
     }
 
+    /**
+     * Block themes: replace the add-to-cart form block (simple, variable,
+     * grouped and external alike) for catalog products.
+     */
+    public function filterAddToCartBlock(mixed $content, mixed $block = null, mixed $instance = null): mixed
+    {
+        $postId  = $instance instanceof \WP_Block ? ($instance->context['postId'] ?? 0) : 0;
+        $product = wc_get_product($postId ?: get_the_ID());
+
+        if (! $product instanceof \WC_Product || ! $this->applies() || ! $this->shouldHideAddToCart($product)) {
+            return $content;
+        }
+
+        return self::ksesReplacement($this->addToCartReplacement($product, 'single'));
+    }
+
+    /**
+     * Drop the offer (price, price specification, price range) from the product
+     * JSON-LD when the price is hidden, so search engines cannot show it.
+     */
+    public function filterStructuredData(mixed $markup, mixed $product): mixed
+    {
+        if (is_array($markup) && $this->hidesPriceFor($product)) {
+            unset($markup['offers']);
+        }
+
+        return $markup;
+    }
+
+    /**
+     * Remove the raw prices a variable product hands to the variation form.
+     */
+    public function filterVariationData(mixed $data, mixed $product = null, mixed $variation = null): mixed
+    {
+        if (is_array($data) && $this->hidesPriceFor($variation)) {
+            unset($data['display_price'], $data['display_regular_price']);
+        }
+
+        return $data;
+    }
+
+    /**
+     * Blank the prices in Store API product responses (also used to hydrate
+     * block shop and product pages) when the price is hidden.
+     */
+    public function filterStoreApiResponse(mixed $response, mixed $handler = null, mixed $request = null): mixed
+    {
+        if (
+            ! $response instanceof \WP_REST_Response
+            || ! $request instanceof \WP_REST_Request
+            || ! preg_match('#^/wc/store(/v\d+)?/products#', $request->get_route())
+        ) {
+            return $response;
+        }
+
+        $data = $response->get_data();
+
+        if (! is_array($data)) {
+            return $response;
+        }
+
+        if (isset($data['prices'])) {
+            $data = $this->blankStoreApiPrices($data);
+        } else {
+            $data = array_map(fn (mixed $item): mixed => is_array($item) ? $this->blankStoreApiPrices($item) : $item, $data);
+        }
+
+        $response->set_data($data);
+
+        return $response;
+    }
+
+    /**
+     * Blank the prices in the woocommerce/products interactivity state.
+     */
+    public function filterInteractivityData(mixed $data): mixed
+    {
+        if (! is_array($data) || ! isset($data['state']['woocommerce/products']) || ! is_array($data['state']['woocommerce/products'])) {
+            return $data;
+        }
+
+        foreach (['products', 'productVariations'] as $key) {
+            $items = $data['state']['woocommerce/products'][$key] ?? null;
+
+            if (is_array($items)) {
+                $data['state']['woocommerce/products'][$key] = array_map(
+                    fn (mixed $item): mixed => is_array($item) ? $this->blankStoreApiPrices($item) : $item,
+                    $items,
+                );
+            }
+        }
+
+        return $data;
+    }
+
+    /**
+     * @param array<string, mixed> $item
+     * @return array<string, mixed>
+     */
+    private function blankStoreApiPrices(array $item): array
+    {
+        if (! isset($item['id'], $item['prices']) || ! $this->hidesPriceFor(wc_get_product((int) $item['id']))) {
+            return $item;
+        }
+
+        // The Store API builds prices as an object; keep whatever shape it used.
+        $prices = (array) $item['prices'];
+        foreach (['price', 'regular_price', 'sale_price'] as $key) {
+            $prices[$key] = '';
+        }
+        $prices['price_range'] = null;
+
+        $item['prices'] = is_object($item['prices']) ? (object) $prices : $prices;
+
+        return $item;
+    }
+
+    private function hidesPriceFor(mixed $product): bool
+    {
+        return $product instanceof \WC_Product && $this->applies() && $this->shouldHidePrice($product);
+    }
+
     public function renderSingleReplacement(): void
     {
         if ('' === $this->singleReplacement) {
@@ -117,9 +257,29 @@ final class CatalogMode implements HasHooks
         }
 
         // The old note called this trusted HTML, which nothing enforced: the value
-        // comes from a public filter. wp_kses_post allows everything a replacement
-        // block legitimately needs and drops scripts, so the contract survives.
-        echo wp_kses_post($this->singleReplacement);
+        // comes from a public filter, so it is filtered, and scripts are dropped.
+        echo self::ksesReplacement($this->singleReplacement); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- filtered by wp_kses in ksesReplacement().
+    }
+
+    /**
+     * Post HTML plus form fields. A replacement is often a form (the PRO quote
+     * request), and wp_kses_post strips form, input, select, textarea and button,
+     * which left that form as bare labels.
+     */
+    private static function ksesReplacement(string $html): string
+    {
+        $allowed = wp_kses_allowed_html('post');
+        $common  = ['id' => true, 'class' => true, 'name' => true, 'value' => true, 'required' => true, 'disabled' => true, 'aria-label' => true, 'aria-describedby' => true];
+        $allowed['form']     = ['id' => true, 'class' => true, 'action' => true, 'method' => true, 'novalidate' => true, 'data-*' => true];
+        $allowed['input']    = $common + ['type' => true, 'min' => true, 'max' => true, 'step' => true, 'placeholder' => true, 'checked' => true, 'autocomplete' => true, 'data-*' => true];
+        $allowed['textarea'] = $common + ['rows' => true, 'cols' => true, 'placeholder' => true];
+        $allowed['select']   = $common + ['multiple' => true];
+        $allowed['option']   = ['value' => true, 'selected' => true];
+        $allowed['button']   = $common + ['type' => true, 'data-*' => true];
+        $allowed['label']    = ['for' => true, 'class' => true, 'id' => true];
+        $allowed['p']        = ($allowed['p'] ?? []) + ['role' => true, 'aria-live' => true, 'hidden' => true];
+
+        return wp_kses($html, $allowed);
     }
 
     /**
@@ -197,7 +357,7 @@ final class CatalogMode implements HasHooks
         /**
          * Filters a per-role CTA link shown when add-to-cart is hidden.
          *
-         * Return `label` and `url` keys. Vitrino Pro uses this for per-role CTA
+         * Return `label` and `url` keys. Shelfora Pro uses this for per-role CTA
          * buttons on role pricing rows.
          *
          * @param array{label?: string, url?: string} $cta     CTA data.

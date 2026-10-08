@@ -10,7 +10,7 @@
 defined('ABSPATH') || exit;
 
 return [
-    'name'       => 'Vitrino Pro',
+    'name'       => 'Shelfora Pro',
     'url'        => 'https://plogins.com/plogins-catalog-pro/pricing/',
     'sellable'   => true,
     'price_from' => 29,
