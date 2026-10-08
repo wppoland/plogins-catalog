@@ -65,6 +65,11 @@ final class CatalogMode implements HasHooks
      */
     public function applies(): bool
     {
+        // Admin preview: bypass catalog mode for store managers when enabled
+        if ($this->settings->bool('admin_bypass') && current_user_can('manage_woocommerce')) {
+            return false;
+        }
+
         $applies = $this->roleRuleMatches();
 
         /**

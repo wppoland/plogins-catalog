@@ -151,6 +151,7 @@ final class Settings implements HasHooks
                             <?php
                             $this->checkboxRow('hide_price', __('Hide the price', 'shelfora'), __('Remove the price from catalog products.', 'shelfora'), $settings, __('Removes the price wherever WooCommerce would print it. Optionally show a notice such as "Contact us for pricing" below.', 'shelfora'), true);
                             $this->checkboxRow('hide_add_to_cart', __('Hide add-to-cart', 'shelfora'), __('Remove the add-to-cart button and block purchasing.', 'shelfora'), $settings, __('Removes the add-to-cart button on product pages and listings, and prevents catalog products from being purchased server-side.', 'shelfora'), true);
+                            $this->checkboxRow('admin_bypass', __('Admin preview bypass', 'shelfora'), __('Allow store administrators and managers to always see prices and add-to-cart buttons.', 'shelfora'), $settings, __('When enabled, users with manage_woocommerce capability can test and view the normal purchasing workflow without signing out.', 'shelfora'), false);
                             ?>
                             <tr>
                                 <th scope="row">
@@ -320,6 +321,7 @@ final class Settings implements HasHooks
             'enabled'          => ! empty($raw['enabled']),
             'hide_price'       => ! empty($raw['hide_price']),
             'hide_add_to_cart' => ! empty($raw['hide_add_to_cart']),
+            'admin_bypass'     => ! empty($raw['admin_bypass']),
             'price_notice'     => isset($raw['price_notice']) ? sanitize_text_field((string) $raw['price_notice']) : '',
 
             'role_mode' => $roleMode,
