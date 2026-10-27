@@ -48,6 +48,31 @@ The plugin is open source. Source code and bug reports live on GitHub at
 * Ships with a POT file for translation and removes its option on uninstall.
 * Declares HPOS and cart/checkout blocks compatibility.
 
+== Shelfora Pro ==
+
+Shelfora Pro is a separate paid plugin that extends Shelfora.
+
+Included in Shelfora:
+
+* Hide price or add-to-cart
+* Role rules
+* Price notice
+* Add-to-cart replacement filter
+* Purchase enforcement
+
+Shelfora Pro adds:
+
+* Per-role visibility
+* Request a quote
+* Scheduled catalog windows
+* Per-rule CTA
+
+The free edition is not a trial and its features stay available without a time limit.
+
+* **Shelfora Pro** - [plogins.com/plogins-catalog-pro/](https://plogins.com/plogins-catalog-pro/)
+* **Compare editions and pricing** - [plogins.com/plogins-catalog-pro/pricing/](https://plogins.com/plogins-catalog-pro/pricing/)
+* **PRO documentation** - [plogins.com/plogins-catalog-pro/docs/](https://plogins.com/plogins-catalog-pro/docs/)
+
 == Installation ==
 
 1. Upload the plugin to `/wp-content/plugins/shelfora`, or install via Plugins > Add New.
