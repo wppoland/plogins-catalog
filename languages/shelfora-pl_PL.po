@@ -24,8 +24,8 @@ msgstr "Shelfora - Tryb katalogu dla WooCommerce"
 
 #. Plugin URI of the plugin
 #: shelfora.php
-msgid "https://plogins.com/plogins-catalog/"
-msgstr "https://plogins.com/plogins-catalog/"
+msgid "https://plogins.com/shelfora/"
+msgstr "https://plogins.com/shelfora/"
 
 #. Description of the plugin
 #: shelfora.php

@@ -4,14 +4,14 @@
  * scripts/gen-pro-upsell.mjs. The admin upsell renders this; curate the
  * feature list to fit this plugin's settings screen (do not invent features).
  *
- * @package plogins-catalog-pro
+ * @package shelfora-pro
  */
 
 defined('ABSPATH') || exit;
 
 return [
     'name'       => 'Shelfora Pro',
-    'url'        => 'https://plogins.com/plogins-catalog-pro/pricing/',
+    'url'        => 'https://plogins.com/shelfora-pro/pricing/',
     'sellable'   => true,
     'price_from' => 29,
     'currency'   => 'EUR',
