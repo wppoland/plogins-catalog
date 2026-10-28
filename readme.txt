@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,14 +27,14 @@ members-only pricing, and showroom sites that display products without taking
 orders online.
 
 The plugin is open source. Source code and bug reports live on GitHub at
-[github.com/wppoland/plogins-catalog](https://github.com/wppoland/plogins-catalog).
+[github.com/wppoland/shelfora](https://github.com/wppoland/shelfora).
 
 = Documentation and links =
 
-* **Documentation**: [plogins.com/plogins-catalog/docs/](https://plogins.com/plogins-catalog/docs/)
-* **Plugin page**: [plogins.com/plogins-catalog/](https://plogins.com/plogins-catalog/)
-* **Source code**: [github.com/wppoland/plogins-catalog](https://github.com/wppoland/plogins-catalog)
-* **Bug reports and feature requests**: [github.com/wppoland/plogins-catalog/issues](https://github.com/wppoland/plogins-catalog/issues)
+* **Documentation**: [plogins.com/shelfora/docs/](https://plogins.com/shelfora/docs/)
+* **Plugin page**: [plogins.com/shelfora/](https://plogins.com/shelfora/)
+* **Source code**: [github.com/wppoland/shelfora](https://github.com/wppoland/shelfora)
+* **Bug reports and feature requests**: [github.com/wppoland/shelfora/issues](https://github.com/wppoland/shelfora/issues)
 
 
 = Features =
@@ -69,9 +69,9 @@ Shelfora Pro adds:
 
 The free edition is not a trial and its features stay available without a time limit.
 
-* **Shelfora Pro** - [plogins.com/plogins-catalog-pro/](https://plogins.com/plogins-catalog-pro/)
-* **Compare editions and pricing** - [plogins.com/plogins-catalog-pro/pricing/](https://plogins.com/plogins-catalog-pro/pricing/)
-* **PRO documentation** - [plogins.com/plogins-catalog-pro/docs/](https://plogins.com/plogins-catalog-pro/docs/)
+* **Shelfora Pro** - [plogins.com/shelfora-pro/](https://plogins.com/shelfora-pro/)
+* **Compare editions and pricing** - [plogins.com/shelfora-pro/pricing/](https://plogins.com/shelfora-pro/pricing/)
+* **PRO documentation** - [plogins.com/shelfora-pro/docs/](https://plogins.com/shelfora-pro/docs/)
 
 == Installation ==
 
@@ -124,6 +124,9 @@ Shelfora does not connect to any external services. Price and add-to-cart visibi
 Shelfora is fully translatable and ships the `shelfora.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.6 =
+* Links point at the new plogins.com address and the renamed GitHub repository.
 
 = 1.1.5 =
 * Renamed to Shelfora, a coined English name, following the WordPress.org naming guidelines. Settings, database keys and hooks are untouched.

@@ -21,7 +21,7 @@ msgstr ""
 
 #. Plugin URI of the plugin
 #: shelfora.php
-msgid "https://plogins.com/plogins-catalog/"
+msgid "https://plogins.com/shelfora/"
 msgstr ""
 
 #. Description of the plugin
