@@ -127,6 +127,7 @@ Shelfora is fully translatable and ships the `shelfora.pot` template. Translatio
 
 = 1.1.7 =
 * Fixed: a variation is judged as its parent product, so a rule that hides add to cart or the price for a product (from an add-on or custom code) also covers each of its variations, and variations are blocked from the cart through WooCommerce's own variation check as well.
+* Fixed: on block themes, a replacement for the add-to-cart button (from an add-on such as a quote button) showed twice on the product page. It now shows once, in place of the add-to-cart block.
 
 = 1.1.6 =
 * Links point at the new plogins.com address and the renamed GitHub repository.

@@ -21,16 +21,22 @@ namespace {
     $GLOBALS['options'] = ['catalog_settings' => ['enabled' => true, 'hide_price' => true, 'hide_add_to_cart' => true, 'role_mode' => 'everyone']];
 
     function get_option(string $k, mixed $d = false): mixed { return $GLOBALS['options'][$k] ?? $d; }
-    // A per-product rule (as a category rule would be) hides add to cart on product 7 only.
+    // A per-product rule (as a category rule would be) hides add to cart on product 7
+    // only, and a partner plugin fills the slot.
     function apply_filters(string $h, mixed $v, mixed ...$a): mixed
     {
         if ('catalog/hide_add_to_cart' === $h && ! empty($GLOBALS['product_rule'])) {
             return 7 === $a[0]->id;
         }
+        if ('catalog/add_to_cart_replacement' === $h && ! empty($GLOBALS['product_rule'])) {
+            return '<a class="button">Add to quote</a>';
+        }
         return $v;
     }
     function add_filter(mixed ...$a): void {}
-    function add_action(mixed ...$a): void {}
+    function add_action(mixed ...$a): void { $GLOBALS['actions'][] = $a[0]; }
+    function remove_action(mixed ...$a): bool { return true; }
+    function has_action(string $h, mixed $cb): bool { return ! empty($GLOBALS['classic_form']); }
     function sanitize_key(string $k): string { return strtolower(preg_replace('/[^a-z0-9_\-]/i', '', $k)); }
     function sanitize_text_field(string $s): string { return trim($s); }
     function esc_url(string $s): string { return $s; }
@@ -126,6 +132,18 @@ namespace {
     $GLOBALS['options']['catalog_settings']['hide_price'] = false;
     $shown = new Catalog\Service\CatalogMode(new Catalog\Service\Settings());
     $check(method_exists($shown, 'filterStructuredData') && isset($shown->filterStructuredData($ld, new WC_Product())['offers']), 'JSON-LD keeps the offer when the price is shown');
+
+    // Classic templates get the replacement once, at the summary hook. Block
+    // templates have unhooked the classic form and get it from the block filter
+    // only, so the summary hook must not render it a second time.
+    $GLOBALS['product_rule'] = true;
+    $GLOBALS['product']      = new WC_Product(7);
+    foreach ([true => 1, false => 0] as $classic => $want) {
+        $GLOBALS['actions']      = [];
+        $GLOBALS['classic_form'] = $classic;
+        $shown->maybeReplaceSingle();
+        $check($want === count($GLOBALS['actions']), ($classic ? 'classic' : 'block') . " template: summary replacement hooked $want time(s)");
+    }
 
     // A variation is judged as its parent: a rule on product 7 also stops its variation 8.
     $GLOBALS['product_rule'] = true;

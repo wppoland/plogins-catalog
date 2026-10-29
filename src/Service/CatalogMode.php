@@ -120,6 +120,13 @@ final class CatalogMode implements HasHooks
             return;
         }
 
+        // A block template has already unhooked the classic form and renders it
+        // as a block, which filterAddToCartBlock() replaces. Rendering here too
+        // would show the replacement twice.
+        if (! has_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart')) {
+            return;
+        }
+
         remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
 
         $this->singleReplacement = $this->addToCartReplacement($product, 'single');
