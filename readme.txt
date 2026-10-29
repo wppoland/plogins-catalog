@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -124,6 +124,10 @@ Shelfora does not connect to any external services. Price and add-to-cart visibi
 Shelfora is fully translatable and ships the `shelfora.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.7 =
+* Fixed: a variation is judged as its parent product, so a rule that hides add to cart or the price for a product (from an add-on or custom code) also covers each of its variations, and variations are blocked from the cart through WooCommerce's own variation check as well.
+* Fixed: on block themes, a replacement for the add-to-cart button (from an add-on such as a quote button) showed twice on the product page. It now shows once, in place of the add-to-cart block.
 
 = 1.1.6 =
 * Links point at the new plogins.com address and the renamed GitHub repository.
