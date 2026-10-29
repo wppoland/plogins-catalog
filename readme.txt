@@ -48,6 +48,10 @@ The plugin is open source. Source code and bug reports live on GitHub at
 * Ships with a POT file for translation and removes its option on uninstall.
 * Declares HPOS and cart/checkout blocks compatibility.
 
+= Works with other Plogins plugins =
+
+* [Quotlet - Request a Quote for WooCommerce](https://plogins.com/quotlet/) - in catalog mode, quote products show one Add to quote button where add to cart was (Quotlet 1.3.8 or later).
+
 == Shelfora Pro ==
 
 Shelfora Pro is a separate paid plugin that extends Shelfora.
@@ -104,6 +108,10 @@ No. Products remain visible in listings unless your theme hides them; Shelfora c
 
 Yes. Use the visitor rule to hide prices from guests while allowing selected roles to see prices and buy.
 
+
+= Does it work with Quotlet? =
+
+Yes, with no setting. When catalog mode hides add to cart, Quotlet quote products show one Add to quote button in its place, on product pages and in shop loops. Products that are not quote products keep Shelfora's own replacement.
 
 = Does this plugin work on WordPress Multisite? =
 
