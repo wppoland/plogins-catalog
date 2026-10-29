@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Plogins Catalog for WooCommerce 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/shelfora\n"
-"POT-Creation-Date: 2026-10-06T20:47:21+00:00\n"
+"POT-Creation-Date: 2026-10-29T13:43:15+00:00\n"
 "PO-Revision-Date: 2026-06-15 00:00+0000\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -173,15 +173,31 @@ msgstr ""
 "Usuwa przycisk dodawania do koszyka na stronach produktów i listach oraz "
 "uniemożliwia zakup produktów w trybie katalogu po stronie serwera."
 
-#: src/Admin/Settings.php:157
+#: src/Admin/Settings.php:154
+msgid "Admin preview bypass"
+msgstr ""
+
+#: src/Admin/Settings.php:154
+msgid ""
+"Allow store administrators and managers to always see prices and add-to-cart "
+"buttons."
+msgstr ""
+
+#: src/Admin/Settings.php:154
+msgid ""
+"When enabled, users with manage_woocommerce capability can test and view the "
+"normal purchasing workflow without signing out."
+msgstr ""
+
+#: src/Admin/Settings.php:158
 msgid "Price notice"
 msgstr "Komunikat o cenie"
 
-#: src/Admin/Settings.php:160
+#: src/Admin/Settings.php:161
 msgid "e.g. Contact us for pricing"
 msgstr "np. Skontaktuj się z nami w sprawie ceny"
 
-#: src/Admin/Settings.php:161
+#: src/Admin/Settings.php:162
 msgid ""
 "Shown in place of the hidden price, styled as a small brass placard on the "
 "storefront. Leave blank to show nothing. Only applies when \"Hide the "
@@ -191,31 +207,31 @@ msgstr ""
 "witrynie sklepu. Pozostaw puste, aby nic nie pokazywać. Ma zastosowanie "
 "tylko wtedy, gdy włączona jest opcja „Ukryj cenę”."
 
-#: src/Admin/Settings.php:169
+#: src/Admin/Settings.php:170
 msgid "Who it applies to"
 msgstr "Kogo dotyczy"
 
-#: src/Admin/Settings.php:174
+#: src/Admin/Settings.php:175
 msgid "Visitor rule"
 msgstr "Reguła odwiedzających"
 
-#: src/Admin/Settings.php:181
+#: src/Admin/Settings.php:182
 msgid "Everyone"
 msgstr "Wszyscy"
 
-#: src/Admin/Settings.php:182
+#: src/Admin/Settings.php:183
 msgid "Only logged-out visitors"
 msgstr "Tylko niezalogowani odwiedzający"
 
-#: src/Admin/Settings.php:183
+#: src/Admin/Settings.php:184
 msgid "Only selected roles"
 msgstr "Tylko wybrane role"
 
-#: src/Admin/Settings.php:184
+#: src/Admin/Settings.php:185
 msgid "Everyone except selected roles"
 msgstr "Wszyscy z wyjątkiem wybranych ról"
 
-#: src/Admin/Settings.php:195
+#: src/Admin/Settings.php:196
 msgid ""
 "Choose who catalog mode hides prices and buying from. Everyone applies it to "
 "all visitors. Only logged-out visitors lets members see prices once they "
@@ -226,7 +242,7 @@ msgstr ""
 "zobaczyć ceny po zalogowaniu. Dwie reguły „wybranych ról” korzystają z "
 "poniższej listy ról."
 
-#: src/Admin/Settings.php:197
+#: src/Admin/Settings.php:198
 msgid ""
 "Wholesale tip: pick \"Everyone except selected roles\" and tick your "
 "wholesale role so those customers still see prices and can buy, while "
@@ -236,15 +252,15 @@ msgstr ""
 "ról” i zaznacz swoją rolę hurtową, aby ci klienci nadal widzieli ceny i "
 "mogli kupować, podczas gdy wszyscy inni otrzymali katalog."
 
-#: src/Admin/Settings.php:202
+#: src/Admin/Settings.php:203
 msgid "Roles"
 msgstr "Role"
 
-#: src/Admin/Settings.php:205
+#: src/Admin/Settings.php:206
 msgid "Roles the visitor rule applies to"
 msgstr "Role, do których odnosi się reguła gościa"
 
-#: src/Admin/Settings.php:215
+#: src/Admin/Settings.php:216
 msgid ""
 "Tick the roles the rule applies to. Used only when the visitor rule is "
 "\"Only selected roles\" or \"Everyone except selected roles\"."
@@ -252,7 +268,7 @@ msgstr ""
 "Zaznacz role, których dotyczy reguła. Używane tylko wtedy, gdy regułą gościa "
 "jest „Tylko wybrane role” lub „Wszyscy oprócz wybranych ról”."
 
-#: src/Admin/Settings.php:216
+#: src/Admin/Settings.php:217
 msgid ""
 "Not used by the current visitor rule, choose a \"selected roles\" rule above "
 "to enable it."
@@ -260,7 +276,7 @@ msgstr ""
 "Nieużywane w bieżącej regule gościa. Wybierz powyżej regułę „wybrane role”, "
 "aby ją włączyć."
 
-#: src/Admin/Settings.php:268
+#: src/Admin/Settings.php:269
 msgid "default"
 msgstr "domyślny"
 
