@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Plogins Catalog for WooCommerce 0.1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/shelfora\n"
-"POT-Creation-Date: 2026-10-06T20:47:21+00:00\n"
+"POT-Creation-Date: 2026-10-29T13:43:15+00:00\n"
 "PO-Revision-Date: 2026-06-18T09:05:45+00:00\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
@@ -175,15 +175,31 @@ msgstr ""
 "Auflistungen und verhindert, dass Katalogprodukte serverseitig gekauft "
 "werden."
 
-#: src/Admin/Settings.php:157
+#: src/Admin/Settings.php:154
+msgid "Admin preview bypass"
+msgstr ""
+
+#: src/Admin/Settings.php:154
+msgid ""
+"Allow store administrators and managers to always see prices and add-to-cart "
+"buttons."
+msgstr ""
+
+#: src/Admin/Settings.php:154
+msgid ""
+"When enabled, users with manage_woocommerce capability can test and view the "
+"normal purchasing workflow without signing out."
+msgstr ""
+
+#: src/Admin/Settings.php:158
 msgid "Price notice"
 msgstr "Preishinweis"
 
-#: src/Admin/Settings.php:160
+#: src/Admin/Settings.php:161
 msgid "e.g. Contact us for pricing"
 msgstr "z.B. Kontaktiere uns für die Preisgestaltung"
 
-#: src/Admin/Settings.php:161
+#: src/Admin/Settings.php:162
 msgid ""
 "Shown in place of the hidden price, styled as a small brass placard on the "
 "storefront. Leave blank to show nothing. Only applies when \"Hide the "
@@ -193,31 +209,31 @@ msgstr ""
 "Schaufensterfront angezeigt. Lass das Feld leer, um nichts anzuzeigen. Gilt "
 "nur, wenn „Preis ausblenden“ aktiviert ist."
 
-#: src/Admin/Settings.php:169
+#: src/Admin/Settings.php:170
 msgid "Who it applies to"
 msgstr "Für wen es gilt"
 
-#: src/Admin/Settings.php:174
+#: src/Admin/Settings.php:175
 msgid "Visitor rule"
 msgstr "Besucherregel"
 
-#: src/Admin/Settings.php:181
+#: src/Admin/Settings.php:182
 msgid "Everyone"
 msgstr "Jeder"
 
-#: src/Admin/Settings.php:182
+#: src/Admin/Settings.php:183
 msgid "Only logged-out visitors"
 msgstr "Nur abgemeldete Besucher"
 
-#: src/Admin/Settings.php:183
+#: src/Admin/Settings.php:184
 msgid "Only selected roles"
 msgstr "Nur ausgewählte Rollen"
 
-#: src/Admin/Settings.php:184
+#: src/Admin/Settings.php:185
 msgid "Everyone except selected roles"
 msgstr "Alle außer ausgewählten Rollen"
 
-#: src/Admin/Settings.php:195
+#: src/Admin/Settings.php:196
 msgid ""
 "Choose who catalog mode hides prices and buying from. Everyone applies it to "
 "all visitors. Only logged-out visitors lets members see prices once they "
@@ -228,7 +244,7 @@ msgstr ""
 "eingeloggte Mitglieder die Preise sehen, sobald sie angemeldet sind. Die "
 "beiden „Ausgewählte Rollen“-Regeln verwenden die Rollenliste unten."
 
-#: src/Admin/Settings.php:197
+#: src/Admin/Settings.php:198
 msgid ""
 "Wholesale tip: pick \"Everyone except selected roles\" and tick your "
 "wholesale role so those customers still see prices and can buy, while "
@@ -238,15 +254,15 @@ msgstr ""
 "Großhandelsrolle an, damit diese Kunden weiterhin die Preise sehen und "
 "kaufen können, während alle anderen den Katalog erhalten."
 
-#: src/Admin/Settings.php:202
+#: src/Admin/Settings.php:203
 msgid "Roles"
 msgstr "Rollen"
 
-#: src/Admin/Settings.php:205
+#: src/Admin/Settings.php:206
 msgid "Roles the visitor rule applies to"
 msgstr "Rollen, für die die Besucherregel gilt"
 
-#: src/Admin/Settings.php:215
+#: src/Admin/Settings.php:216
 msgid ""
 "Tick the roles the rule applies to. Used only when the visitor rule is "
 "\"Only selected roles\" or \"Everyone except selected roles\"."
@@ -255,7 +271,7 @@ msgstr ""
 "Besucherregel „Nur ausgewählte Rollen“ oder „Jeder außer ausgewählten "
 "Rollen“ lautet."
 
-#: src/Admin/Settings.php:216
+#: src/Admin/Settings.php:217
 msgid ""
 "Not used by the current visitor rule, choose a \"selected roles\" rule above "
 "to enable it."
@@ -263,7 +279,7 @@ msgstr ""
 "Wird von der aktuellen Besucherregel nicht verwendet. Wähle oben eine "
 "„Ausgewählte Rollen“-Regel aus, um sie zu aktivieren."
 
-#: src/Admin/Settings.php:268
+#: src/Admin/Settings.php:269
 msgid "default"
 msgstr "Standard"
 
