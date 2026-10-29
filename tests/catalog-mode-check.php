@@ -42,7 +42,7 @@ namespace {
     function esc_url(string $s): string { return $s; }
     function esc_html(string $s): string { return $s; }
     function wp_kses_post(string $s): string { return $s; }
-    function wp_kses(string $s, array $a): string { return $s; }
+    function wp_kses(string $s, array $a): string { $GLOBALS['kses_allowed'] = $a; return $s; }
     function wp_kses_allowed_html(string $c): array { return ["p" => []]; }
     function is_user_logged_in(): bool { return false; }
     function get_the_ID(): int { return 7; }
@@ -150,6 +150,12 @@ namespace {
     $check(false === $shown->filterPurchasable(true, new WC_Product(8, 7)), 'variation of a catalog product is not purchasable');
     $check(true === $shown->filterPurchasable(true, new WC_Product(9, 3)), 'variation of another product stays purchasable');
     $GLOBALS['product_rule'] = false;
+
+    // The replacement filter keeps what swatch buttons in a variation form need.
+    (new \ReflectionMethod(\Catalog\Service\CatalogMode::class, 'ksesReplacement'))->invoke(null, '<button></button>');
+    $button = $GLOBALS['kses_allowed']['button'] ?? [];
+    $check(isset($button['style'], $button['role'], $button['aria-checked'], $button['title']), 'replacement keeps swatch style, role, aria-checked and title');
+    $check(isset($GLOBALS['kses_allowed']['select']['data-*']), 'replacement keeps data attributes on a select');
 
     // Admin settings: a shop manager's save keeps every selected role.
     $src = file_get_contents(__DIR__ . '/../src/Admin/Settings.php');

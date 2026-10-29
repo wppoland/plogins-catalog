@@ -281,9 +281,10 @@ final class CatalogMode implements HasHooks
         $allowed['form']     = ['id' => true, 'class' => true, 'action' => true, 'method' => true, 'novalidate' => true, 'data-*' => true];
         $allowed['input']    = $common + ['type' => true, 'min' => true, 'max' => true, 'step' => true, 'placeholder' => true, 'checked' => true, 'autocomplete' => true, 'data-*' => true];
         $allowed['textarea'] = $common + ['rows' => true, 'cols' => true, 'placeholder' => true];
-        $allowed['select']   = $common + ['multiple' => true];
+        $allowed['select']   = $common + ['multiple' => true, 'data-*' => true];
         $allowed['option']   = ['value' => true, 'selected' => true];
-        $allowed['button']   = $common + ['type' => true, 'data-*' => true];
+        // Swatch buttons in a variation form: colour, radio role and state.
+        $allowed['button']   = $common + ['type' => true, 'data-*' => true, 'role' => true, 'aria-checked' => true, 'aria-pressed' => true, 'title' => true, 'style' => true, 'tabindex' => true];
         $allowed['label']    = ['for' => true, 'class' => true, 'id' => true];
         $allowed['p']        = ($allowed['p'] ?? []) + ['role' => true, 'aria-live' => true, 'hidden' => true];
 
