@@ -56,6 +56,7 @@ final class CatalogMode implements HasHooks
 
         // Belt-and-braces: block server-side add-to-cart for catalog products.
         add_filter('woocommerce_is_purchasable', [$this, 'filterPurchasable'], 100, 2);
+        add_filter('woocommerce_variation_is_purchasable', [$this, 'filterPurchasable'], 100, 2);
 
         add_action('wp_enqueue_scripts', [$this, 'enqueueAssets']);
     }
@@ -313,28 +314,46 @@ final class CatalogMode implements HasHooks
         return $this->shouldHideAddToCart($product) ? false : $purchasable;
     }
 
+    /**
+     * A variation is judged as its parent product: it has no categories or
+     * product settings of its own, so a rule that looks at the product would
+     * otherwise miss it and leave that variation buyable or priced.
+     */
+    private static function ruleProduct(\WC_Product $product): \WC_Product
+    {
+        if (! $product->is_type('variation')) {
+            return $product;
+        }
+
+        $parent = wc_get_product($product->get_parent_id());
+
+        return $parent instanceof \WC_Product ? $parent : $product;
+    }
+
     private function shouldHidePrice(\WC_Product $product): bool
     {
-        $hide = $this->settings->bool('hide_price');
+        $product = self::ruleProduct($product);
+        $hide    = $this->settings->bool('hide_price');
 
         /**
          * Filters whether the price should be hidden for the current visitor.
          *
          * @param bool        $hide    Whether the FREE settings hide the price.
-         * @param \WC_Product $product Product being rendered.
+         * @param \WC_Product $product Product being rendered (the parent for a variation).
          */
         return (bool) apply_filters('catalog/hide_price', $hide, $product);
     }
 
     private function shouldHideAddToCart(\WC_Product $product): bool
     {
-        $hide = $this->settings->bool('hide_add_to_cart');
+        $product = self::ruleProduct($product);
+        $hide    = $this->settings->bool('hide_add_to_cart');
 
         /**
          * Filters whether add-to-cart should be hidden for the current visitor.
          *
          * @param bool        $hide    Whether the FREE settings hide add-to-cart.
-         * @param \WC_Product $product Product being rendered.
+         * @param \WC_Product $product Product being rendered (the parent for a variation).
          */
         return (bool) apply_filters('catalog/hide_add_to_cart', $hide, $product);
     }

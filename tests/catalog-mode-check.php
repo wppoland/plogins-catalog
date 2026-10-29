@@ -21,7 +21,14 @@ namespace {
     $GLOBALS['options'] = ['catalog_settings' => ['enabled' => true, 'hide_price' => true, 'hide_add_to_cart' => true, 'role_mode' => 'everyone']];
 
     function get_option(string $k, mixed $d = false): mixed { return $GLOBALS['options'][$k] ?? $d; }
-    function apply_filters(string $h, mixed $v, mixed ...$a): mixed { return $v; }
+    // A per-product rule (as a category rule would be) hides add to cart on product 7 only.
+    function apply_filters(string $h, mixed $v, mixed ...$a): mixed
+    {
+        if ('catalog/hide_add_to_cart' === $h && ! empty($GLOBALS['product_rule'])) {
+            return 7 === $a[0]->id;
+        }
+        return $v;
+    }
     function add_filter(mixed ...$a): void {}
     function add_action(mixed ...$a): void {}
     function sanitize_key(string $k): string { return strtolower(preg_replace('/[^a-z0-9_\-]/i', '', $k)); }
@@ -43,7 +50,12 @@ namespace {
         };
     }
 
-    class WC_Product { public function __construct(public int $id = 7) {} }
+    class WC_Product
+    {
+        public function __construct(public int $id = 7, public int $parent = 0) {}
+        public function is_type(string $t): bool { return 'variation' === $t && $this->parent > 0; }
+        public function get_parent_id(): int { return $this->parent; }
+    }
     function wc_get_product(mixed $id): WC_Product|false { return $id ? new WC_Product((int) $id) : false; }
 
     class WP_Block { public array $context = ['postId' => 7]; }
@@ -114,6 +126,12 @@ namespace {
     $GLOBALS['options']['catalog_settings']['hide_price'] = false;
     $shown = new Catalog\Service\CatalogMode(new Catalog\Service\Settings());
     $check(method_exists($shown, 'filterStructuredData') && isset($shown->filterStructuredData($ld, new WC_Product())['offers']), 'JSON-LD keeps the offer when the price is shown');
+
+    // A variation is judged as its parent: a rule on product 7 also stops its variation 8.
+    $GLOBALS['product_rule'] = true;
+    $check(false === $shown->filterPurchasable(true, new WC_Product(8, 7)), 'variation of a catalog product is not purchasable');
+    $check(true === $shown->filterPurchasable(true, new WC_Product(9, 3)), 'variation of another product stays purchasable');
+    $GLOBALS['product_rule'] = false;
 
     // Admin settings: a shop manager's save keeps every selected role.
     $src = file_get_contents(__DIR__ . '/../src/Admin/Settings.php');
